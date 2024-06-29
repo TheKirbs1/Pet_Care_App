@@ -6,6 +6,14 @@ import { BackendURL } from "./component/backendURL";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { About_us } from "./pages/about_us";
+import { Edit_pet } from "./pages/edit_pet";
+import { Favorite } from "./pages/favorite";
+import { Login } from "./pages/login";
+import { Pet_details } from "./pages/pet_details";
+import { Pet_registration } from "./pages/pet_registration";
+import { Private } from "./pages/private";
+import { Signup } from "./pages/signup";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -27,6 +35,14 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
+                        <Route element={<Signup />} path="/signup" />
+                        <Route element={<Login />} path="/login" />
+                        <Route element={<Private />} path="/private" />
+                        <Route element={<Pet_registration />} path="/pet_registration" />
+                        <Route element={<Edit_pet />} path="/edit_pet" />
+                        <Route element={<Pet_details />} path="/pet_details" />
+                        <Route element={<Favorite />} path="/favorite" />
+                        <Route element={<About_us />} path="/about_us" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
