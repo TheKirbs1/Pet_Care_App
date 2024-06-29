@@ -69,3 +69,12 @@ def register_user():
     }
     return jsonify(response), 200
 
+@api.route('/users/<int:user_id>/favorites', methods=['GET'])
+def get_user_favorites(user_id):
+    current_user = User.query.get(user_id)
+    favorite_dogs = current_user.dog
+    favorite_dogs = [fav_dog.serialize() for fav_dog in favorite_dogs]
+
+    user_favorites = favorite_dogs
+
+    return jsonify({ f"Current User '{current_user.username}' (id={current_user.id}) favorites": user_favorites }), 200
