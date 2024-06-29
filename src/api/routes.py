@@ -57,15 +57,24 @@ def register_user():
         
         return jsonify(response), 403
 
-        user = User()
-        user.email = email
-        user.password = password
-        user.is_active = True
-        db.session.add(user)
-        db.session.commit()
+    user = User()
+    user.email = email
+    user.password = password
+    user.is_active = True
+    db.session.add(user)
+    db.session.commit()
 
-        response ={
-            'msg' : f'Congratulations, You have sussefully signed up!'
-        }
-        return jsonify(response), 200
+    response ={
+        'msg' : f'Congratulations, You have sussefully signed up!'
+    }
+    return jsonify(response), 200
 
+@api.route('/users/<int:user_id>/favorites', methods=['GET'])
+def get_user_favorites(user_id):
+    current_user = User.query.get(user_id)
+    favorite_dogs = current_user.dog
+    favorite_dogs = [fav_dog.serialize() for fav_dog in favorite_dogs]
+
+    user_favorites = favorite_dogs
+
+    return jsonify({ f"Current User '{current_user.username}' (id={current_user.id}) favorites": user_favorites }), 200
