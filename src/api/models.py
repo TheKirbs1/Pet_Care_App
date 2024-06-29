@@ -9,6 +9,7 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     dogs = db.relationship("dog", back_populates="user")
+    favorite_dog_of = db.relationship("FavoriteDog", backref="user_id")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -33,7 +34,7 @@ class Dog(db.Model):
     user = db.relationship("user", back_populates="dogs")
 
     def __repr__(self):
-        return f'<User {self.name}>'
+        return f'<Dog {self.name}>'
 
     def serialize(self):
         return {
@@ -44,8 +45,20 @@ class Dog(db.Model):
             "breed": self.breed,
             "spayed_neutered": self.spayed_neutered,
             "weight": self.weight,
-
-            # do not serialize the password, its a security breach
         }
 
+class FavoriteDog(db.Model):
+    __tablename__="favorite_dog_table"
+    id= db.Column(db.Integer, primary_key=True)
+    user_id_favorites =db.Column(db.ForeignKey("user_table.id"))
+    favorite_dog_id = db.Column(db.Integer, db.ForeignKey('dog.id'))
+
     
+    def __repr__(self):
+        return f'<FavoriteDog {self.user_id_favorites}>'
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "user_id_favorites": self.user_id_favorites,
+        }
