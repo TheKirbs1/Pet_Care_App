@@ -57,15 +57,15 @@ def register_user():
         
         return jsonify(response), 403
 
-        user = User()
-        user.email = email
-        user.password = password
-        user.is_active = True
-        db.session.add(user)
-        db.session.commit()
+    user = User()
+    user.email = email
+    user.password = password
+    user.is_active = True
+    db.session.add(user)
+    db.session.commit()
 
-        response ={
-            'msg' : f'Congratulations, You have sussefully signed up!'
-        }
-        return jsonify(response), 200
+    response ={
+        'msg' : f'Congratulations, You have sussefully signed up!'
+    }
+    return jsonify(response), 200
 
