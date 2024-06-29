@@ -1,3 +1,4 @@
+
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
@@ -40,4 +41,31 @@ def generate_token():
     }
 
     return jsonify(response), 200
+
+@api.route('/signup', methods=['POST'])
+def register_user():
+    email = request.json.get('email', None)
+    password = request.json.get('password', None)
+
+    email = email.lower()
+    user = User.query.filter_by(email=email).first()
+
+    if user is not None and user.email ==email:
+        response ={
+            'msg' : 'User already exist'
+        }
+        
+        return jsonify(response), 403
+
+        user = User()
+        user.email = email
+        user.password = password
+        user.is_active = True
+        db.session.add(user)
+        db.session.commit()
+
+        response ={
+            'msg' : f'Congratulations, You have sussefully signed up!'
+        }
+        return jsonify(response), 200
 
