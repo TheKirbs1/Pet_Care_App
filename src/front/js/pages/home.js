@@ -11,6 +11,7 @@ export const Home = () => {
                         try {
                                 const res = await fetch("https://api.thedogapi.com/v1/breeds")
                                 const data = await res.json()
+                                console.log(data)
                                 setDogs(data)
                         }
                         catch (error){
