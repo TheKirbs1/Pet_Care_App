@@ -5,12 +5,23 @@ import simpleLogo from "../../img/simpleLogo.png";
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context)
 	return (
 		<nav className="navbar navbar-light bg-light sticky-top">
 			<div className="container">
 				<Link to="/">
 					<img src={simpleLogo} className="img-fluid" style={{ height: 80 }} alt="Pet Logo/Home Button" />
 				</Link>
+				<div className="top-right-menu ml-auto">
+					{!store.token ?
+						<Link to="/signup">
+							<button className="btn btn-primary">Join Now!</button>
+						</Link>
+						:
+						<Link to="/signup">
+							<button className="btn btn-primary">Join Now!</button>
+						</Link>
+					}
 				<ul>
 					<li className="nav-item dropdown">
 					<a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -20,13 +31,26 @@ export const Navbar = () => {
 						</svg>
 					</a>
 					<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<li><Link className="dropdown-item" to="/login">Login</Link></li>
+						<li>
+							{!store.token ?
+							<Link to="/login">
+								<button className="btn">Login</button>
+							</Link>
+							:
+							<button 
+								className="btn"
+								onClick= {() => actions.logout()}
+							>Log out</button>
+							}
+						</li>
+
 						<li><Link className="dropdown-item" to="/favorite">Favorites</Link></li>
 						<li><Link className="dropdown-item" to="/account_settings">Account Settings</Link></li>
 						<li><Link className="dropdown-item" to="/about_us">About us</Link></li>
 					</ul>
 					</li>
-			</ul>
+					</ul>
+					</div>
 			</div>
 		</nav>
 	);
