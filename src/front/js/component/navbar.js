@@ -8,9 +8,9 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context)
 
 	return (
-		<nav className="navbar navbar-light bg-light sticky-top">
-			<div className="container">
-				<Link to="/">
+		<nav className="navbar navbar-light bg-light">
+			<div className="nav-container container-fluid">
+				<Link to="/" id="home-logo">
 					<img src={simpleLogo} className="img-fluid" style={{ height: 80 }} alt="Pet Logo/Home Button" />
 				</Link>
 				<div className="join-now ms-auto">
@@ -36,8 +36,8 @@ export const Navbar = () => {
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li>
 									{!store.token ?
-									<Link to="/login">
-										<button className="btn">Login</button>
+									<Link className="dropdown-item" to="/login">
+										Login
 									</Link>
 									:
 									<button 
