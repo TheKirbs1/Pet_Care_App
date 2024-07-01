@@ -14,6 +14,7 @@ import { Pet_details } from "./pages/pet_details";
 import { Pet_registration } from "./pages/pet_registration";
 import { Private } from "./pages/private";
 import { Signup } from "./pages/signup";
+import { Account_settings } from "./pages/account_settings";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -42,6 +43,7 @@ const Layout = () => {
                         <Route element={<Edit_pet />} path="/edit_pet" />
                         <Route element={<Pet_details />} path="/pet_details" />
                         <Route element={<Favorite />} path="/favorite" />
+                        <Route element={<Account_settings />} path="/account_settings" />
                         <Route element={<About_us />} path="/about_us" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
