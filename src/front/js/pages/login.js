@@ -7,7 +7,7 @@ export const Login = () => {
     const navigate = useNavigate();
 
     function handleSignUpClick() {
-        navigate('/');
+        navigate('/signup');
     }
 
     return (
