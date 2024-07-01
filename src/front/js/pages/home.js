@@ -12,7 +12,6 @@ export const Home = () => {
                                 const res = await fetch("https://api.thedogapi.com/v1/breeds")
                                 const data = await res.json()
                                 setDogs(data)
-                                console.log(data)
                         }
                         catch (error){
                                 console.error(error)
@@ -51,7 +50,8 @@ export const Home = () => {
                           alt="..." />
                         <div className="card-body">
                        <h5 className="card-title">{dog.name}</h5>
-                     <p className="card-text">Breed for: {dog.bred_for}</p>
+                       <p className="card-text">Life Span : {dog.life_span}</p>
+                     <p className="card-text">Bred_For : {dog.bred_for}</p>
                      <p className="card-text">{dog.description}</p>
                      <button type="button" className="btn btn-secondary">Learn More</button>
                      <button className="btn btn btn-text-color mx-4">
