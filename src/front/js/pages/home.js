@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 import "../../styles/home.css";
 
@@ -11,7 +11,6 @@ export const Home = () => {
                         try {
                                 const res = await fetch("https://api.thedogapi.com/v1/breeds")
                                 const data = await res.json()
-                                console.log(data)
                                 setDogs(data)
                         }
                         catch (error){
@@ -37,24 +36,24 @@ export const Home = () => {
               </div>
        </div>
 
-         <div className="container">
-       <div className="row">
-
-               <div className="col-4"> 
+         <div className="card-container">
 
           {dogs.map((dog) =>(
                 <div key={dog.id}>
 
-                    <div className="card pt-5" style={{width: "18rem"}}>
-                           <img src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
+                    <div className="card" style={{width: "18rem"}}>
+                    <Link to={`/${dog.name}`}>
+                        <img src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
                           className="card-img-top" 
                           alt="..." />
+		    </Link>
                         <div className="card-body">
                        <h5 className="card-title">{dog.name}</h5>
-                       <p className="card-text">Life Span : {dog.life_span}</p>
-                     <p className="card-text">Bred_For : {dog.bred_for}</p>
-                     <p className="card-text">{dog.description}</p>
+                     <p className="card-text"><strong>Bred_For :</strong> {dog.bred_for}</p>
+                     {/* <p className="card-text"><strong>Temperament :</strong> {dog.temperament}</p> */}
+                     <Link to={`/${dog.name}`}>
                      <button type="button" className="btn btn-secondary">Learn More</button>
+		    </Link>
                      <button className="btn btn btn-text-color mx-4">
                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
@@ -66,10 +65,6 @@ export const Home = () => {
                 </div>
                
           ))}
-           </div>
-           
-           
-       </div>
 
        
        </div>

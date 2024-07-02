@@ -41,7 +41,7 @@ const Layout = () => {
                         <Route element={<Private />} path="/private" />
                         <Route element={<Pet_registration />} path="/pet_registration" />
                         <Route element={<Edit_pet />} path="/edit_pet" />
-                        <Route element={<Pet_details />} path="/pet_details" />
+                        <Route element={<Pet_details />} path="/:name" />
                         <Route element={<Favorite />} path="/favorite" />
                         <Route element={<Account_settings />} path="/account_settings" />
                         <Route element={<About_us />} path="/about_us" />
