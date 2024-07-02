@@ -42,11 +42,11 @@ export const Home = () => {
                 <div key={dog.id}>
 
                     <div className="card" style={{width: "18rem"}}>
-                    <Link to={`/${dog.name}`}>
-                        <img src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
-                          className="card-img-top" 
+                    
+                    <img src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
+                          className="card-img-top"
                           alt="..." />
-		    </Link>
+		    
                         <div className="card-body">
                        <h5 className="card-title">{dog.name}</h5>
                      <p className="card-text"><strong>Bred_For :</strong> {dog.bred_for}</p>
