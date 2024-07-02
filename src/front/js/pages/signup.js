@@ -10,6 +10,9 @@ export const Signup = () => {
     const [email,setEmail] = useState("");
 
     let navigate = useNavigate();
+    function handleLoginClick() {
+        navigate('/login');
+    }
     const handleClick = () => {
 		actions.signup(email, password)
 	}
@@ -59,7 +62,13 @@ export const Signup = () => {
                             <h6 className="text-danger fw-normal">Password must contain 6 characters</h6>
                         </div> */}
                         <div className="container d-flex justify-content-center align-items-center">
-                            <button type="button" className="btn btn-light btn-md w-25 btn-outline-dark">SIGN UP</button>
+                            <button onClick={handleClick} type="button" className="btn btn-light btn-md w-25 btn-outline-dark">SIGN UP</button>
+                        </div>
+                        <div className="container d-flex justify-content-center align-items-center">
+                            <p className="fw-lighter">Already have an Account?
+
+                                <button type="button" className="btn btn-link" onClick={handleLoginClick}>Log in</button>
+                            </p>
                         </div>
                     </div>
                 </div>
