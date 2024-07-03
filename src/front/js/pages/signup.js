@@ -85,7 +85,7 @@ export const Signup = () => {
                         {emailError && <div className="text-danger">{emailError}</div>}
                     </div>
 
-                    <div className="w-75">
+                    <div className="w-75 mt-2">
                         <h1 className="fw-normal text-start">Password:</h1>
                         <input
                             type="password"
@@ -98,12 +98,12 @@ export const Signup = () => {
                     </div>
 
                     </div>
-                    <div>
+                    <div className="signupFullDiv mt-3">
 
                         <div className="container d-flex justify-content-center align-items-center">
-                            <button onClick={handleSignupClick} type="button" className="btn btn-light btn-md w-25 btn-outline-dark">SIGN UP</button>
+                            <button onClick={handleSignupClick} type="button" className="signup-btn btn btn-light btn-md w-25 btn-outline-dark">SIGN UP</button>
                         </div>
-                        <div className="container d-flex justify-content-center align-items-center">
+                        <div className="container d-flex justify-content-center align-items-center mt-1">
                             <p className="fw-lighter">Already have an Account?
 
                                 <button type="button" className="btn btn-link" onClick={handleLoginClick}>Log in</button>
