@@ -1,3 +1,26 @@
+.full-container {
+    background-color: rgb(220, 95, 0);
+    border-color: rgb(55, 58, 64); 
+    box-shadow:  
+    0 0 50px 20px rgb(238, 238, 238),
+    0 0 100px 60px rgb(104, 109, 118),
+    0 0 140px 90px rgb(220, 95, 0);
+        
+        
+        
+    
+}
+body {
+    background-color: rgb(104, 109, 118);
+}
+
 .signup-btn{
     overflow: hidden;
+    background-color:  rgb(238, 238, 238);
 }
+
+/* box-shadow
+        0 0 50px 20px #c4da04,
+        0 0 100px 60px rgb(243, 227, 82),
+        0 0 140px 90px rgb(231, 241, 241); */
+

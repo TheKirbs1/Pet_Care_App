@@ -67,7 +67,7 @@ export const Signup = () => {
     return (
         <form>
             <div className="container d-flex justify-content-center align-items-center vh-100">
-                <div className="border border-2 p-3 w-75 w-md-40 w-lg-20 mt-5">
+                <div className="full-container border border-2 p-3 w-75 w-md-40 w-lg-20 mt-5">
                     <h1 className="container d-flex justify-content-center">Sign Up</h1>
                     <div>
                         {store.signupMessage || ""}
@@ -101,7 +101,7 @@ export const Signup = () => {
                     <div className="signupFullDiv mt-3">
 
                         <div className="container d-flex justify-content-center align-items-center">
-                            <button onClick={handleSignupClick} type="button" className="signup-btn btn btn-light btn-md w-25 btn-outline-dark">SIGN UP</button>
+                            <button onClick={handleSignupClick} type="button" className="signup-btn selected btn btn-light btn-md w-25 btn-outline-dark">SIGN UP</button>
                         </div>
                         <div className="container d-flex justify-content-center align-items-center mt-1">
                             <p className="fw-lighter">Already have an Account?
