@@ -4,14 +4,12 @@
     box-shadow:  
     0 0 50px 20px rgb(238, 238, 238),
     0 0 100px 60px rgb(104, 109, 118),
-    0 0 140px 90px rgb(220, 95, 0);
-        
-        
-        
-    
+    0 0 140px 90px rgb(220, 95, 0); 
 }
-body {
+
+.signupForm {
     background-color: rgb(104, 109, 118);
+    width: 100%;
 }
 
 .signup-btn{

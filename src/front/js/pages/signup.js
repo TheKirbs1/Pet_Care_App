@@ -65,8 +65,8 @@ export const Signup = () => {
         }
     }, [store.isSignUpSuccessful])
     return (
-        <form>
-            <div className="container d-flex justify-content-center align-items-center vh-100">
+        <form className="signupForm">
+            <div className="bg-div container d-flex justify-content-center align-items-center vh-100">
                 <div className="full-container border border-2 p-3 w-75 w-md-40 w-lg-20 mt-5">
                     <h1 className="container d-flex justify-content-center">Sign Up</h1>
                     <div>
