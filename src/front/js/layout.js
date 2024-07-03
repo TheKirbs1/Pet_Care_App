@@ -4,8 +4,8 @@ import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+// import { Demo } from "./pages/demo";
+// import { Single } from "./pages/single";
 import { About_us } from "./pages/about_us";
 import { Edit_pet } from "./pages/edit_pet";
 import { Favorite } from "./pages/favorite";
@@ -35,7 +35,7 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<Home />} path="/" />
-                        <Route element={<Demo />} path="/demo" />
+                        {/* <Route element={<Demo />} path="/demo" /> */}
                         <Route element={<Signup />} path="/signup" />
                         <Route element={<Login />} path="/login" />
                         <Route element={<Private />} path="/private" />
@@ -45,7 +45,7 @@ const Layout = () => {
                         <Route element={<Favorite />} path="/favorite" />
                         <Route element={<Account_settings />} path="/account_settings" />
                         <Route element={<About_us />} path="/about_us" />
-                        <Route element={<Single />} path="/single/:theid" />
+                        {/* <Route element={<Single />} path="/single/:theid" /> */}
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
