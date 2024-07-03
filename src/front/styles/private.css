@@ -14,5 +14,30 @@ margin-right: 30px;
 }
 
 .profile-picture {
-    margin-top: 70px;
+    margin-top: 60px;
+}
+
+.dog-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.vertical-line { 
+    width: 0px; 
+    border-left: 4px solid gray;
+    border-radius: 2px; 
+} 
+
+.dog-age {
+    margin-left: 400px;
+}
+
+.dog-breed {
+    margin-left: 0px;
+}
+
+.dog-weight {
+    margin-right: 400px;
 }

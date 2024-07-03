@@ -63,6 +63,17 @@ export const Private = () => {
                         </div>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-md dog-info mt-3">
+                        <div className="dog-age"><h5>Age</h5></div>
+                        <div className="vertical-line"></div> 
+                        <div className="dog-breed"><h5>Breed</h5></div>
+                        <div className="vertical-line"></div> 
+                        <div className="dog-gender"><h5>Gender</h5></div>
+                        <div className="vertical-line"></div> 
+                        <div className="dog-weight"><h5>Weight</h5></div>
+                    </div>
+                </div>
             </div>
         </>
 )};
