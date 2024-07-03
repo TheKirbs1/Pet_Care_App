@@ -64,7 +64,8 @@ export const Private = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md dog-info mt-3">
+                    <div className="col-md-3"></div>
+                    <div className="col-md-6 dog-info mt-3">
                         <div className="dog-age"><h5>Age</h5></div>
                         <div className="vertical-line"></div> 
                         <div className="dog-breed"><h5>Breed</h5></div>
@@ -72,6 +73,21 @@ export const Private = () => {
                         <div className="dog-gender"><h5>Gender</h5></div>
                         <div className="vertical-line"></div> 
                         <div className="dog-weight"><h5>Weight</h5></div>
+                    </div>
+                    <div className="col-md-3"></div>
+                </div>
+                <div className="row">
+                    <div className="col-md">
+                        <div class="dropdown reminders-button">
+                            <button class="btn btn-info btn-lg  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Reminders
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Vaccinations</a></li>
+                                <li><a class="dropdown-item" href="#">Medications</a></li>
+                                <li><a class="dropdown-item" href="#">Dog Grooming</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
