@@ -21,6 +21,8 @@ class User(db.Model):
             # do not serialize the password, it's a security breach
         }
 
+
+
 class Dog(db.Model):
     __tablename__ = "dog_table"
     id = db.Column(db.Integer, primary_key=True)
@@ -46,6 +48,7 @@ class Dog(db.Model):
             "spayed_neutered": self.spayed_neutered,
             "weight": self.weight,
         }
+
 
 class FavoriteDog(db.Model):
     __tablename__ = "favorite_dog_table"

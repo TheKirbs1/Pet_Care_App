@@ -9,6 +9,50 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 		actions: {
 
+
+			syncTokenFromSessionStore: () => {
+				const sessionToken = sessionStorage.getItem('token');
+				console.log("Application just loaded. Syncing the sessionStorage token.")
+				if (sessionToken && sessionToken !== "" && sessionToken !== undefined) {
+					setStore({token: sessionToken})
+				}
+			},
+
+			signup: async(userEmail,userPassword) => {
+				const options = {
+					method: 'POST',
+					mode: 'cors',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						email: userEmail, 
+						password: userPassword
+					}),
+				}
+				const response = await fetch(`${process.env.BACKEND_URL}api/signup`, options)
+
+				if (!response.ok) {
+					const data = await response.json()
+					setStore({signupMessage: data.msg})
+					return{
+						error: {
+							status: response.status,
+							statusText: response.statusText
+						}
+					}
+				}
+
+				const data = await response.json()
+				setStore({
+					signupMessage: data.msg,
+					isSignUpSuccessful: response.ok
+				})
+				return data;
+			},
+
+			}
+
 			login: async (email,password) => {
 				let response = await fetch(process.env.BACKEND_URL+"/api/login",{
 					method: "POST",
@@ -62,8 +106,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	//reset the global store
 			// 	setStore({ demo: demo });
 			// }
+
 		}
 	};
-};
 
 export default getState;
