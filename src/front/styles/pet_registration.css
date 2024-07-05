@@ -1,0 +1,9 @@
+.form-container {
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+.save-button {
+    padding: 10px 100px;
+    font-weight: bold;
+}
