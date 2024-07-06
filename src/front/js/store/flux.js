@@ -29,7 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						password: password
 					}),
 				}
-				const response = await fetch(`${process.env.BACKEND_URL}/signup`, options)
+				const response = await fetch(`${process.env.BACKEND_URL}api/signup`, options)
 
 				if (!response.ok) {
 					const data = await response.json()
