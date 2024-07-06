@@ -1,7 +1,42 @@
-/*
-    home.css: This website contains selectors only used in home.css
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    margin-left: 25px;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+div.card {
+    overflow: hidden;
+}
+
+.card {
+    border: 2px solid gray;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    height: 100% !important;
+}
+
+img {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .btn{
+     margin-right: 30px;
+  }
+
+  .card:hover{
+    border: 2px solid darkgray;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.6s;
+  }
+
+  .favorite-btn{
+      margin-top: 32px;
+  }
+
