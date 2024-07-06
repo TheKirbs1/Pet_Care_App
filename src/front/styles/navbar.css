@@ -19,6 +19,15 @@ ul {
 }
 
 .dropdown-menu.show {
-    margin-left: -100px; /* Adjust as needed */
+    margin-left: -100px; 
 }
 
+.logo-div {
+    display: flex; 
+    align-items: center; 
+}
+
+.logo-img {
+    max-height: 100%; 
+    width: auto; 
+}

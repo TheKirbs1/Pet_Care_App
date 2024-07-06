@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import simpleLogo from "../../img/simpleLogo.png";
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
@@ -11,7 +10,9 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light bg-light">
 			<div className="nav-container container-fluid">
 				<Link to="/" id="home-logo">
-					<img src={simpleLogo} className="img-fluid" style={{ height: 80 }} alt="Pet Logo/Home Button" />
+					<div className="logo-div">
+						<img src="/simpleLogo.png" className="logo-img img-fluid" style={{ maxHeight: 80 }} alt="Pet Logo/Home Button" />
+					</div>	
 				</Link>
 				<div className="join-now ms-auto">
 					{!store.token ?
@@ -19,9 +20,7 @@ export const Navbar = () => {
 							<button className="btn btn-primary">Join Now!</button>
 						</Link>
 						:
-						<Link to="/signup">
-							<button className="btn btn-primary">Join Now!</button>
-						</Link>
+						<div></div>
 					}
 				</div>
 				<div className="menu">
@@ -35,16 +34,15 @@ export const Navbar = () => {
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li>
-									{!store.token ?
+									{!store.token ? (
 										<Link className="dropdown-item" to="/login">
-											Login
+										Login
 										</Link>
-										:
-										<button
-											className="btn"
-											onClick={() => actions.logout()}
-										>Log out</button>
-									}
+									) : (
+										<button className="btn" onClick={() => actions.logout()}>
+										Log out
+										</button>
+									)}
 								</li>
 								<li><Link className="dropdown-item" to="/favorite">Favorites</Link></li>
 								<li><Link className="dropdown-item" to="/account_settings">Account Settings</Link></li>

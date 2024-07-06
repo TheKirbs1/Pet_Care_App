@@ -20,6 +20,7 @@ export const Login = () => {
 
             if (isAuthenticated) {
                 navigate('/private');
+                window.location.reload();
             } else {
 
             }
