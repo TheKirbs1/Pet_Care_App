@@ -11,7 +11,6 @@ export const Pet_details = () => {
             try {
                     const res = await fetch(`https://api.thedogapi.com/v1/breeds/search?q=${name}`)
                     const data = await res.json()
-                    console.log(data)
                     setSingleDog(data)
             }
             catch (error){
