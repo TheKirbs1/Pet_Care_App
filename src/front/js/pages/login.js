@@ -9,11 +9,11 @@ export const Login = () => {
     const [error, setError] = useState('');
 
     const handleSignUpClick = () => {
-        navigate('/signup'); 
+        navigate('/signup');
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         try {
             const isAuthenticated = await authenticateUser(email, password);
@@ -21,7 +21,7 @@ export const Login = () => {
             if (isAuthenticated) {
                 navigate('/private');
             } else {
-                
+
             }
         } catch (error) {
             setError('An error occurred. Please try again later.');
@@ -30,14 +30,14 @@ export const Login = () => {
 
     const authenticateUser = async (email, password) => {
         try {
-            const response = await fetch(process.env.BACKEND_URL + "/login", {
+            const response = await fetch(process.env.BACKEND_URL + "/api/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ email, password }),
             });
-    
+
             if (response.ok) {
                 const data = await response.json();
                 sessionStorage.setItem('token', data.token);
