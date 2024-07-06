@@ -17,30 +17,32 @@ api = Blueprint('api', __name__)
 CORS(api)
 
 
-@api.route('/token', methods=['POST'])
-def generate_token():
+# @api.route('/token', methods=['POST'])
+# def generate_token():
 
-    email = request.json.get("email", None)
-    password = request.json.get("pasword", None)
+#     email = request.json.get("email", None)
+#     password = request.json.get("pasword", None)
 
-    # quey the User table to check ir the user exists
-    email = email.lower()
-    user = User.query.filter_by(email=email, password=password).first()
+#     # quey the User table to check ir the user exists
+#     email = email.lower()
+#     user = User.query.filter_by(email=email, password=password).first()
 
-    if user is None:
-        response = {
-            "msg": "Email or Password does not match."
-        }
-        return jsonify(response), 401
+#     if user is None:
+#         response = {
+#             "msg": "Email or Password does not match."
+#         }
+#         return jsonify(response), 401
     
-    access_token = create_access_token(identity=user.id)
-    response = {
-        "access_token": access_token,
-        "user_id": user.id,
-        "msg": f'Welcome {user.email}!'
-    }
+#     access_token = create_access_token(identity=user.id)
+#     response = {
+#         "access_token": access_token,
+#         "user_id": user.id,
+#         "msg": f'Welcome {user.email}!'
+#     }
 
-    return jsonify(response), 200
+#     return jsonify(response), 200
+
+
 
 @api.route('/signup', methods=['POST'])
 def register_user():
@@ -50,7 +52,7 @@ def register_user():
     email = email.lower()
     user = User.query.filter_by(email=email).first()
 
-    if user is not None and user.email ==email:
+    if user:
         response ={
             'msg' : 'User already exist'
         }
@@ -68,6 +70,36 @@ def register_user():
         'msg' : f'Congratulations, You have sussefully signed up!'
     }
     return jsonify(response), 200
+
+@api.route('/login', methods=['POST'])
+def login():
+    email = request.json.get('email', None)
+    password = request.json.get('password', None)
+
+    email = email.lower()
+    user = User.query.filter_by(email=email).first()
+
+    if user is None:
+        response ={
+            'msg' : 'User does not exist'
+        }
+        
+        return jsonify(response), 404
+    
+    if user.password != password:
+        response ={
+            'msg' : 'Incorrect Password'
+        }
+         
+        return jsonify(response), 401
+    
+    access_token=create_access_token(identity=user.id)
+    response ={
+        'msg' : f'Congratulations, You have sussefully Logged In!',
+        "token":access_token
+    }
+    return jsonify(response), 200
+
 
 @api.route('/users/<int:user_id>/favorites', methods=['GET'])
 def get_user_favorites(user_id):
