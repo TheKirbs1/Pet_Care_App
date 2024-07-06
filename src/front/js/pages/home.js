@@ -8,6 +8,7 @@ export const Home = () => {
         const [mySearch, setMySearch ]= useState("")
         const [displaySearch, setDisplaySearch]= useState(false)
 
+
         useEffect(() =>{
                 const fetchingData = async () =>{
                         try {
