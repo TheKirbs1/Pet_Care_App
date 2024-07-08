@@ -10,7 +10,7 @@ export const Pet_registration = () => {
         } 
     }
     console.log(img)
-    const [chosenColor, setChosenColor] = useState("")
+    
 
     return (
         <>
@@ -137,3 +137,4 @@ export const Pet_registration = () => {
             </div>
         </>
 )};
+
