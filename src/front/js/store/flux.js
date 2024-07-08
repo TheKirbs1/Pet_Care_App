@@ -48,38 +48,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				return data;
 			},
-		login: async (email, password) => {
-			let response = await fetch(process.env.BACKEND_URL + "/api/login", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({
-					email: email, password: password
+			login: async (email, password) => {
+				let response = await fetch(process.env.BACKEND_URL + "api/login", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						email: email, password: password
+					})
+
 				})
+				if (response.status != 200) {
+					console.log(response.status)
+					return false
+				} else {
+					let data = await response.json()
+					console.log(data)
+					sessionStorage.setItem("token", data.token)
+					return true
+				}
 
-			})
-			if (response.status != 200) {
-				console.log(response.status)
-				return false
-			} else {
-				let data = await response.json()
-				console.log(data)
-				sessionStorage.setItem("token", data.token)
-				return true
-			}
-
-		},
-		logout: () => {
-			sessionStorage.removeItem("token")
-			setStore({
-				token: null,
-				signupMessage: null,
-				isSignUpSuccessful: false,
-				isLoginSuccessful: false,
-				loginMessage: null,
-			})
-		},
+			},
+			logout: () => {
+				sessionStorage.removeItem("token")
+				setStore({
+					token: null,
+					signupMessage: null,
+					isSignUpSuccessful: false,
+					isLoginSuccessful: false,
+					loginMessage: null,
+				})
+			},
+		}
 	}
-}
 };
 
 export default getState;
