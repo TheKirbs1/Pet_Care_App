@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import large_mixed_dog from "../../img/large_mixed_dog.jpg"
 
 export const Lrg_Mixed_Breed_Details = () => {
     return (
@@ -9,7 +10,7 @@ export const Lrg_Mixed_Breed_Details = () => {
                     <div className="row align-items-md-stretch">
                         <div className="col-md-6">
                             <div className="border border-5 border-gray rounded-3 mb-2">
-                                <img src="null" className="w-100 h-auto" />
+                                <img src={large_mixed_dog} className="w-100 h-auto" />
                             </div>
                         </div>
                         <div className="col-md-6">
