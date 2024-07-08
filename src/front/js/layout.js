@@ -14,8 +14,12 @@ import { Pet_details } from "./pages/pet_details";
 import { Pet_registration } from "./pages/pet_registration";
 import { Private } from "./pages/private";
 import { Signup } from "./pages/signup";
+import { Sml_Mixed_Breed_Details } from "./pages/sml_mixed_breed_details";
+import { Med_Mixed_Breed_Details } from "./pages/med_mixed_breed_details";
+import { Lrg_Mixed_Breed_Details } from "./pages/lrg_mixed_breed_details";
 import { Account_settings } from "./pages/account_settings";
 import injectContext from "./store/appContext";
+
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -47,6 +51,9 @@ const Layout = () => {
                         <Route element={<Favorite />} path="/favorite" />
                         <Route element={<Account_settings />} path="/account_settings" />
                         <Route element={<About_us />} path="/about_us" />
+                        <Route element={<Sml_Mixed_Breed_Details />} path="/SmixedBreed" />
+                        <Route element={<Med_Mixed_Breed_Details />} path="/MmixedBreed" />
+                        <Route element={<Lrg_Mixed_Breed_Details />} path="/LmixedBreed" />
                         {/* <Route element={<Single />} path="/single/:theid" /> */}
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
