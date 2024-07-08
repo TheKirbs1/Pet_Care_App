@@ -9,16 +9,34 @@ export const About_us = () => {
 
             <div className="d-flex justify-content-center align-items-center vstack px-3">
                 <h1 className="text-warning">Mission Statement</h1>
-                <p className="my-15 ">
+
+                <p className="
+                
+                w-50">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </p>
-                <div className="row flex-row flex-nowrap overflow-auto">
-                    <img src="https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="img-fluid" alt="..." style={{ width: '60%' }} />
-                    <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg" className="img-fluid" alt="..." style={{ width: '60%' }} />
-                    <img src="https://images.pexels.com/photos/1144410/pexels-photo-1144410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="img-fluid" alt="..." style={{ width: '60%' }} />
-                    <img src="https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="img-fluid" alt="..." style={{ width: '60%' }} />
-                    <img src="https://images.pexels.com/photos/2607541/pexels-photo-2607541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="img-fluid" alt="..." style={{ width: '60%' }} />
+
+                <div className="row flex-row flex-nowrap overflow-auto " style={{ width: '80%' }} >
+                    <img src="https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="img-fluid mx-3" alt="..." style={{ width: '100%' }} />
+                    <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg" className="img-fluid mx-3" alt="..." style={{ width: '100%' }} />
+                    <img src="https://images.pexels.com/photos/1144410/pexels-photo-1144410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="img-fluid mx-3" alt="..." style={{ width: '100%' }} />
+                    <img src="https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="img-fluid mx-3" alt="..." style={{ width: '100%' }} />
+                    <img src="https://images.pexels.com/photos/2607541/pexels-photo-2607541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className="img-fluid mx-3" alt="..." style={{ width: '100%' }} />
+                </div>
+
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="..." />
+                        </div>
                     </div>
+                </div>
 
 
             </div>
