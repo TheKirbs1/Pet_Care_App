@@ -3,6 +3,15 @@ import { Context } from "../store/appContext";
 import "../../styles/pet_registration.css";
 
 export const Pet_registration = () => {
+    const {store, actions} = useContext(Context);
+    const [formData, setFormData] = useState("");
+    const [dogName, setDogName] = useState("");
+    const [breed, setBreed] = useState("");
+    const [gender, setGender] = useState("");
+    const [birth, setBirth] = useState("");
+    const [spayedNeutered, setSpayedNeutered] = useState("");
+    const [weight, setWeight] = useState("");
+    
     const [img, setImg] = useState("")
     const handleUpload = (e) => {
         if(e.target.files.length == 1) {
@@ -10,7 +19,8 @@ export const Pet_registration = () => {
         } 
     }
     console.log(img)
-    
+
+
 
     return (
         <>

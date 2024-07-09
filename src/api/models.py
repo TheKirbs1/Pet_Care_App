@@ -64,3 +64,4 @@ class FavoriteDog(db.Model):
             "id": self.id,
             "user_id_favorites": self.user_id_favorites,
         }
+

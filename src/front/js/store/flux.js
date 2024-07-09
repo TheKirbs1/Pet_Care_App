@@ -74,6 +74,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			} ,
 
+			savePetInfo: async (petInfo) => {
+			 	try {
+					const response = await fetch(`${process.env.BACKEND_URL}api/dogs`, {
+						method: 'POST',
+						headers: {
+							'Content-type': 'application/json'
+						},
+						body: JSON.stringify(petInfo)
+					})
+					const data = await response.json();
+					console.log('Pet information saved:', data)
+					setStore({petInfo: data})
+			 	} catch (error) {
+					console.error('Error saving pet information:', error)
+				}
+
 
 			// // Use getActions to call a function within a fuction
 			// exampleFunction: () => {
