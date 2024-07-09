@@ -14,7 +14,7 @@ export const Navbar = () => {
 				<Link to="/" id="home-logo">
 					<div className="logo-div">
 						<img src={simpleLogo} className="logo-img img-fluid" style={{ maxHeight: 80 }} alt="Pet Logo/Home Button" />
-					</div>	
+					</div>
 				</Link>
 				<div className="join-now ms-auto">
 					{!store.token ?
@@ -38,17 +38,26 @@ export const Navbar = () => {
 								<li>
 									{!store.token ? (
 										<Link className="dropdown-item" to="/login">
-										Login
+											Login
 										</Link>
 									) : (
-										<button className="dropdown-item logout-btn" onClick={() => actions.logout()}>
-										Log out
-										</button>
+										<Link className="dropdown-item" to="/private">
+											Profile
+										</Link>
 									)}
 								</li>
 								<li><Link className="dropdown-item" to="/favorite">Favorites</Link></li>
 								<li><Link className="dropdown-item" to="/account_settings">Account Settings</Link></li>
 								<li><Link className="dropdown-item" to="/about_us">About us</Link></li>
+								<li>
+									{!store.token ?
+										<div></div>
+										:
+										<button className="dropdown-item logout-btn" onClick={() => actions.logout()}>
+											Log out
+										</button>
+									}
+								</li>
 							</ul>
 						</li>
 					</ul>
