@@ -23,7 +23,7 @@ export const Lrg_Mixed_Breed_Details = () => {
                                 <li><strong>Origin : </strong>Large mixed breeds often originate from crosses between larger working breeds selected for their strength, endurance, and utility in tasks such as guarding, herding, and hunting.</li>
                                 <li><strong>Weight : </strong>50 to 100 pounds</li>
                                 <li><strong>Height : </strong>22 to 28 inches</li>
-                                <p><strong>Description : </strong></p>
+                                {/* <p><strong>Description : </strong></p> */}
                             </div>
                         </div>
                     </div>

@@ -23,7 +23,7 @@ export const Med_Mixed_Breed_Details = () => {
                         <li><strong>Origin : </strong>Medium mixed breeds origins reflect a blend of natural processes, intentional breeding practices, and historical development, resulting in dogs that are valued for their unique qualities and adaptability.</li>
                         <li><strong>Weight : </strong>25 to 50 pounds</li>
                         <li><strong>Height : </strong>16 to 22 inches</li>
-                        <p><strong>Description : </strong></p>
+                        {/* <p><strong>Description : </strong></p> */}
                         </div>
                     </div>
                 </div>

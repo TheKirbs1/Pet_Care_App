@@ -24,7 +24,7 @@ export const Sml_Mixed_Breed_Details = () => {
                                 <li><strong>Origin : </strong>small mixed breed dogs originate from a combination of natural mating, historical development, intentional breeding for specific traits, and unplanned matings.</li>
                                 <li><strong>Weight : </strong>10 to 25 pounds</li>
                                 <li><strong>Height : </strong>8 to 16 inches</li>
-                                <p><strong>Description : </strong></p>
+                                {/* <p><strong>Description : </strong></p> */}
                             </div>
                         </div>
                     </div>
