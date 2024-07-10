@@ -1,6 +1,11 @@
+.nav-container{
+    background-color: rgb(104, 109, 118);
+}
+
 li {
     list-style-type: none;
 }
+
 ul {
     margin: 0
 }
@@ -12,6 +17,7 @@ ul {
 .navbar {
     width: 100%;
     margin-right: 125rem;
+    background-color:rgb(104, 109, 118);
 }
 .dropdown-menu {
     right: 0;
@@ -20,6 +26,7 @@ ul {
 
 .dropdown-menu.show {
     margin-left: -100px; 
+    background-color:rgb(55, 58, 64);
 }
 
 .logo-div {
@@ -33,6 +40,17 @@ ul {
 }
 
 .logout-btn:hover {
-    background-color: rgb(133, 1, 1); 
-    color: rgb(242, 243, 247);  
+    background-color: rgb(133, 1, 1) !important;
+    color: rgb(242, 243, 247)  !important;
+}
+.dropdown-item {
+    color: rgb(220, 95, 0);
+}
+
+.dropdown-item:hover {
+    background-color: rgb(242, 243, 247);
+}
+
+.dropdown-menu::after {
+    color: red;
 }
