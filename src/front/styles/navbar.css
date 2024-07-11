@@ -51,6 +51,15 @@ ul {
     background-color: rgb(242, 243, 247);
 }
 
-.dropdown-menu::after {
-    color: red;
+.join-now {
+    background-color: rgb(72, 169, 166);
+    border-radius: 10%;   
+}
+
+.join-now-btn{
+    margin-right: 0;
+}
+
+#navbarDropdownMenuLink::after {
+    color: rgb(55, 58, 64);
 }
