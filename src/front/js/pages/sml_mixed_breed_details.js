@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import small_mixed from "../../img/small_mixed.jpg"
-
+import small_mixed from "../../img/small_mixed.jpg";
+import "../../styles/a_sml_mixed_breed_details.css";
 
 export const Sml_Mixed_Breed_Details = () => {
     return (
@@ -9,12 +9,12 @@ export const Sml_Mixed_Breed_Details = () => {
             <section className="container">
                 <div className="container pt-5">
                     <div className="row align-items-md-stretch">
-                        <div className="col-md-6">
+                        <div className="col-md-6 shortened-column">
                             <div className="border border-5 border-gray rounded-3 mb-2">
                                 <img src={small_mixed} className="w-100 h-auto" />
                             </div>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-6 shortened-column">
                             <div className="h-100 p-5 bg-light border border-5 border-gray rounded-3">
                                 <h1 className="text-center">Small Mixed Breeds</h1>
                                 <li><strong>Bred for : </strong>Companionship, lapdog</li>
