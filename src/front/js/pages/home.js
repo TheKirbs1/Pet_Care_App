@@ -91,7 +91,7 @@ export const Home = () => {
 
                                                                                 <div className="card-body">
                                                                                         <h5 className="card-title">{dog.name}</h5>
-                                                                                        <p className="card-text"><strong>Bred_For :</strong> {dog.bred_for}</p>
+                                                                                        <p className="card-text"><strong>Bred For :</strong> {dog.bred_for}</p>
                                                                                         <Link to={`/${dog.name}`}>
                                                                                                 <button type="button" className="btn btn-secondary">Learn More</button>
                                                                                         </Link>
