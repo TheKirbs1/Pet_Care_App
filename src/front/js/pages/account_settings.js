@@ -1,13 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { Context } from "../store/appContext";
 
 export const Account_settings = () => {
-    const { store,actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState(null);
     const [passwordError, setPasswordError] = useState(null);
-    
+
+    useEffect(() => {
+        setEmail(store.userEmail || "");
+        setPassword(store.userPassword || "");
+    }, [store.userEmail, store.userPassword]);
+
     const validateEmail = () => {
         if (!email) {
             setEmailError("Email is required");
@@ -19,7 +24,7 @@ export const Account_settings = () => {
         setEmailError(null);
         return true;
     };
-    
+
     const validatePassword = () => {
         if (!password) {
             setPasswordError("Password is required");
@@ -27,7 +32,7 @@ export const Account_settings = () => {
         } else if (password.length < 6) {
             setPasswordError("Password must be at least 6 characters long");
             return false;
-        } else if (password.length >20) {
+        } else if (password.length > 20) {
             setPasswordError("Password must be less than 20 characters long");
             return false;
         }
@@ -35,48 +40,92 @@ export const Account_settings = () => {
         return true;
     };
 
-    const handleDeactivation = () => {
+
+    const handleEditUserSettings = async () => {
         if (validateEmail() && validatePassword()) {
-            actions.deactivateAccount(email, password);
+            const { msg, error } = await actions.editUserSettings(email, password);
+            if (error) {
+                'An error occured, Please resubmitt your Info.'
+            } else {
+                'You have successfully edited your Information.'
+            }
         }
     };
+    const handleDeactivation = async () => {
+        if (validateEmail() && validatePassword()) {
+            const { msg, error } = await actions.deactivateAccount(email, password);
+            if (error) {
+                'You have a error Deactivating your account!'
+            } else {
+                'You have successfully Deactivated your account!'
+            }
+        }
+    };
+
+    const handleReactivation = async () => {
+        if (validateEmail() && validatePassword()) {
+            const { msg, error } = await actions.reactivateAccount(email, password);
+            if (error) {
+                'An error occurred while deactivating your account. Please try again later.'
+            } else {
+                'Your account has been deactivated successfully.'
+            }
+        }
+    };
+
     return (
         <>
 
             <div>
 
-                <label>USER-EMAIL</label><input type="email" placeholder="" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <label>USER-EMAIL</label><input type="email" placeholder={store.userEmail || "Enter your email"}
+                    value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div>
 
-                <label>USER-PASSWORD</label><input type="password" placeholder="" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <label>USER-PASSWORD</label><input type="password" placeholder={store.userPassword || "Enter your password"} value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
 
             <div>
-                    PETS!
+                <button type="button" className="btn btn-primary" onClick={handleEditUserSettings}>
+                    Save Changes
+                </button>
+            </div>
+
+            <div>
+                PETS!
 
             </div>
 
 
 
-            <div> <b className="text-danger">Deactivate Account</b>
+
+
+
+            <div> <b className="text-danger">{store.isAccountActive ? "Deactivate Account" : "Reactivate Account"}</b>
                 <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Deactivate
+                    {store.isAccountActive ? "Deactivate" : "Reactivate"}
                 </button>
 
-                <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h1 className="modal-title fs-5" id="exampleModalLabel">Account Deactivation</h1>
+                                <h1 className="modal-title fs-5" id="exampleModalLabel">{store.isAccountActive ? "Account Deactivation" : "Account Reactivation"}</h1>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                Are you sure you want to deactivate your account?
+                                {store.isAccountActive
+                                    ? "Are you sure you want to deactivate your account?"
+                                    : "Are you sure you want to reactivate your account?"}
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="button" className="btn btn-danger" onClick={() => handleDeactivation()}>Deactivate</button>
+                                <button type="button" className="btn btn-danger" onClick={
+                                    store.isAccountActive ? handleDeactivation : handleReactivation
+                                }
+                                >
+                                    {store.isAccountActive ? "Deactivate" : "Reactivate"}</button>
                             </div>
                         </div>
                     </div>
