@@ -4,8 +4,6 @@ import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
-// import { Demo } from "./pages/demo";
-// import { Single } from "./pages/single";
 import { About_us } from "./pages/about_us";
 import { Edit_pet } from "./pages/edit_pet";
 import { Favorite } from "./pages/favorite";
@@ -19,7 +17,6 @@ import { Med_Mixed_Breed_Details } from "./pages/med_mixed_breed_details";
 import { Lrg_Mixed_Breed_Details } from "./pages/lrg_mixed_breed_details";
 import { Account_settings } from "./pages/account_settings";
 import injectContext from "./store/appContext";
-
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -39,22 +36,18 @@ const Layout = () => {
                     <Navbar />
                     <Routes>
                         <Route element={<Home />} path="/" />
-                        {/* <Route element={<Demo />} path="/demo" /> */}
                         <Route element={<Signup />} path="/signup" />
                         <Route element={<Login />} path="/login" />
-                        <Route element={<Private />} path="/private" />
-                                              
+                        <Route element={<Private />} path="/private" />                                            
                         <Route element={<Pet_details />} path="/:name" />
                         <Route element={<Pet_registration />} path="/private/pet_registration" />
-                        <Route element={<Edit_pet />} path="/private/edit_pet" />
-                     
+                        <Route element={<Edit_pet />} path="/private/edit_pet" />                   
                         <Route element={<Favorite />} path="/favorite" />
                         <Route element={<Account_settings />} path="/account_settings" />
                         <Route element={<About_us />} path="/about_us" />
                         <Route element={<Sml_Mixed_Breed_Details />} path="/SmixedBreed" />
                         <Route element={<Med_Mixed_Breed_Details />} path="/MmixedBreed" />
                         <Route element={<Lrg_Mixed_Breed_Details />} path="/LmixedBreed" />
-                        {/* <Route element={<Single />} path="/single/:theid" /> */}
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
