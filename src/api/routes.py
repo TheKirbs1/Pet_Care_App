@@ -42,7 +42,59 @@ CORS(api)
 
 #     return jsonify(response), 200
 
+@api.route('/edit-user', methods=['PUT'])
+@jwt_required()
+def register_user():
+    user_id=get_jwt_identity()
+    email = request.json.get('email', None)
+    password = request.json.get('password', None)
+    email = email.lower()
+    user = User.query.filter_by(id=user_id).first()
 
+    if user is None:
+        response ={
+            'msg' : 'User NOT found'
+        }
+        
+        return jsonify(response), 404
+
+    user.email = email
+    user.password = password
+    db.session.commit()
+
+    response ={
+        'msg' : f'Congratulations, You have successfully changed your Account Settings!'
+    }
+    return jsonify(response), 200
+
+@api.route('/deactivate-account', methods=['PUT'])
+@jwt_required()
+def register_user():
+    user_id=get_jwt_identity()
+    is_active = request.json.get("is_active", None)
+    user = User.query.filter_by(id=user_id).first()
+
+    if user is None:
+        response ={
+            'msg' : 'User NOT found'
+        }
+        
+        return jsonify(response), 404
+
+    user.is_active = is_active
+    db.session.commit()
+    if is_active:
+        response={
+            'msg' : f'Congratulations, You have successfully changed your Activated your Account'
+        }
+        return jsonify(response), 200
+    else:
+        response ={
+        'msg' : f'Congratulations, You have successfully changed your Deactivated your Account'
+        }
+        return jsonify(response), 200
+    
+# //FLUX FUNTCTION FOR EDIT AND deactivate account
 
 @api.route('/signup', methods=['POST'])
 def register_user():
