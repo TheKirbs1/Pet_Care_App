@@ -4,7 +4,8 @@ import { Context } from "../store/appContext";
 export const Account_settings = () => {
 
     return (
-        <><div>
+        <>
+        {/* <div>
           <Title>Account Settings</Title> 
           </div>
 
@@ -25,6 +26,6 @@ export const Account_settings = () => {
 <div>
            <button className="text-danger"><div className="modal-dialog modal-fullscreen-sm-down">
   Are you sure you want to delete your Account?
-</div></button></div>
+</div></button></div> */}
         </>
 )};
