@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import medium_mixed from "../../img/medium_mixed.jpg"
+import "../../styles/med_mixed_breed_details.css";
 
 export const Med_Mixed_Breed_Details = () => {
     return (
-        <div>
+        <div className="med-mixed">
            <section className="container">
             <div className="container pt-5">
                 <div className="row align-items-md-stretch">
                     <div className="col-md-6">
-                        <div className="border border-5 border-gray rounded-3 mb-2">
+                        <div className="border border-5 rounded-3 mb-2">
                             <img src={medium_mixed} className="w-100 h-auto"/>
                         </div>
                     </div>
                     <div className="col-md-6">
-                        <div className="h-100 p-5 bg-light border border-5 border-gray rounded-3">
-                        <h1 className="text-center">Medium Mixed Breeds</h1>
+                        <div className="info-card h-100 p-5 border border-5 rounded-3">
+                        <h1 className="M-title text-center">Medium Mixed Breeds</h1>
                         <li><strong>Bred for : </strong>Companionship, Aesthetic Appeal, Utility and Versatility</li> 
                         <li><strong>Bred Group : </strong>Mixed</li>
                         <li><strong>Life Span : </strong>10 - 14 years</li>
@@ -28,7 +29,7 @@ export const Med_Mixed_Breed_Details = () => {
                     </div>
                 </div>
                 <Link to={`/`}>
-                    <button type="button" className="btn btn-secondary center mt-4">Back To Home</button>
+                    <button type="button" className="home-btn btn-secondary center mt-4">Back To Home</button>
                 </Link>
                 <button className="btn btn btn-text-color center favorite-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
