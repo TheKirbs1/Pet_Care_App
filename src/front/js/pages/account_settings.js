@@ -10,9 +10,9 @@ export const Account_settings = () => {
     const [passwordError, setPasswordError] = useState(null);
 
     useEffect(() => {
-        setEmail(store.userEmail || "");
-        setPassword(store.userPassword || "");
-    }, [store.userEmail, store.userPassword]);
+        setEmail(store.Email || "");
+        setPassword(store.Password || "");
+    }, [store.userEmail, store.Password]);
 
     const validateEmail = () => {
         if (!email) {
@@ -80,7 +80,8 @@ export const Account_settings = () => {
                 <div><h1>ACCOUNT SETTINGS</h1>
 
                 </div>
-                <img src={simpleLogo} className="img-fluid" />
+                <div>
+                <img src={simpleLogo} className="img-fluid" /></div>
 
                 <div>
 

@@ -58,8 +58,8 @@ def register_user():
         
         return jsonify(response), 404
 
-    user.email = email
-    user.password = password
+    email = email
+    password = password
     db.session.commit()
 
     response ={
