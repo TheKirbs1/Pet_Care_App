@@ -100,7 +100,6 @@ def login():
     }
     return jsonify(response), 200
 
-
 @api.route('/users/<int:user_id>/favorites', methods=['GET'])
 def get_user_favorites(user_id):
     current_user = User.query.get(user_id)
@@ -111,13 +110,30 @@ def get_user_favorites(user_id):
 
     return jsonify({ f"Current User '{current_user.username}' (id={current_user.id}) favorites": user_favorites }), 200
 
-@api.route('/dogs', methods=['GET'])
+
+@api.route('/private', methods=['GET'])
 @jwt_required()
-def get_dogs():
+def get_user():
     user_id = get_jwt_identity()
+    current_user = User.query.get(user_id)
+    if current_user is None: 
+        return jsonify({"msg": "User not found"}), 404
+    
+    return jsonify({"msg": "Here is your profile info", "user" : current_user.serialize()}), 200
+
+@api.route('/user', methods=["GET"])
+def get_all_users():
+    users = User.query.all()
+    all_users = [user.serialize() for user in users]
+    return jsonify(all_users), 200
+
+@api.route('/user/<int:user_id>/dogs', methods=['GET'])
+def get_all_dogs(user_id):
     user = User.query.filter_by(id=user_id).first()
+    if not user:
+        return jsonify({'msg': 'User not found'}), 404
     user_dogs = Dog.query.filter_by(user_id=user_id).all()
-    processed_dogs = [dogs.serialize() for dogs in user_dogs]
+    processed_dogs = [dog.serialize() for dog in user_dogs]
 
     response = {
         'msg': f'Hello {user.email}, here are your registered pets.',
@@ -147,3 +163,4 @@ def add_pet():
         'msg': f'Your pet has been successfully registered!',
     }
     return jsonify(response), 201
+
