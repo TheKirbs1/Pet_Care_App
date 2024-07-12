@@ -110,6 +110,7 @@ def get_user_favorites(user_id):
 
     return jsonify({ f"Current User '{current_user.username}' (id={current_user.id}) favorites": user_favorites }), 200
 
+
 @api.route('/private', methods=['GET'])
 @jwt_required()
 def get_user():
@@ -140,3 +141,26 @@ def get_all_dogs(user_id):
     }
 
     return jsonify(response), 200
+
+@api.route('/private/pet_registration', methods=['POST'])
+# @jwt_required()
+def add_pet():
+    data = request.get_json()
+    # user_id = get_jwt_identity()
+    new_pet = Dog(
+        name=data['name'],
+        breed=data['breed'],
+        gender=data['gender'],
+        birth=data['birth'],
+        spayed_neutered=data['spayedNeutered'],
+        weight=data['weight'],
+        user_id=1 #replace this with user_id
+    )
+    db.session.add(new_pet)
+    db.session.commit()
+    
+    response = {
+        'msg': f'Your pet has been successfully registered!',
+    }
+    return jsonify(response), 201
+
