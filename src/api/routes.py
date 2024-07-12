@@ -147,4 +147,3 @@ def get_all_dogs(user_id):
     }
 
     return jsonify(response), 200
-

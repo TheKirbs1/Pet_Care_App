@@ -21,7 +21,7 @@ export const Private = () => {
 
     // useEffect(() => {
     //     actions.fetchUserDogs(userId);
-    // }, [userId]);
+    //  }, [userId]);
 
     return (
         <div>
@@ -32,8 +32,11 @@ export const Private = () => {
                     <p>Access Denied. Please sign in to view this page.</p>
                     <button type="button" className="btn btn-primary" onClick={() => navigate('/login')}>Sign In</button>
                 </div>
-            ) : authStatus === "approved" ? ( 
+            ) : authStatus === "approved" ? (
                 <div className="profile-container">
+                    {/* {store.userDogs.map(dog => (
+                        <li key={dog.id}>{dog.name}</li>
+                    ))} */}
                     <div className="row justify-content-center">
                         <div className="col-md-4">
                             <Link to="edit_pet">
@@ -53,7 +56,7 @@ export const Private = () => {
                                 />
                             </div>
                             <div className="name justify-content-center align-items-center d-flex mt-3">
-                                <h3 className="title">Pet Name</h3>
+                                <h3 className="title">Pet name</h3>
                             </div>
                         </div>
                         <div className="col-md-4">
