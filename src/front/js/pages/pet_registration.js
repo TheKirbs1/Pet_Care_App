@@ -51,7 +51,7 @@ export const Pet_registration = () => {
                                 <label htmlFor="dogName" className="form-label">Dog name</label>
                                 <input onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control" id="dogName" aria-describedby="dogName"/>
                             </div>
-                            <div className="mb-3 fw-bold">
+                            <div className="mb-4 fw-bold">
                                 <label htmlFor="dogBreed" className="form-label">Breed</label>
                                 <input onChange={(e) => setBreed(e.target.value)} value={breed} type="text" className="form-control" id="dogBreed"/>
                             </div>
@@ -93,8 +93,7 @@ export const Pet_registration = () => {
                                 {img && <img src={img} height="200" width="200" alt="Uploaded Preview" />}
                             </div>
                             <div>
-                                <h5 className="mb-3 mt-5">Date of Birth</h5>
-                                {/* <label htmlFor="dateOfBirth">Date of Birth:</label> */}
+                                <h5 className="mb-3 mt-4">Date of Birth</h5>
                                 <input 
                                     type="date" 
                                     className="ms-2" 
@@ -102,7 +101,6 @@ export const Pet_registration = () => {
                                     name="birthday"
                                     onChange={(e) => setBirth(e.target.value)}
                                 />
-                                <input type="submit" className="ms-2" defaultValue="Submit" />
                             </div>
                             <div className="spayed-neutered mb-3">
                                 <h5 className="mb-3 mt-4">Spayed / Neutered</h5>
@@ -137,7 +135,7 @@ export const Pet_registration = () => {
                 </div>
                 <div className="row">
                     <div className="col-md">
-                        <div className="weight-buttons mb-3">
+                        <div className="weight-buttons mb-3 text-center">
                         <h5 className="mb-3 mt-4">Weight</h5>
                             <input
                                 onChange={(e) => setWeight("0-25 lbs")}
