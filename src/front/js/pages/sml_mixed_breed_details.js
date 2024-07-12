@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import small_mixed from "../../img/small_mixed.jpg";
-import "../../styles/a_sml_mixed_breed_details.css";
+import "../../styles/sml_mixed_breed_details.css";
 
 export const Sml_Mixed_Breed_Details = () => {
     return (
         <div className="sml-mixed">
             <section className="container">
                 <div className="container pt-5">
-                    <div className="row align-items-md-stretch">
+                    <div className="cardsDiv row align-items-md-stretch">
                         <div className="col-md-6 shortened-column">
                             <div className="border border-5 rounded-3 mb-2 h-100">
                                 <img src={small_mixed} className="w-100 h-100" />

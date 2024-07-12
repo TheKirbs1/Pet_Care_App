@@ -14,6 +14,8 @@
 .home-btn {
     background-color: rgb(41, 42, 44);
     border-radius: 10%; 
+    margin-bottom: 10px; 
+    margin-top: 20px;
 }
 
 .M-title {
@@ -22,4 +24,12 @@
 
 li {
     padding-bottom: 5px;
+}
+.favorite-btn{
+    margin-left: 55%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.cardsDiv{
+    pointer-events: none;
 }

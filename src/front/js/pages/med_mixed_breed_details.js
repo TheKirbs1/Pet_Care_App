@@ -8,7 +8,7 @@ export const Med_Mixed_Breed_Details = () => {
         <div className="med-mixed">
             <section className="container">
                 <div className="container pt-5">
-                    <div className="row align-items-md-stretch">
+                    <div className="cardsDiv row align-items-md-stretch">
                         <div className="col-md-6">
                             <div className="border border-5 h-100 rounded-3 mb-2">
                                 <img src={medium_mixed} className="w-100 h-100" />
