@@ -1,6 +1,11 @@
+.nav-container{
+    background-color: rgb(104, 109, 118);
+}
+
 li {
     list-style-type: none;
 }
+
 ul {
     margin: 0
 }
@@ -12,6 +17,7 @@ ul {
 .navbar {
     width: 100%;
     margin-right: 125rem;
+    background-color:rgb(104, 109, 118);
 }
 .dropdown-menu {
     right: 0;
@@ -19,6 +25,41 @@ ul {
 }
 
 .dropdown-menu.show {
-    margin-left: -100px; /* Adjust as needed */
+    margin-left: -100px; 
+    background-color:rgb(55, 58, 64);
 }
 
+.logo-div {
+    display: flex; 
+    align-items: center; 
+}
+
+.logo-img {
+    max-height: 100%; 
+    width: auto; 
+}
+
+.logout-btn:hover {
+    background-color: rgb(133, 1, 1) !important;
+    color: rgb(242, 243, 247)  !important;
+}
+.dropdown-item {
+    color: rgb(220, 95, 0);
+}
+
+.dropdown-item:hover {
+    background-color: rgb(242, 243, 247);
+}
+
+.join-now {
+    background-color: rgb(72, 169, 166);
+    border-radius: 10%;   
+}
+
+.join-now-btn{
+    margin-right: 0;
+}
+
+#navbarDropdownMenuLink::after {
+    color: rgb(55, 58, 64);
+}
