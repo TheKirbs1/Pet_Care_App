@@ -57,6 +57,7 @@ export const Pet_registration = () => {
                             </div>
                             
                             <div className="gender-buttons mb-3">
+                            <h5 className="mb-3 mt-4">Gender</h5>
                                 <input 
                                     onChange={(e)=> setGender("Male")}
                                     type="radio"
@@ -88,11 +89,12 @@ export const Pet_registration = () => {
                     <div className="col-md-6">
                         <form>
                             <div>
-                                <input type="file" className="form-control mb-3" id="imageUploader" aria-describedby="uploader" onChange={(e)=>handleUpload(e)}/> 
+                                <input type="file" className="form-control mb-3 mt-4" id="imageUploader" aria-describedby="uploader" onChange={(e)=>handleUpload(e)}/> 
                                 {img && <img src={img} height="200" width="200" alt="Uploaded Preview" />}
                             </div>
                             <div>
-                                <label htmlFor="dateOfBirth">Date of Birth:</label>
+                                <h5 className="mb-3 mt-5">Date of Birth</h5>
+                                {/* <label htmlFor="dateOfBirth">Date of Birth:</label> */}
                                 <input 
                                     type="date" 
                                     className="ms-2" 
@@ -103,6 +105,7 @@ export const Pet_registration = () => {
                                 <input type="submit" className="ms-2" defaultValue="Submit" />
                             </div>
                             <div className="spayed-neutered mb-3">
+                                <h5 className="mb-3 mt-4">Spayed / Neutered</h5>
                                 <input
                                     onChange={(e) => setSpayedNeutered("Yes")}
                                     value="Yes"
@@ -135,6 +138,7 @@ export const Pet_registration = () => {
                 <div className="row">
                     <div className="col-md">
                         <div className="weight-buttons mb-3">
+                        <h5 className="mb-3 mt-4">Weight</h5>
                             <input
                                 onChange={(e) => setWeight("0-25 lbs")}
                                 type="radio"
@@ -194,4 +198,3 @@ export const Pet_registration = () => {
             </div>
         </>
 )};
-
