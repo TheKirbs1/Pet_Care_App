@@ -28,14 +28,14 @@ export const Pet_details = () => {
           singledog.map((item) => (
             <div key={item.id}>
               <div className="container pt-5">
-                <div class="row align-items-md-stretch">
-                  <div class="col-md-6">
-                    <div class="border border-5 border-gray rounded-3 mb-2">
+                <div className="row align-items-md-stretch">
+                  <div className="col-md-6">
+                    <div className="border border-5 border-gray rounded-3 mb-2">
                       <img src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`} alt={item.name} className="w-100 h-auto" />
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="h-100 p-5 bg-light border border-5 border-gray rounded-3">
+                  <div className="col-md-6">
+                    <div className="h-100 p-5 bg-light border border-5 border-gray rounded-3">
                       <h1 className="text-center">{name}</h1>
                       <li><strong>Bred for : </strong>{item.bred_for}</li>
                       <li><strong>Bred Group : </strong>{item.breed_group}</li>
