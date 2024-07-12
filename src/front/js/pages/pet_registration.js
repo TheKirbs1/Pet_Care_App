@@ -22,7 +22,7 @@ export const Pet_registration = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(name, breed, gender, birth,spayedNeutered, weight)
+        console.log(name, breed, gender, birth, spayedNeutered, weight)
         let formData = {
             name: name,
             breed: breed,
@@ -58,8 +58,9 @@ export const Pet_registration = () => {
                             
                             <div className="gender-buttons mb-3">
                                 <input 
-                                    onChange={(e)=> setGender(e.target.value)} value={gender}
+                                    onChange={(e)=> setGender("Male")}
                                     type="radio"
+                                    value="Male"
                                     className="btn-check"
                                     name="options-outlined"
                                     id="male-outlined"
@@ -71,6 +72,8 @@ export const Pet_registration = () => {
                                 </label>
                                 <input
                                     type="radio"
+                                    onChange={(e)=> setGender("Female")}
+                                    value="Female"
                                     className="btn-check"
                                     name="options-outlined"
                                     id="female-outlined"
@@ -90,11 +93,19 @@ export const Pet_registration = () => {
                             </div>
                             <div>
                                 <label htmlFor="dateOfBirth">Date of Birth:</label>
-                                <input type="date" className="ms-2" id="birthday" name="birthday" />
+                                <input 
+                                    type="date" 
+                                    className="ms-2" 
+                                    id="birthday" 
+                                    name="birthday"
+                                    onChange={(e) => setBirth(e.target.value)}
+                                />
                                 <input type="submit" className="ms-2" defaultValue="Submit" />
                             </div>
                             <div className="spayed-neutered mb-3">
                                 <input
+                                    onChange={(e) => setSpayedNeutered("Yes")}
+                                    value="Yes"
                                     type="radio"
                                     className="btn-check"
                                     name="options-outlined"
@@ -106,7 +117,8 @@ export const Pet_registration = () => {
                                     Yes
                                 </label>
                                 <input
-                                    onChange={(e)=> setSpayedNeutered(e.target.value)} value={spayedNeutered}
+                                    onChange={(e) => setSpayedNeutered("No")}
+                                    value="No"
                                     type="radio"
                                     className="btn-check"
                                     name="options-outlined"
@@ -124,8 +136,9 @@ export const Pet_registration = () => {
                     <div className="col-md">
                         <div className="weight-buttons mb-3">
                             <input
-                            onChange={(e)=> setWeight(e.target.value)} value={weight}
+                                onChange={(e) => setWeight("0-25 lbs")}
                                 type="radio"
+                                value="0-25 lbs"
                                 className="btn-check"
                                 name="options-outlined"
                                 id="option1-outlined"
@@ -136,6 +149,8 @@ export const Pet_registration = () => {
                                 0-25lbs
                             </label>
                             <input
+                                onChange={(e) => setWeight("25-50 lbs")}
+                                value="25-50 lbs"
                                 type="radio"
                                 className="btn-check"
                                 name="options-outlined"
@@ -146,6 +161,8 @@ export const Pet_registration = () => {
                                 25-50lbs
                             </label>
                             <input
+                                onChange={(e) => setWeight("50-100 lbs")}
+                                value="50-100 lbs"
                                 type="radio"
                                 className="btn-check"
                                 name="options-outlined"
@@ -156,7 +173,9 @@ export const Pet_registration = () => {
                                 50-100lbs
                             </label>
                             <input
+                                onChange={(e) => setWeight("100 + lbs")}
                                 type="radio"
+                                value="100 + lbs"
                                 className="btn-check"
                                 name="options-outlined"
                                 id="option4-outlined"
