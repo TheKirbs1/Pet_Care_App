@@ -9,7 +9,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 
-
 			syncTokenFromSessionStore: () => {
 				const sessionToken = sessionStorage.getItem('token');
 				console.log("Application just loaded. Syncing the sessionStorage token.")
@@ -18,16 +17,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			signup: async (userEmail, userPassword) => {
+
+			signup: async (email, password) => {
 				const options = {
 					method: 'POST',
-					mode: 'cors',
 					headers: {
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
-						email: userEmail,
-						password: userPassword
+						email: email,
+						password: password
 					}),
 				}
 				const response = await fetch(`${process.env.BACKEND_URL}api/signup`, options)
@@ -52,7 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			login: async (email, password) => {
-				let response = await fetch(process.env.BACKEND_URL + "/api/login", {
+				let response = await fetch(process.env.BACKEND_URL + "api/login", {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
@@ -123,9 +122,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	//reset the global store
 			// 	setStore({ demo: demo });
 			// }
-		}
 
 	};
+			logout: () => {
+				sessionStorage.removeItem("token")
+				setStore({
+					token: null,
+					signupMessage: null,
+					isSignUpSuccessful: false,
+					isLoginSuccessful: false,
+					loginMessage: null,
+				})
+			},
+		}
+	}
 };
 
 export default getState;

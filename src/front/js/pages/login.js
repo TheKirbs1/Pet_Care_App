@@ -9,19 +9,20 @@ export const Login = () => {
     const [error, setError] = useState('');
 
     const handleSignUpClick = () => {
-        navigate('/signup'); 
+        navigate('/signup');
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         try {
             const isAuthenticated = await authenticateUser(email, password);
 
             if (isAuthenticated) {
                 navigate('/private');
+                window.location.reload();
             } else {
-                
+
             }
         } catch (error) {
             setError('An error occurred. Please try again later.');
@@ -30,17 +31,17 @@ export const Login = () => {
 
     const authenticateUser = async (email, password) => {
         try {
-            const response = await fetch('https://curly-space-eureka-g4xqpqq6rq46c9564-3001.app.github.dev/api/login', {
+            const response = await fetch(process.env.BACKEND_URL + "api/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ email, password }),
             });
-    
+
             if (response.ok) {
                 const data = await response.json();
-                localStorage.setItem('token', data.token);
+                sessionStorage.setItem('token', data.token);
                 return true;
             } else if (response.status === 404) {
                 setError('The login endpoint was not found. Please check the server-side configuration.');

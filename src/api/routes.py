@@ -52,7 +52,7 @@ def register_user():
     email = email.lower()
     user = User.query.filter_by(email=email).first()
 
-    if user is not None and user.email ==email:
+    if user:
         response ={
             'msg' : 'User already exist'
         }
