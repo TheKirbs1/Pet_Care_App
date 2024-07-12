@@ -3,7 +3,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Dog
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 
@@ -110,3 +110,40 @@ def get_user_favorites(user_id):
     user_favorites = favorite_dogs
 
     return jsonify({ f"Current User '{current_user.username}' (id={current_user.id}) favorites": user_favorites }), 200
+
+@api.route('/dogs', methods=['GET'])
+@jwt_required()
+def get_dogs():
+    user_id = get_jwt_identity()
+    user = User.query.filter_by(id=user_id).first()
+    user_dogs = Dog.query.filter_by(user_id=user_id).all()
+    processed_dogs = [dogs.serialize() for dogs in user_dogs]
+
+    response = {
+        'msg': f'Hello {user.email}, here are your registered pets.',
+        'pets': processed_dogs
+    }
+
+    return jsonify(response), 200
+
+@api.route('/private/pet_registration', methods=['POST'])
+# @jwt_required()
+def add_pet():
+    data = request.get_json()
+    # user_id = get_jwt_identity()
+    new_pet = Dog(
+        name=data['name'],
+        breed=data['breed'],
+        gender=data['gender'],
+        birth=data['birth'],
+        spayed_neutered=data['spayedNeutered'],
+        weight=data['weight'],
+        user_id=1 #replace this with user_id
+    )
+    db.session.add(new_pet)
+    db.session.commit()
+    
+    response = {
+        'msg': f'Your pet has been successfully registered!',
+    }
+    return jsonify(response), 201
