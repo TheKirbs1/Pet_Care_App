@@ -1,18 +1,42 @@
 .full-container {
     background-color: rgb(220, 95, 0);
     border-color: rgb(55, 58, 64); 
+    border-radius: 35px;
     box-shadow:  
-    0 0 50px 20px rgb(238, 238, 238),
+    0 0 50px 10px rgb(238, 238, 238),
+    0 0 50px 30px rgb(72, 169, 166),
     0 0 100px 60px rgb(104, 109, 118),
     0 0 140px 90px rgb(220, 95, 0); 
 }
 
 .signupForm {
+    font-family: "Gill Sans", sans-serif;
     background-color: rgb(104, 109, 118);
     width: 100%;
 }
 
 .signup-btn{
     overflow: hidden;
-    background-color:  rgb(238, 238, 238);
+    background-color:  rgb(55, 58, 64); 
+    border-color: rgb(72, 169, 166);
+}
+
+.signup-btn:hover{
+    background-color: rgb(104, 109, 118);
+    box-shadow: 0 0 10px 10px rgb(72, 169, 166)
+}
+
+.pup-div{
+    margin-bottom: 10px;
+}
+
+.pup-div, .signUpTitle, .have-account, .email, .password{
+    pointer-events: none;
+}
+
+.signUpTitle {
+    font-family: fantasy;
+    font-size: 4rem; 
+    text-align: center; 
+    margin-top: 10px; 
 }

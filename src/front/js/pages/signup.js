@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/signup.css";
-
+import GeekPet from "../../img/GeekPet.png";
 
 export const Signup = () => {
     const { store,actions } = useContext(Context);
@@ -68,13 +68,16 @@ export const Signup = () => {
         <form className="signupForm">
             <div className="bg-div container d-flex justify-content-center align-items-center vh-100">
                 <div className="full-container border border-2 p-3 w-75 w-md-40 w-lg-20 mt-5">
-                    <h1 className="container d-flex justify-content-center">Sign Up</h1>
+                <div className="pup-div container d-flex justify-content-center">
+						<img src={GeekPet} className="logo-img img-fluid" style={{ maxHeight: 110 }} alt="Smart Pup" />
+					</div>
+                    <h1 className="signUpTitle container d-flex justify-content-center">Sign Up</h1>
                     <div>
                         {store.signupMessage || ""}
                     </div>
                     <div className="d-flex flex-column justify-content-center align-items-center vstack mt-5">
                     <div className="w-75">
-                        <h1 className="fw-normal text-start">Email:</h1>
+                        <h2 className="email fw-normal text-start">Email:</h2>
                         <input
                             type="email"
                             className="form-control form-control-lg w-100 rounded-0"
@@ -86,7 +89,7 @@ export const Signup = () => {
                     </div>
 
                     <div className="w-75 mt-2">
-                        <h1 className="fw-normal text-start">Password:</h1>
+                        <h2 className="password fw-normal text-start">Password:</h2>
                         <input
                             type="password"
                             className="form-control form-control-lg w-100 rounded-0"
@@ -101,12 +104,12 @@ export const Signup = () => {
                     <div className="signupFullDiv mt-3">
 
                         <div className="container d-flex justify-content-center align-items-center">
-                            <button onClick={handleSignupClick} type="button" className="signup-btn selected btn btn-light btn-md w-25 btn-outline-dark">SIGN UP</button>
+                            <button onClick={handleSignupClick} type="button" className="signup-btn selected btn btn-light btn-md w-25">SIGN UP</button>
                         </div>
                         <div className="container d-flex justify-content-center align-items-center mt-1">
                             <p className="fw-lighter">Already have an Account?
 
-                                <button type="button" className="btn btn-link" onClick={handleLoginClick}>Log in</button>
+                                <button type="button" className="logInBtn btn btn-link" onClick={handleLoginClick}>Log in</button>
                             </p>
                         </div>
                     </div>
