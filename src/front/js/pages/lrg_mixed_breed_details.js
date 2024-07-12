@@ -10,8 +10,8 @@ export const Lrg_Mixed_Breed_Details = () => {
                 <div className="container pt-5">
                     <div className="row align-items-md-stretch">
                         <div className="col-md-6">
-                            <div className="border border-5 rounded-3 mb-2">
-                                <img src={large_mixed_dog} className="w-100 h-auto" />
+                            <div className="border border-5 rounded-3 mb-2 h-100">
+                                <img src={large_mixed_dog} className="w-100 h-100" />
                             </div>
                         </div>
                         <div className="col-md-6">
