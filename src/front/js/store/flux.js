@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			isSignUpSuccessful: false,
 			isLoginSuccessful: false,
 			loginMessage: null,
-			},
+		},
 		actions: {
 
 
@@ -14,11 +14,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const sessionToken = sessionStorage.getItem('token');
 				console.log("Application just loaded. Syncing the sessionStorage token.")
 				if (sessionToken && sessionToken !== "" && sessionToken !== undefined) {
-					setStore({token: sessionToken})
+					setStore({ token: sessionToken })
 				}
 			},
 
-			signup: async(userEmail,userPassword) => {
+			signup: async (userEmail, userPassword) => {
 				const options = {
 					method: 'POST',
 					mode: 'cors',
@@ -26,7 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
-						email: userEmail, 
+						email: userEmail,
 						password: userPassword
 					}),
 				}
@@ -34,8 +34,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				if (!response.ok) {
 					const data = await response.json()
-					setStore({signupMessage: data.msg})
-					return{
+					setStore({ signupMessage: data.msg })
+					return {
 						error: {
 							status: response.status,
 							statusText: response.statusText
@@ -51,18 +51,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return data;
 			},
 
-			},
-
-			login: async (email,password) => {
-				let response = await fetch(process.env.BACKEND_URL+"/api/login",{
+			login: async (email, password) => {
+				let response = await fetch(process.env.BACKEND_URL + "/api/login", {
 					method: "POST",
-					headers: {"Content-Type": "application/json"},
+					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
-						email:email, password:password
+						email: email, password: password
 					})
 
 				})
-				if (response.status != 200){
+				if (response.status != 200) {
 					console.log(response.status)
 					return false
 				} else {
@@ -72,25 +70,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return true
 				}
 
-			} ,
+			},
 
 			savePetInfo: async (petInfo) => {
-			 	try {
-					const response = await fetch(`${process.env.BACKEND_URL}api/dogs`, {
+				// let token = getStore().token;
+				try {
+					const response = await fetch(`${process.env.BACKEND_URL}api/private/pet_registration`, {
 						method: 'POST',
+						mode: 'cors',
 						headers: {
 							'Content-type': 'application/json'
+							//  Authorization: "Bearer " + token, 
 						},
 						body: JSON.stringify(petInfo)
 					})
 					const data = await response.json();
 					console.log('Pet information saved:', data)
-					setStore({petInfo: data})
-			 	} catch (error) {
+					setStore({ petInfo: data })
+				} catch (error) {
 					console.error('Error saving pet information:', error)
 				}
 
-
+			}
 			// // Use getActions to call a function within a fuction
 			// exampleFunction: () => {
 			// 	getActions().changeColor(0, "green");
@@ -122,8 +123,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	//reset the global store
 			// 	setStore({ demo: demo });
 			// }
-
 		}
+
 	};
+};
 
 export default getState;

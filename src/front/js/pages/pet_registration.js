@@ -4,11 +4,10 @@ import "../../styles/pet_registration.css";
 
 export const Pet_registration = () => {
     const {store, actions} = useContext(Context);
-    const [formData, setFormData] = useState("");
-    const [dogName, setDogName] = useState("");
+    const [name, setName] = useState("");
     const [breed, setBreed] = useState("");
     const [gender, setGender] = useState("");
-    const [birth, setBirth] = useState("");
+    const [birth, setBirth] = useState(null);
     const [spayedNeutered, setSpayedNeutered] = useState("");
     const [weight, setWeight] = useState("");
     
@@ -20,7 +19,25 @@ export const Pet_registration = () => {
     }
     console.log(img)
 
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(name, breed, gender, birth,spayedNeutered, weight)
+        let formData = {
+            name: name,
+            breed: breed,
+            gender: gender,
+            birth: birth,
+            spayedNeutered: spayedNeutered,
+            weight: weight
+        }
+        await actions.savePetInfo(formData)
+        setDogName("")
+        setBreed("")
+        setGender("")
+        setBirth("")
+        setSpayedNeutered("")
+        setWeight("")
+    }
 
     return (
         <>
@@ -31,15 +48,16 @@ export const Pet_registration = () => {
                         <form>
                             <div className="mb-3 fw-bold">
                                 <label htmlFor="dogName" className="form-label">Dog name</label>
-                                <input type="text" className="form-control" id="dogName" aria-describedby="dogName"/>
+                                <input onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control" id="dogName" aria-describedby="dogName"/>
                             </div>
                             <div className="mb-3 fw-bold">
                                 <label htmlFor="dogBreed" className="form-label">Breed</label>
-                                <input type="text" className="form-control" id="dogBreed"/>
+                                <input onChange={(e) => setBreed(e.target.value)} value={breed} type="text" className="form-control" id="dogBreed"/>
                             </div>
                             
                             <div className="gender-buttons mb-3">
-                                <input
+                                <input 
+                                    onChange={(e)=> setGender(e.target.value)} value={gender}
                                     type="radio"
                                     className="btn-check"
                                     name="options-outlined"
@@ -80,6 +98,7 @@ export const Pet_registration = () => {
                                     Yes
                                 </label>
                                 <input
+                                    onChange={(e)=> setSpayedNeutered(e.target.value)} value={spayedNeutered}
                                     type="radio"
                                     className="btn-check"
                                     name="options-outlined"
@@ -97,6 +116,7 @@ export const Pet_registration = () => {
                     <div className="col-md">
                         <div className="weight-buttons mb-3">
                             <input
+                            onChange={(e)=> setWeight(e.target.value)} value={weight}
                                 type="radio"
                                 className="btn-check"
                                 name="options-outlined"
@@ -142,7 +162,7 @@ export const Pet_registration = () => {
                     </div>
                 </div>
                 <div className="text-center">
-                <button type="btn" className="btn btn-primary save-button">Save</button>
+                <button onClick={(e) => handleSubmit(e)} type="submit" className="btn btn-primary save-button">Save</button>
                 </div>
             </div>
         </>

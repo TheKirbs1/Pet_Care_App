@@ -125,3 +125,21 @@ def get_dogs():
     }
 
     return jsonify(response), 200
+
+@api.route('/private/pet_registration', methods=['POST'])
+# @jwt_required()
+def add_pet():
+    data = request.get_json()
+    # user_id = get_jwt_identity()
+    new_pet = Dog(
+        name=data['name'],
+        breed=data['breed'],
+        gender=data['gender'],
+        birth=data['birth'],
+        spayed_neutered=data['spayedNeutered'],
+        weight=data['weight'],
+        user_id=1 #replace this with user_id
+    )
+    db.session.add(new_pet)
+    db.session.commit()
+    return jsonify('Your pet has been successfully registered!')
