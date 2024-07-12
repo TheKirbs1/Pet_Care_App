@@ -120,13 +120,6 @@ def get_user():
     
     return jsonify({"msg": "Here is your profile info", "user" : current_user.serialize()}), 200
 
-# @api.route('/user/<int:id>', methods=["GET"])
-# def get_user(id):
-#     user = User.query.get(id)
-#     if user is None:
-#         return jsonify({'message': 'User not found'}), 404
-#     return jsonify(user.serialize()), 200
-
 @api.route('/user', methods=["GET"])
 def get_all_users():
     users = User.query.all()
