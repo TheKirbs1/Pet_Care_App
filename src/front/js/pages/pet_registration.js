@@ -10,6 +10,7 @@ export const Pet_registration = () => {
     const [birth, setBirth] = useState(null);
     const [spayedNeutered, setSpayedNeutered] = useState("");
     const [weight, setWeight] = useState("");
+
     
     const [img, setImg] = useState("")
     const handleUpload = (e) => {
@@ -31,7 +32,7 @@ export const Pet_registration = () => {
             weight: weight
         }
         await actions.savePetInfo(formData)
-        setDogName("")
+        setName("")
         setBreed("")
         setGender("")
         setBirth("")
@@ -83,8 +84,15 @@ export const Pet_registration = () => {
                     </div>
                     <div className="col-md-6">
                         <form>
-                            <input type="file" className="form-control mb-3" id="imageUploader" aria-describedby="uploader" onChange={(e)=>handleUpload(e)}/> 
-                            {img && <img src={img} height="200" width="200" alt="Uploaded Preview" />}
+                            <div>
+                                <input type="file" className="form-control mb-3" id="imageUploader" aria-describedby="uploader" onChange={(e)=>handleUpload(e)}/> 
+                                {img && <img src={img} height="200" width="200" alt="Uploaded Preview" />}
+                            </div>
+                            <div>
+                                <label htmlFor="dateOfBirth">Date of Birth:</label>
+                                <input type="date" className="ms-2" id="birthday" name="birthday" />
+                                <input type="submit" className="ms-2" defaultValue="Submit" />
+                            </div>
                             <div className="spayed-neutered mb-3">
                                 <input
                                     type="radio"

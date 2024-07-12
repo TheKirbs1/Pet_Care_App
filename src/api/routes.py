@@ -142,4 +142,8 @@ def add_pet():
     )
     db.session.add(new_pet)
     db.session.commit()
-    return jsonify('Your pet has been successfully registered!')
+    
+    response = {
+        'msg': f'Your pet has been successfully registered!',
+    }
+    return jsonify(response), 201
