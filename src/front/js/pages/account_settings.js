@@ -1,4 +1,5 @@
-import React, { useContext, useState,useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import simpleLogo from "../../img/simpleLogo.png";
 import { Context } from "../store/appContext";
 
 export const Account_settings = () => {
@@ -75,25 +76,34 @@ export const Account_settings = () => {
 
     return (
         <>
+            <div className="d-flex justify-content-center align-items-center vstack">
+                <div><h1>ACCOUNT SETTINGS</h1>
 
-            <div>
+                </div>
+                <img src={simpleLogo} className="img-fluid" />
 
-                <label>USER-EMAIL</label><input type="email" placeholder={store.userEmail || "Enter your email"}
-                    value={email} onChange={(e) => setEmail(e.target.value)} />
+                <div>
+
+                    <label>EDIT EMAIL:</label><input type="email" placeholder={store.userEmail || "Enter your email"}
+                        value={email} onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div>
+
+                    <label className="pt-1">EDIT PASSWORD:</label><input type="password" placeholder={store.userPassword || "Enter your password"} value={password} onChange={(e) => setPassword(e.target.value)} />
+                </div>
+
+                <div className="dflex justify-content-start align-content-start pt-2">
+                    <button type="button" className="btn btn-primary" onClick={handleEditUserSettings}>
+                        Save
+                    </button>
+                </div>
             </div>
-            <div>
 
-                <label>USER-PASSWORD</label><input type="password" placeholder={store.userPassword || "Enter your password"} value={password} onChange={(e) => setPassword(e.target.value)} />
-            </div>
+            <div className="d-flex justify-content-center align-items-center vstack" >
+                <b>PETS!</b>
+                <h6><button type="button" className="btn btn-link">GOLDEN RETRIVER</button></h6>
+                <h6><button type="button" className="btn btn-link">DALMATION</button></h6>
 
-            <div>
-                <button type="button" className="btn btn-primary" onClick={handleEditUserSettings}>
-                    Save Changes
-                </button>
-            </div>
-
-            <div>
-                PETS!
 
             </div>
 
@@ -102,7 +112,7 @@ export const Account_settings = () => {
 
 
 
-            <div> <b className="text-danger">{store.isAccountActive ? "Deactivate Account" : "Reactivate Account"}</b>
+            <div className="d-flex justify-content-center "> <b className="text-danger me-4">{store.isAccountActive ? "Deactivate Account" : "Reactivate Account"}</b>
                 <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     {store.isAccountActive ? "Deactivate" : "Reactivate"}
                 </button>
