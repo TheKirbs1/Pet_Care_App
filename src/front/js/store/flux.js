@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			isSignUpSuccessful: false,
 			isLoginSuccessful: false,
 			loginMessage: null,
+			userDogs: [],
 		},
 		actions: {
 
@@ -78,6 +79,45 @@ const getState = ({ getStore, getActions, setStore }) => {
 					loginMessage: null,
 				})
 			},
+			getProfile: async() => {
+				let response = await fetch(process.env.BACKEND_URL + "api/private", {
+					method: 'GET',
+					mode: 'cors',
+					headers: {
+						'Content-Type': 'application/json',
+						'Authorization': "Bearer " + sessionStorage.getItem("token")
+					}
+				})
+				if (!response.ok) {
+					console.log(response.status)
+					console.log(response.json())
+					return false;
+				} else {
+					let data = await response.json()
+					console.log(data)
+					setStore({ user: data.user })
+					return true;
+				}
+			}, 
+			fetchUserDogs: async (userId) => {
+				try {
+					const response = await fetch(process.env.BACKEND_URL + `api/user/${userId}/dogs`, {
+						method: 'GET',
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					});
+
+					if (response.ok) {
+						const data = await response.json();
+						setStore({ userDogs: data.pets });
+					} else {
+						console.error('Failed to fetch user dogs', response.statusText);
+					}
+				} catch (error) {
+					console.error('Error fetching user dogs', error);
+				}
+			}
 		}
 	}
 };
