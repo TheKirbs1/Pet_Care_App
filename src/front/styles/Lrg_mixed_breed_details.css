@@ -1,0 +1,35 @@
+.lrg-mixed{
+    background-color: rgb(72, 169, 166);
+}
+
+.info-card {
+    background-color:rgb(41, 42, 44);
+    color:rgb(146, 151, 163);
+}
+
+.border {
+    border-color: rgb(104, 109, 118) !important;
+}
+
+.home-btn {
+    background-color: rgb(41, 42, 44);
+    border-radius: 10%; 
+    margin-bottom: 10px; 
+    margin-top: 20px;
+}
+
+.L-title {
+    color: rgb(220, 95, 0)
+}
+
+li {
+    padding-bottom: 5px;
+}
+.favorite-btn{
+    margin-left: 55%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.cardsDiv{
+    pointer-events: none;
+}

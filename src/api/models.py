@@ -27,11 +27,11 @@ class Dog(db.Model):
     __tablename__ = "dog_table"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), nullable=False)
-    age = db.Column(db.Integer, nullable=False)
-    gender = db.Column(db.Boolean, nullable=False)
-    breed = db.Column(db.String(250), nullable=False)
-    spayed_neutered = db.Column(db.Boolean, nullable=False)
-    weight = db.Column(db.String(250), nullable=False)
+    birth = db.Column(db.Date)
+    gender = db.Column(db.String, nullable=True)
+    breed = db.Column(db.String(250), nullable=True)
+    spayed_neutered = db.Column(db.String, nullable=True)
+    weight = db.Column(db.String(250), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user_table.id"))
     user = db.relationship("User", back_populates="dogs")
 
@@ -42,7 +42,7 @@ class Dog(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "age": self.age,
+            "birth": self.birth,
             "gender": self.gender,
             "breed": self.breed,
             "spayed_neutered": self.spayed_neutered,
@@ -64,3 +64,4 @@ class FavoriteDog(db.Model):
             "id": self.id,
             "user_id_favorites": self.user_id_favorites,
         }
+
