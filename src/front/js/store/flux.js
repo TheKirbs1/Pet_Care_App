@@ -52,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			login: async (email, password) => {
-				let response = await fetch(process.env.BACKEND_URL + "api/login", {
+				let response = await fetch(process.env.BACKEND_URL + "/api/login", {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
@@ -91,7 +91,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error('Error saving pet information:', error)
 				}
 
-			}
+			},
 			// // Use getActions to call a function within a fuction
 			// exampleFunction: () => {
 			// 	getActions().changeColor(0, "green");
@@ -124,7 +124,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	setStore({ demo: demo });
 			// }
 
-	},
 			logout: () => {
 				sessionStorage.removeItem("token")
 				setStore({
@@ -175,6 +174,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			}
 		}
-	};
+	}
+};
 
 export default getState;
