@@ -124,7 +124,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// 	setStore({ demo: demo });
 			// }
 
-	};
+	},
 			logout: () => {
 				sessionStorage.removeItem("token")
 				setStore({
@@ -175,7 +175,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			}
 		}
-	}
-};
+	};
 
 export default getState;
