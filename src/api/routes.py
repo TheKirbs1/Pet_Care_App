@@ -41,60 +41,77 @@ CORS(api)
 #     }
 
 #     return jsonify(response), 200
+def editUserSettings(email, password):
+    user_id = get_jwt_identity()
+    user = User.query.filter_by(id=user_id).first()
+
+    if user is None:
+        return {'msg': 'User NOT found'}, True
+
+    user.email = email
+    user.password = password
+    db.session.commit()
+
+    return {'msg': 'Congratulations, You have successfully changed your Account Settings!'}, False
+
+def deactivateOrReactivateAccount(is_active):
+    user_id = get_jwt_identity()
+    user = User.query.filter_by(id=user_id).first()
+
+    if user is None:
+        return {'msg': 'User NOT found'}, True
+
+    user.is_active = is_active
+    db.session.commit()
+
+    if is_active:
+        return {'msg': 'Congratulations, You have successfully activated your Account'}, False
+    else:
+        return {'msg': 'Congratulations, You have successfully deactivated your Account'}, False
 
 @api.route('/edit-user', methods=['PUT'])
 @jwt_required()
-def register_user():
-    user_id=get_jwt_identity()
+def edit_user():
+    user_id = get_jwt_identity()
     email = request.json.get('email', None)
     password = request.json.get('password', None)
     email = email.lower()
     user = User.query.filter_by(id=user_id).first()
 
     if user is None:
-        response ={
-            'msg' : 'User NOT found'
+        response = {
+            'msg': 'User NOT found'
         }
-        
         return jsonify(response), 404
 
-    email = email
-    password = password
+    user.email = email
+    user.password = password
     db.session.commit()
 
-    response ={
-        'msg' : f'Congratulations, You have successfully changed your Account Settings!'
+    response = {
+        'msg': 'Congratulations, You have successfully changed your Account Settings!'
     }
     return jsonify(response), 200
 
 @api.route('/deactivate-account', methods=['PUT'])
 @jwt_required()
-def register_user():
-    user_id=get_jwt_identity()
+def deactivate_account():
+    user_id = get_jwt_identity()
     is_active = request.json.get("is_active", None)
     user = User.query.filter_by(id=user_id).first()
 
     if user is None:
-        response ={
-            'msg' : 'User NOT found'
+        response = {
+            'msg': 'User NOT found'
         }
-        
         return jsonify(response), 404
 
-    user.is_active = is_active
-    db.session.commit()
-    if is_active:
-        response={
-            'msg' : f'Congratulations, You have successfully changed your Activated your Account'
-        }
-        return jsonify(response), 200
+    msg, error = deactivateOrReactivateAccount(is_active)
+    if error:
+        return jsonify({'msg': msg}), 404
     else:
-        response ={
-        'msg' : f'Congratulations, You have successfully changed your Deactivated your Account'
-        }
-        return jsonify(response), 200
-    
-# //FLUX FUNTCTION FOR EDIT AND deactivate account
+        return jsonify({'msg': msg}), 200
+
 
 @api.route('/signup', methods=['POST'])
 def register_user():
