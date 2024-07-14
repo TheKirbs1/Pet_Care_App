@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import "../../styles/pet_registration.css";
 
 export const Pet_registration = () => {
-    const {store, actions} = useContext(Context);
+    const { store, actions } = useContext(Context);
     const [name, setName] = useState("");
     const [breed, setBreed] = useState("");
     const [gender, setGender] = useState("");
@@ -11,12 +11,12 @@ export const Pet_registration = () => {
     const [spayedNeutered, setSpayedNeutered] = useState("");
     const [weight, setWeight] = useState("");
 
-    
+
     const [img, setImg] = useState("")
     const handleUpload = (e) => {
-        if(e.target.files.length == 1) {
-            setImg(URL.createObjectURL(e.target.files[0])) 
-        } 
+        if (e.target.files.length == 1) {
+            setImg(URL.createObjectURL(e.target.files[0]))
+        }
     }
     console.log(img)
 
@@ -40,6 +40,7 @@ export const Pet_registration = () => {
         setWeight("")
     }
 
+
     return (
         <>
             <div className="pet-registration">
@@ -49,17 +50,17 @@ export const Pet_registration = () => {
                         <form>
                             <div className="mb-3 fw-bold">
                                 <label htmlFor="dogName" className="form-label">Dog name</label>
-                                <input onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control" id="dogName" aria-describedby="dogName"/>
+                                <input onChange={(e) => setName(e.target.value)} value={name} type="text" className="form-control" id="dogName" aria-describedby="dogName" />
                             </div>
                             <div className="mb-4 fw-bold">
                                 <label htmlFor="dogBreed" className="form-label">Breed</label>
-                                <input onChange={(e) => setBreed(e.target.value)} value={breed} type="text" className="form-control" id="dogBreed"/>
+                                <input onChange={(e) => setBreed(e.target.value)} value={breed} type="text" className="form-control" id="dogBreed" />
                             </div>
-                            
+
                             <div className="gender-buttons mb-3">
-                            <h5 className="mb-3 mt-4">Gender</h5>
-                                <input 
-                                    onChange={(e)=> setGender("Male")}
+                                <h5 className="mb-3 mt-4">Gender</h5>
+                                <input
+                                    onChange={(e) => setGender("Male")}
                                     type="radio"
                                     value="Male"
                                     className="btn-check"
@@ -73,7 +74,7 @@ export const Pet_registration = () => {
                                 </label>
                                 <input
                                     type="radio"
-                                    onChange={(e)=> setGender("Female")}
+                                    onChange={(e) => setGender("Female")}
                                     value="Female"
                                     className="btn-check"
                                     name="options-outlined"
@@ -89,15 +90,15 @@ export const Pet_registration = () => {
                     <div className="col-md-6">
                         <form>
                             <div>
-                                <input type="file" className="form-control mb-3 mt-4" id="imageUploader" aria-describedby="uploader" onChange={(e)=>handleUpload(e)}/> 
+                                <input type="file" className="form-control mb-3 mt-4" id="imageUploader" aria-describedby="uploader" onChange={(e) => handleUpload(e)} />
                                 {img && <img src={img} height="200" width="200" alt="Uploaded Preview" />}
                             </div>
                             <div>
                                 <h5 className="mb-3 mt-4">Date of Birth</h5>
-                                <input 
-                                    type="date" 
-                                    className="ms-2" 
-                                    id="birthday" 
+                                <input
+                                    type="date"
+                                    className="ms-2"
+                                    id="birthday"
                                     name="birthday"
                                     onChange={(e) => setBirth(e.target.value)}
                                 />
@@ -136,7 +137,7 @@ export const Pet_registration = () => {
                 <div className="row">
                     <div className="col-md">
                         <div className="weight-buttons mb-3 text-center">
-                        <h5 className="mb-3 mt-4">Weight</h5>
+                            <h5 className="mb-3 mt-4">Weight</h5>
                             <input
                                 onChange={(e) => setWeight("0-25 lbs")}
                                 type="radio"
@@ -187,12 +188,13 @@ export const Pet_registration = () => {
                                 100lbs +
                             </label>
                         </div>
-                       
+
                     </div>
                 </div>
                 <div className="text-center">
-                <button onClick={(e) => handleSubmit(e)} type="submit" className="btn btn-primary save-button">Save</button>
+                    <button onClick={(e) => handleSubmit(e)} type="submit" className="btn btn-primary save-button">Save</button>
                 </div>
             </div>
         </>
-)};
+    )
+};

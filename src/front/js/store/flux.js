@@ -54,7 +54,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				return data;
 			},
-      
+
 			login: async (email, password) => {
 				let response = await fetch(process.env.BACKEND_URL + "/api/login", {
 					method: "POST",
@@ -74,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return true
 				}
 			},
-      
+
 			logout: () => {
 				sessionStorage.removeItem("token")
 				setStore({
@@ -86,7 +86,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 			},
 
-      
+
 			editUserSettings: async (email, password) => {
 				try {
 					const token = sessionStorage.getItem('token');
@@ -168,14 +168,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			savePetInfo: async (petInfo) => {
-				// let token = getStore().token;
+				let token = getStore().token;
 				try {
 					const response = await fetch(`${process.env.BACKEND_URL}api/private/pet_registration`, {
 						method: 'POST',
 						mode: 'cors',
 						headers: {
-							'Content-type': 'application/json'
-							//  Authorization: "Bearer " + token, 
+							'Content-type': 'application/json',
+							'Authorization': "Bearer " + token,
 						},
 						body: JSON.stringify(petInfo)
 					})
@@ -188,7 +188,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			getProfile: async() => {
+			getProfile: async () => {
 				let response = await fetch(process.env.BACKEND_URL + "api/private", {
 					method: 'GET',
 					mode: 'cors',
@@ -207,24 +207,45 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ user: data.user })
 					return true;
 				}
-			}, 
+			},
+			// fetchUserDogs: async (userId) => {
+			// 	try {
+			// 		const response = await fetch(process.env.BACKEND_URL + `api/user/${userId}/dogs`, {
+			// 			method: 'GET',
+			// 			headers: {
+			// 				'Content-Type': 'application/json'
+			// 			}
+			// 		});
+
+			// 		if (response.ok) {
+			// 			const data = await response.json();
+			// 			setStore({ userDogs: data.pets });
+			// 		} else {
+			// 			console.error('Failed to fetch user dogs', response.statusText);
+			// 		}
+			// 	} catch (error) {
+			// 		console.error('Error fetching user dogs', error);
+			// 	}
+			// }
 			fetchUserDogs: async (userId) => {
 				try {
-					const response = await fetch(process.env.BACKEND_URL + `api/user/${userId}/dogs`, {
+					let response = await fetch(`${process.env.BACKEND_URL}api/user/${userId}/dogs`, {
 						method: 'GET',
+						mode: 'cors',
 						headers: {
-							'Content-Type': 'application/json'
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${sessionStorage.getItem("token")}`
 						}
 					});
-
-					if (response.ok) {
-						const data = await response.json();
-						setStore({ userDogs: data.pets });
-					} else {
-						console.error('Failed to fetch user dogs', response.statusText);
+					if (!response.ok) {
+						console.error(`Error fetching user dogs: ${response.statusText}`);
+						return;
 					}
+					let data = await response.json();
+					console.log(data);
+					setStore({ userDogs: data.dogs });
 				} catch (error) {
-					console.error('Error fetching user dogs', error);
+					console.error(`Error fetching user dogs: ${error}`);
 				}
 			}
 		}

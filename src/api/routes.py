@@ -196,14 +196,20 @@ def get_all_users():
     all_users = [user.serialize() for user in users]
     return jsonify(all_users), 200
 
+
 @api.route('/user/<int:user_id>/dogs', methods=['GET'])
 def get_all_dogs(user_id):
     user = User.query.filter_by(id=user_id).first()
     if not user:
         return jsonify({'msg': 'User not found'}), 404
+    
+    # Fetch all dogs belonging to the user
     user_dogs = Dog.query.filter_by(user_id=user_id).all()
+    
+    # Serialize the list of dogs
     processed_dogs = [dog.serialize() for dog in user_dogs]
 
+    # Craft the response
     response = {
         'msg': f'Hello {user.email}, here are your registered pets.',
         'pets': processed_dogs
@@ -212,10 +218,11 @@ def get_all_dogs(user_id):
     return jsonify(response), 200
 
 @api.route('/private/pet_registration', methods=['POST'])
-# @jwt_required()
+@jwt_required()
 def add_pet():
     data = request.get_json()
-    # user_id = get_jwt_identity()
+    user_id = get_jwt_identity()
+    current_user = User.query.get(user_id)
     new_pet = Dog(
         name=data['name'],
         breed=data['breed'],
@@ -223,7 +230,7 @@ def add_pet():
         birth=data['birth'],
         spayed_neutered=data['spayedNeutered'],
         weight=data['weight'],
-        user_id=1 #replace this with user_id
+        user_id=user_id
     )
     db.session.add(new_pet)
     db.session.commit()
