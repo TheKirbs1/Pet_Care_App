@@ -8,14 +8,10 @@ import "../../styles/navbar.css";
 export const Navbar = () => {
 	const { store, actions } = useContext(Context)
 
-	const handleLinkClick = () => {
-		window.location.reload();
-	};
-
 	return (
 		<nav className="navbar">
 			<div className="nav-container container-fluid">
-				<Link to="/" id="home-logo" onClick={handleLinkClick}>
+				<Link to="/" id="home-logo">
 					<div className="logo-div">
 						<img src={simpleLogoUpdate} className="logo-img img-fluid" style={{ maxHeight: 80 }} alt="Pet Logo/Home Button" />
 					</div>
