@@ -190,27 +190,6 @@ def get_user():
     
     return jsonify({"msg": "Here is your profile info", "user" : current_user.serialize()}), 200
 
-
-# # @api.route('/user/<int:user_id>/dogs', methods=['GET'])
-# # def get_all_dogs(user_id):
-# #     user = User.query.filter_by(id=user_id).first()
-# #     if not user:
-# #         return jsonify({'msg': 'User not found'}), 404
-    
-# #     # Fetch all dogs belonging to the user
-# #     user_dogs = Dog.query.filter_by(user_id=user_id).all()
-    
-# #     # Serialize the list of dogs
-# #     processed_dogs = [dog.serialize() for dog in user_dogs]
-
-# #     # Craft the response
-# #     response = {
-# #         'msg': f'Hello {user.email}, here are your registered pets.',
-# #         'pets': processed_dogs
-#     }
-
-#     return jsonify(response), 200
-
 @api.route('/private/pet_registration', methods=['POST'])
 @jwt_required()
 def add_pet():
