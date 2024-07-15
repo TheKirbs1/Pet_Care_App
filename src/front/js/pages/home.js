@@ -11,7 +11,7 @@ export const Home = () => {
 
         //Pagination
     const [currentPage, setCurrentPage] = useState(0); 
-    const perPage = 15; 
+    const perPage = 14; 
 
 
     const [staticCards] = useState([
