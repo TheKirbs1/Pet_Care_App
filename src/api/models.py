@@ -18,6 +18,7 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
+            "dogs": [dog.serialize() for dog in self.dogs]
             # do not serialize the password, it's a security breach
         }
 
@@ -32,6 +33,7 @@ class Dog(db.Model):
     breed = db.Column(db.String(250), nullable=True)
     spayed_neutered = db.Column(db.String, nullable=True)
     weight = db.Column(db.String(250), nullable=True)
+    image = db.Column(db.String(250), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user_table.id"))
     user = db.relationship("User", back_populates="dogs")
 
@@ -47,6 +49,7 @@ class Dog(db.Model):
             "breed": self.breed,
             "spayed_neutered": self.spayed_neutered,
             "weight": self.weight,
+            "image": self.image,
         }
 
 

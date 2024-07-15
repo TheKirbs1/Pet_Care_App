@@ -205,49 +205,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let data = await response.json()
 					console.log(data)
 					setStore({ user: data.user })
-					return true;
+					return data.user;
 				}
 			},
-			// fetchUserDogs: async (userId) => {
-			// 	try {
-			// 		const response = await fetch(process.env.BACKEND_URL + `api/user/${userId}/dogs`, {
-			// 			method: 'GET',
-			// 			headers: {
-			// 				'Content-Type': 'application/json'
-			// 			}
-			// 		});
-
-			// 		if (response.ok) {
-			// 			const data = await response.json();
-			// 			setStore({ userDogs: data.pets });
-			// 		} else {
-			// 			console.error('Failed to fetch user dogs', response.statusText);
-			// 		}
-			// 	} catch (error) {
-			// 		console.error('Error fetching user dogs', error);
-			// 	}
-			// }
-			fetchUserDogs: async (userId) => {
-				try {
-					let response = await fetch(`${process.env.BACKEND_URL}api/user/${userId}/dogs`, {
-						method: 'GET',
-						mode: 'cors',
-						headers: {
-							'Content-Type': 'application/json',
-							'Authorization': `Bearer ${sessionStorage.getItem("token")}`
-						}
-					});
-					if (!response.ok) {
-						console.error(`Error fetching user dogs: ${response.statusText}`);
-						return;
-					}
-					let data = await response.json();
-					console.log(data);
-					setStore({ userDogs: data.dogs });
-				} catch (error) {
-					console.error(`Error fetching user dogs: ${error}`);
-				}
-			}
+			
 		}
 	}
 };

@@ -7,14 +7,15 @@ export const Private = () => {
     const { store, actions } = useContext(Context);
     const [authStatus, setAuthStatus] = useState("pending");
     const navigate = useNavigate();
-
+    const [user, setUser] = useState(null);
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
     useEffect(() => {
         const authenticate = async () => {
             let user = await actions.getProfile();
             if (user) {
+                setUser(user)
                 setAuthStatus("approved");
-                actions.fetchUserDogs(user.id);// try to get the user Id correctly
             } else {
                 setAuthStatus("denied");
             }
@@ -44,7 +45,7 @@ export const Private = () => {
                 </div>
             ) : authStatus === "approved" ? (
                 <div className="profile-container">
-                    {store.userDogs.map(dog => (
+                    {user?.dogs.filter((item, index) => index== selectedIndex).map(dog => (
                         <div key={dog.id}>
                             <div className="row justify-content-center">
                                 <div className="col-md-4">
@@ -78,7 +79,11 @@ export const Private = () => {
                                                 <p className="mt-1">Add a Pet</p>
                                             </button>
                                         </Link>
-                                        <button className="btn text-primary switch-button">
+                                        <button onClick={() => {
+                                            if(selectedIndex == user.dogs.length -1) {
+                                                setSelectedIndex(0)
+                                            } else {setSelectedIndex(selectedIndex +1)}
+                                        }} className="btn text-primary switch-button">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                 <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5" />
                                             </svg>
