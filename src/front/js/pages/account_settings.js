@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import simpleLogo from "../../img/simpleLogo.png";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom"
 
 
 export const Account_settings = () => {
@@ -9,11 +10,21 @@ export const Account_settings = () => {
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState(null);
     const [passwordError, setPasswordError] = useState(null);
+    const [dogs, setDogs] = useState([]);
 
     useEffect(() => {
-        setEmail(store.userEmail || "");
-        setPassword(store.userPassword || "");
-    }, [store.userEmail, store.userPassword]);
+       fetch(process.env.BACKEND_URL+"api/private",{
+        headers:{
+            Authorization:"Bearer "+sessionStorage.getItem("token")
+        }
+       })
+       .then(resp => resp.json())
+       .then(data => {
+        setEmail(data.user.email)
+        setPassword(data.user.password)
+        setDogs(data.user.dogs)
+       }) .catch (error => console.log(error))
+    }, []);
 
     const validateEmail = () => {
         if (!email) {
@@ -88,7 +99,7 @@ export const Account_settings = () => {
                     <label>EDIT EMAIL:</label>
                     <input
                         type="email"
-                        placeholder={store.userEmail || "Enter your email"}
+                        placeholder={email || "Enter your email"}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
@@ -98,7 +109,7 @@ export const Account_settings = () => {
                     <label className="pt-1">EDIT PASSWORD:</label>
                     <input
                         type="password"
-                        placeholder={store.userPassword || "Enter your password"}
+                        placeholder={password || "Enter your password"}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -113,8 +124,10 @@ export const Account_settings = () => {
 
             <div className="d-flex justify-content-center align-items-center vstack">
                 <b>PETS!</b>
-                <h6><button type="button" className="btn btn-link">GOLDEN RETRIVER</button></h6>
-                <h6><button type="button" className="btn btn-link">DALMATION</button></h6>
+                {dogs?.map((dog, index) => {
+                    return(<Link to={"/private/edit_pet/"+dog.id}className="d-flex"><h6><button type="button" className="btn btn-link">{dog.name}</button></h6></Link>)
+                })}
+               
             </div>
 
             <div className="d-flex justify-content-center">

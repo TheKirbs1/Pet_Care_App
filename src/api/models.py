@@ -18,6 +18,7 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
+            "dogs": [dog.serialize()for dog in self.dogs]
             # do not serialize the password, it's a security breach
         }
 
