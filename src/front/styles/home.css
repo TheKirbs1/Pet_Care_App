@@ -8,13 +8,13 @@
 
 .card {
     position: relative;
-    border: 2px solid gray;
+    border: 1px solid rgb(104, 109, 118);
     text-align: center;
     align-items: center;
     justify-content: space-evenly;
     box-sizing: border-box;
     height: 100% !important;
-    background-color: bisque;
+    background-color: #f5f5dc;
     overflow: hidden; 
 }
 
@@ -50,17 +50,25 @@ img {
 
 .learnMoreBtn {
     background-color: rgb(220, 95, 0);
+    height: 35px;
+    width: 110px;
 }
 
+.bredFor {
+    margin: 0 10px 50px 10px;
+}
 
 .card:hover {
     border: 2px solid darkgray;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: 0.6s;
+    transition: 0.3s;
 }
 
 .search_Cards {
-    background-color: bisque;
+    /* background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; */
+    background-color: #f5f5dc;
 }
 
 .homeHeader {
@@ -70,7 +78,12 @@ img {
 
 .headerImg {
     margin: 0 0 50px 0;
+    height: 250px;
+    width: 350px;
 }
-.bredFor {
-    margin: 0 10px 50px 10px;
+
+.headerCard-title{
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 25px;
 }

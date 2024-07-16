@@ -49,6 +49,10 @@ export const Home = () => {
                 ...dog,
                 bred_for: dog.bred_for || "Companionship"
             }));
+            const pitbull = dogsWithDefaultBredFor.find(dog => dog.name === "American Pit Bull Terrier");
+            if (pitbull) {
+            pitbull.image_url = "https://cdn2.thedogapi.com/images/HkC31gcNm.png";
+        }
             setDogs(dogsWithDefaultBredFor);
         } catch (error) {
             console.error(error);
@@ -93,9 +97,7 @@ export const Home = () => {
                         <div className="col-md-2">
                         <div className="header-card-body">
 
-                                {/* replace with picture title */}
                                      <h5 className="headerCard-title">petPal</h5>
-
 
                             <p className="headerCard-text">Welcome to petPal! Get the insight you need to give your pet it's best life! From general breed facts, down to your own dogs needs, petPal is here to help every step of the way!</p>
                         </div>
@@ -150,7 +152,7 @@ export const Home = () => {
                     {currentPageData.map((dog) => (
                         <div key={dog.id} className="card" style={{ width: "18rem" }}>
                             <img
-                                src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
+                                src={dog.image_url || `https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
                                 className="card-img-top"
                                 alt={dog.name}
                             />
