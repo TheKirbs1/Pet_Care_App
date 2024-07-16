@@ -167,26 +167,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			savePetInfo: async (petInfo) => {
-				let token = getStore().token;
-				try {
-					const response = await fetch(`${process.env.BACKEND_URL}api/private/pet_registration`, {
-						method: 'POST',
-						mode: 'cors',
+			savePetInfo: async (dog) => {
+					let data = JSON.stringify({name:dog.name, breed:dog.breed, birth:dog.birth, spayedNeutered: dog.spayedNeutered, gender: dog.gender, weight: dog.weight})
+					let formData = new FormData();
+					formData.append("data", data);
+					formData.append("file", dog.image);
+					
+	
+					const response = await fetch(process.env.REACT_APP_BACKEND_URL + "api/private/pet_registration", {
+						method: "POST",
 						headers: {
-							'Content-type': 'application/json',
-							'Authorization': "Bearer " + token,
+							Authorization: "Bearer " + sessionStorage.getItem("token")
 						},
-						body: JSON.stringify(petInfo)
+						body: formData
 					})
-					const data = await response.json();
-					console.log('Pet information saved:', data)
-					setStore({ petInfo: data })
-				} catch (error) {
-					console.error('Error saving pet information:', error)
-				}
-
-			},
+					if (response.status !== 201) return false;
+					const responseBody = await response.json();
+					console.log(responseBody)
+					return true;
+				},
 
 			getProfile: async () => {
 				let response = await fetch(process.env.BACKEND_URL + "api/private", {

@@ -10,34 +10,43 @@ export const Pet_registration = () => {
     const [birth, setBirth] = useState(null);
     const [spayedNeutered, setSpayedNeutered] = useState("");
     const [weight, setWeight] = useState("");
+    const [imageSizeError, setImageSizeError] = useState(false);
+    const [uploadImage, setUploadImage] = useState(null)
 
-
-    const [img, setImg] = useState("")
-    const handleUpload = (e) => {
-        if (e.target.files.length == 1) {
-            setImg(URL.createObjectURL(e.target.files[0]))
+    const handleImageUpload = (event) => {
+        const files = event.target.files;
+        let file_size = files[0].size;
+        if (file_size <= 100000) {
+            setImageSizeError(false)
+            
+            setUploadImage(files[0]);
+        } else {
+            setImageSizeError(true)
         }
-    }
-    console.log(img)
+    };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(name, breed, gender, birth, spayedNeutered, weight)
-        let formData = {
+    const handleSubmit = async () => {
+        let dog = {
             name: name,
             breed: breed,
             gender: gender,
             birth: birth,
             spayedNeutered: spayedNeutered,
-            weight: weight
+            weight: weight,
+            image: uploadImage
         }
-        await actions.savePetInfo(formData)
+        let success = await actions.savePetInfo(dog) 
+        if (success) {
         setName("")
         setBreed("")
         setGender("")
         setBirth("")
         setSpayedNeutered("")
         setWeight("")
+        setUploadImage(null)
+        } else {
+            alert("An error ocurred while adding your dog to your account. Please, try again later.")
+        }
     }
 
 
@@ -90,8 +99,16 @@ export const Pet_registration = () => {
                     <div className="col-md-6">
                         <form>
                             <div>
-                                <input type="file" className="form-control mb-3 mt-4" id="imageUploader" aria-describedby="uploader" onChange={(e) => handleUpload(e)} />
-                                {img && <img src={img} height="200" width="200" alt="Uploaded Preview" />}
+                                <input
+                                    type="file"
+                                    className="form-control"
+                                    id="imageInput"
+                                    aria-describedby="inputGroupFileAddon04"
+                                    aria-label="Upload"
+
+                                    onChange={handleImageUpload}
+                                />
+                                {uploadImage ? (<img src={uploadImage} height="200" width="200" alt="Uploaded Preview" />) : (<img src="https://static.vecteezy.com/system/resources/thumbnails/005/857/332/small_2x/funny-portrait-of-cute-corgi-dog-outdoors-free-photo.jpg"/>)}
                             </div>
                             <div>
                                 <h5 className="mb-3 mt-4">Date of Birth</h5>

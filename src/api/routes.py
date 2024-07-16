@@ -11,6 +11,10 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 
+import cloudinary.uploader as uploader
+from cloudinary.uploader import destroy
+from cloudinary.api import delete_resources_by_tag
+
 api = Blueprint('api', __name__)
 
 # Allow CORS requests to this API
@@ -207,6 +211,15 @@ def add_pet():
     )
     db.session.add(new_pet)
     db.session.commit()
+    db.session.refresh(new_pet)
+    images = request.files.getlist("file")
+    for image_file in images:
+        response = uploader.upload(image_file)
+        print(f"{response.items()}")
+        image_url=response["secure_url"]
+        new_pet.image = image_url
+        db.session.commit()
+        db.session.refresh(new_pet)
     
     response = {
         'msg': f'Your pet has been successfully registered!',
