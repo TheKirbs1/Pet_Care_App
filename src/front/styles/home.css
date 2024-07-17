@@ -74,12 +74,13 @@ img {
 .homeHeader {
     background-color: rgb(104, 109, 118);
     color: white;
+    pointer-events: none;
 }
 
 .headerImg {
     margin: 0 0 50px 0;
-    height: 250px;
-    width: 350px;
+    height: auto;
+    width: auto;
 }
 
 .headerCard-title{
@@ -87,3 +88,7 @@ img {
     margin-top: 50px;
     margin-bottom: 25px;
 }
+
+/* .paginate {
+    
+} */
