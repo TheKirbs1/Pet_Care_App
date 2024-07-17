@@ -3,11 +3,11 @@ import "../../styles/footer.css";
 
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 px-3 text-center text-body-secondary mt-2">
+		
 		<div className="hstack justify-content-between text-secondary">
 			<div className="d-flex align-items-center text-body-secondary">
-				<h6 className="me-2 text-body-secondary">About US</h6>
-				<a href="/about_us" className="text-primary"><i className="fa-solid fa-address-card style=color: #000000;"></i></a>
-				<h6 className="me-2 text-body-secondary">Contact Us</h6>
+			<b className="text-dark">STAY IN THE KNOW</b>
+				<a href="/about_us" className="text-primary mx-2"><i className="fa-solid fa-address-card style=color: #000000;"></i></a>
 				<a href="mailto:pal4Pets@doglover.com?subject=Hello&body=This is the email body." className="text-primary"><i className="fa-solid fa-envelope style=color: #000000;"></i></a>
 			</div>
 			<div className="text-body-secondary">
