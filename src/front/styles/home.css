@@ -65,9 +65,6 @@ img {
 }
 
 .search_Cards {
-    /* background-image: url("../img/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat; */
     background-color: #f5f5dc;
 }
 
@@ -89,6 +86,3 @@ img {
     margin-bottom: 25px;
 }
 
-/* .paginate {
-    
-} */
