@@ -33,9 +33,11 @@ class Dog(db.Model):
     breed = db.Column(db.String(250), nullable=True)
     spayed_neutered = db.Column(db.String, nullable=True)
     weight = db.Column(db.String(250), nullable=True)
-    image = db.Column(db.String(250), nullable=True)
+    # image = db.Column(db.String(250), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user_table.id"))
     user = db.relationship("User", back_populates="dogs")
+    avatar = db.Column(db.Text)
+
 
     def __repr__(self):
         return f'<Dog {self.name}>'
@@ -49,7 +51,7 @@ class Dog(db.Model):
             "breed": self.breed,
             "spayed_neutered": self.spayed_neutered,
             "weight": self.weight,
-            "image": self.image,
+            "avatar": self.avatar,
         }
 
 

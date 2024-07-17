@@ -12,19 +12,41 @@ export const Pet_registration = () => {
     const [weight, setWeight] = useState("");
     const [imageSizeError, setImageSizeError] = useState(false);
     const [uploadImage, setUploadImage] = useState(null)
+    const [file, setFile] = useState();
+    const [avatar, setAvatar] = useState(null);
 
-    const handleImageUpload = (event) => {
-        const files = event.target.files;
-        let file_size = files[0].size;
-        if (file_size <= 100000) {
-            setImageSizeError(false)
+    // const handleImageUpload = (event) => {
+    //     const files = event.target.files;
+    //     let file_size = files[0].size;
+    //     if (file_size <= 100000) {
+    //         setImageSizeError(false)
             
-            setUploadImage(files[0]);
-        } else {
-            setImageSizeError(true)
+    //         setUploadImage(files[0]);
+    //     } else {
+    //         setImageSizeError(true)
+    //     }
+    // };
+    async function uploadPhoto(e) {
+        const file = e.target.files[0];
+        if (file.size > 3145728) {
+          // 3 MB in bytes
+          alert("File is too large. Maximum file size is 3MB.");
+          return; // Exit the function if file is too large
         }
-    };
-
+        const reader = new FileReader();
+        reader.onload = () => {
+          const base64String = reader.result;
+          // Check the size of base64 String, if necessary
+          if (base64String.length > 3145728 * 1.37) {
+            // Adjusting for base64 size increase
+            alert("File is too large after conversion. Try a smaller file.");
+            return;
+          }
+          setAvatar(base64String);
+        };
+        reader.readAsDataURL(file);
+        setFile(URL.createObjectURL(file));
+      }
     const handleSubmit = async () => {
         let dog = {
             name: name,
@@ -33,7 +55,7 @@ export const Pet_registration = () => {
             birth: birth,
             spayedNeutered: spayedNeutered,
             weight: weight,
-            image: uploadImage
+            avatar: uploadImage
         }
         let success = await actions.savePetInfo(dog) 
         if (success) {
@@ -43,7 +65,7 @@ export const Pet_registration = () => {
         setBirth("")
         setSpayedNeutered("")
         setWeight("")
-        setUploadImage(null)
+        setAvatar(null)
         } else {
             alert("An error ocurred while adding your dog to your account. Please, try again later.")
         }
@@ -106,9 +128,9 @@ export const Pet_registration = () => {
                                     aria-describedby="inputGroupFileAddon04"
                                     aria-label="Upload"
 
-                                    onChange={handleImageUpload}
+                                    onChange={uploadPhoto}
                                 />
-                                {uploadImage ? (<img src={uploadImage} height="200" width="200" alt="Uploaded Preview" />) : (<img src="https://static.vecteezy.com/system/resources/thumbnails/005/857/332/small_2x/funny-portrait-of-cute-corgi-dog-outdoors-free-photo.jpg"/>)}
+                                {uploadImage ? (<img src={store.dog?.avatar} height="200" width="200" alt="Uploaded Preview" />) : (<img src="https://static.vecteezy.com/system/resources/thumbnails/005/857/332/small_2x/funny-portrait-of-cute-corgi-dog-outdoors-free-photo.jpg"/>)}
                             </div>
                             <div>
                                 <h5 className="mb-3 mt-4">Date of Birth</h5>

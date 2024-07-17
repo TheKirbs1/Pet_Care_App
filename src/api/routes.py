@@ -207,13 +207,14 @@ def add_pet():
         birth=data['birth'],
         spayed_neutered=data['spayedNeutered'],
         weight=data['weight'],
-        user_id=user_id
+        user_id=user_id,
+        avatar=data['avatar']
     )
     db.session.add(new_pet)
     db.session.commit()
     db.session.refresh(new_pet)
-    images = request.files.getlist("file")
-    for image_file in images:
+    avatar = request.files.getlist("file")
+    for image_file in avatar:
         response = uploader.upload(image_file)
         print(f"{response.items()}")
         image_url=response["secure_url"]

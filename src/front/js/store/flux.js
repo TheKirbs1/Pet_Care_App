@@ -168,10 +168,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			savePetInfo: async (dog) => {
-					let data = JSON.stringify({name:dog.name, breed:dog.breed, birth:dog.birth, spayedNeutered: dog.spayedNeutered, gender: dog.gender, weight: dog.weight})
+					let data = JSON.stringify({name:dog.name, breed:dog.breed, birth:dog.birth, spayedNeutered: dog.spayedNeutered, gender: dog.gender, weight: dog.weight, avatar: dog.avatar})
 					let formData = new FormData();
 					formData.append("data", data);
-					formData.append("file", dog.image);
+					formData.append("file", dog.avatar);
 					
 	
 					const response = await fetch(process.env.REACT_APP_BACKEND_URL + "api/private/pet_registration", {
