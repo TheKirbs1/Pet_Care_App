@@ -3,20 +3,19 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 10px;
-    margin-left: 25px;
-}
-
-div.card {
-    overflow: hidden;
+    margin-left: 55px;
 }
 
 .card {
-    border: 2px solid gray;
+    position: relative;
+    border: 1px solid rgb(104, 109, 118);
     text-align: center;
     align-items: center;
     justify-content: space-evenly;
     box-sizing: border-box;
     height: 100% !important;
+    background-color: #f5f5dc;
+    overflow: hidden; 
 }
 
 img {
@@ -24,19 +23,66 @@ img {
     width: 250px;
     object-fit: cover;
     cursor: pointer;
-  }
+}
 
-  .btn{
-     margin-right: 30px;
-  }
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; 
+    padding-bottom: 1rem; 
+}
 
-  .card:hover{
+.card-text {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.card-buttons {
+    position: absolute;
+    bottom: 10px; 
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem; 
+}
+
+.learnMoreBtn {
+    background-color: rgb(220, 95, 0);
+    height: 35px;
+    width: 110px;
+}
+
+.bredFor {
+    margin: 0 10px 50px 10px;
+}
+
+.card:hover {
     border: 2px solid darkgray;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: 0.6s;
-  }
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
 
-  .favorite-btn{
-      margin-top: 32px;
-  }
+.search_Cards {
+    background-color: #f5f5dc;
+}
+
+.homeHeader {
+    background-color: rgb(104, 109, 118);
+    color: white;
+    pointer-events: none;
+}
+
+.headerImg {
+    margin: 0 0 50px 0;
+    height: auto;
+    width: auto;
+}
+
+.headerCard-title{
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
 
