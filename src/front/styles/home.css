@@ -3,7 +3,16 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 10px;
-    margin-left: 55px;
+    margin-left: 55px;    
+}
+
+@keyframes moveIt {
+    from {background-position: bottom left;}
+    to {background-position: top right;}
+}
+
+.search_Cards { 
+    animation: moveIt 30s linear infinite;
 }
 
 .card {
@@ -64,18 +73,18 @@ img {
     transition: 0.3s;
 }
 
-.search_Cards {
-    background-color: #f5f5dc;
-}
+
 
 .homeHeader {
-    background-color: rgb(104, 109, 118);
+    background: linear-gradient(to bottom, rgb(104, 109, 118), rgb(220, 95, 0));
     color: white;
     pointer-events: none;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 .headerImg {
-    margin: 0 0 50px 0;
+    margin: 50px 0 50px 0;
     height: auto;
     width: auto;
 }

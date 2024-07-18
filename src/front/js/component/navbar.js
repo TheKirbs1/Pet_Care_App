@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import simpleLogoUpdate from "../../img/simpleLogoUpdate.png";
+import LogoOption1 from "../../img/LogoOption1.png"
+import LogoOption2 from "../../img/LogoOption2.png"
 
 import "../../styles/navbar.css";
 
@@ -13,7 +15,7 @@ export const Navbar = () => {
 			<div className="nav-container container-fluid">
 				<Link to="/" id="home-logo">
 					<div className="logo-div">
-						<img src={simpleLogoUpdate} className="logo-img img-fluid" style={{ maxHeight: 80 }} alt="Pet Logo/Home Button" />
+						<img src={LogoOption2} className="logo-img img-fluid" style={{ maxHeight: 120 }} alt="Pet Logo/Home Button" />
 					</div>
 				</Link>
 				<div className="join-now ms-auto">
