@@ -3,7 +3,16 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 10px;
-    margin-left: 55px;
+    margin-left: 55px;    
+}
+
+@keyframes moveIt {
+    from {background-position: bottom left;}
+    to {background-position: top right;}
+}
+
+.search_Cards { 
+    animation: moveIt 30s linear infinite;
 }
 
 .card {
@@ -49,9 +58,12 @@ img {
 }
 
 .learnMoreBtn {
-    background-color: rgb(220, 95, 0);
+    background-color: rgb(72, 169, 166);
     height: 35px;
     width: 110px;
+}
+.learnMoreBtn:hover {
+    background-color: rgb(41, 99, 97);
 }
 
 .bredFor {
@@ -64,25 +76,40 @@ img {
     transition: 0.3s;
 }
 
-.search_Cards {
-    background-color: #f5f5dc;
-}
+
 
 .homeHeader {
-    background-color: rgb(104, 109, 118);
+    background: linear-gradient(to bottom, rgb(104, 109, 118), rgb(220, 95, 0));
     color: white;
     pointer-events: none;
+    padding-bottom: 5px;
 }
 
 .headerImg {
-    margin: 0 0 50px 0;
+    margin: 50px 0 50px 0;
     height: auto;
     width: auto;
 }
 
 .headerCard-title{
-    margin-left: 100px;
-    margin-top: 50px;
-    margin-bottom: 25px;
+
+    margin-top: 30px;
+    margin-bottom: 15px;
+    width: 85%;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    font-family: "Bodoni Moda SC";
+    letter-spacing: 2px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
+.headerCard-text {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    letter-spacing: 1px;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 85%;
+}

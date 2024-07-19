@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import "../../styles/home.css";
 import header_pups from "../../img/header_pups.png";
+import background from "../../img/background11.png";
 
 export const Home = () => {
     
@@ -97,26 +98,29 @@ export const Home = () => {
         return (
         <>
         <section>
+        <div className="search_Cards" style={{  
+            backgroundImage: "url(" + background + ")",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'repeat'            
+          }}>
             <div className="homeHeader">
                 <div className="headerCard">
                     <div className="row g-0">
-                        <div className="col-md-4"></div>
-                        <div className="col-md-2">
-                            <img src={header_pups} className="headerImg img-fluid rounded-start" alt="Dog and its pup playing in a field" />
-                        </div>
-                        <div className="col-md-2">
+                        <div className="col-md-3"></div>
+
+                        <div className="col-md-6">
                         <div className="header-card-body">
 
-                                     <h5 className="headerCard-title">petPal</h5>
+                                     <h1 className="headerCard-title">Welcome to the evolution of pet care!</h1>
 
-                            <p className="headerCard-text">Welcome to petPal! Get the insight you need to give your pet it's best life! From general breed facts, down to your own dogs needs, petPal is here to help every step of the way!</p>
+                            <p className="headerCard-text">We are here to give the insight you need to give your pet it's best life! From general breed facts, down to your own dogs needs, petPal is here to help every step of the way!</p>
                         </div>
                         </div>
-                        <div className="col-md-4"></div>
+                        <div className="col-md-3"></div>
                     </div>
                 </div>
-            </div>
-            <div className="search_Cards">
+            </div>            
                 <form onSubmit={handleClick}>
                     <div className="container-fluid">
                         <div className="input-group rounded w-25 py-5 container d-flex justify-content-center">
@@ -137,7 +141,6 @@ export const Home = () => {
                         </div>
                     </div>
                 </form>
-
                 <div className="card-container">
                         {!displaySearch && currentPage === 0 && mixedCards.map((card) => (
                             <div className="card" key={card.id} style={{ width: "18rem" }}>
@@ -158,7 +161,6 @@ export const Home = () => {
                                 </div>
                             </div>
                         ))}
-
                     {currentPageData.map((dog) => (
                         <div key={dog.id} className="card" style={{ width: "18rem" }}>
                             <img
@@ -184,10 +186,7 @@ export const Home = () => {
                             </div>
                         </div>
                     ))}
-
                 </div>
-
-
                 <div className="paginate">
                     <ReactPaginate
                         previousLabel={'previous'}
