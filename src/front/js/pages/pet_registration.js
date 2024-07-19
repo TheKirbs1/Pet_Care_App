@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
 import "../../styles/pet_registration.css";
 
 export const Pet_registration = () => {
@@ -13,6 +14,7 @@ export const Pet_registration = () => {
     const [imageSizeError, setImageSizeError] = useState(false);
     const [uploadImage, setUploadImage] = useState(null)
     const [avatar, setAvatar] = useState(null);
+    const navigate = useNavigate();
 
     const handleImageUpload = (event) => {
         const files = event.target.files;
@@ -46,11 +48,12 @@ export const Pet_registration = () => {
             setSpayedNeutered("")
             setWeight("")
             setAvatar(null)
+            alert("Dog Successfully registered!");
+            navigate("/private")
         } else {
             alert("An error ocurred while adding your dog to your account. Please, try again later.")
         }
     }
-
 
     return (
         <>
