@@ -173,8 +173,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					formData.append("data", data);
 					formData.append("file", dog.avatar);
 					
-	
-					const response = await fetch(process.env.REACT_APP_BACKEND_URL + "api/private/pet_registration", {
+					const response = await fetch(process.env.BACKEND_URL + "api/private/pet_registration", {
 						method: "POST",
 						headers: {
 							Authorization: "Bearer " + sessionStorage.getItem("token")
