@@ -52,11 +52,11 @@ ul {
 }
 
 .join-now {
-    background-color:  rgb(220, 95, 0);
+    background-color:  rgb(72, 169, 166);
     border-radius: 10%;   
 }
 .join-now:hover {
-    background-color: rgb(72, 169, 166);
+    background-color: rgb(54, 131, 128);
 }
 
 .join-now-btn{

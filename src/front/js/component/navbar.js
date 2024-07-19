@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import simpleLogoUpdate from "../../img/simpleLogoUpdate.png";
-import LogoOption1 from "../../img/LogoOption1.png"
 import LogoOption2 from "../../img/LogoOption2.png"
 
 import "../../styles/navbar.css";
