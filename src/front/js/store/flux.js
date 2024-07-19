@@ -168,7 +168,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			savePetInfo: async (dog) => {
-					let data = JSON.stringify({name:dog.name, breed:dog.breed, birth:dog.birth, spayedNeutered: dog.spayedNeutered, gender: dog.gender, weight: dog.weight, avatar: dog.avatar})
+					let data = JSON.stringify({name:dog.name, breed:dog.breed, birth:dog.birth, spayedNeutered: dog.spayedNeutered, gender: dog.gender, weight: dog.weight})
 					let formData = new FormData();
 					formData.append("data", data);
 					formData.append("file", dog.avatar);

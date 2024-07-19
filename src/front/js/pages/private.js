@@ -33,8 +33,9 @@ export const Private = () => {
         }
         return age;
     }
-
+    console.log(authStatus);
     return (
+
         <div>
             {authStatus === "pending" ? (
                 <p>Loading...</p>
@@ -45,7 +46,7 @@ export const Private = () => {
                 </div>
             ) : authStatus === "approved" ? (
                 <div className="profile-container">
-                    {user?.dogs.filter((item, index) => index== selectedIndex).map(dog => (
+                    {user?.dogs.filter((item, index) => index == selectedIndex).map(dog => (
                         <div key={dog.id}>
                             <div className="row justify-content-center">
                                 <div className="col-md-4">
@@ -60,7 +61,7 @@ export const Private = () => {
                                 <div className="col-md-4 ml-auto mr-auto">
                                     <div className="profile-picture d-flex flex-column justify-items-center align-items-center">
                                         <img
-                                            src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*"
+                                            src={dog.avatar ? dog.avatar : "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*"}
                                             alt="profile picture"
                                             className="img-fluid rounded-circle w-50"
                                         />
@@ -80,9 +81,9 @@ export const Private = () => {
                                             </button>
                                         </Link>
                                         <button onClick={() => {
-                                            if(selectedIndex == user.dogs.length -1) {
+                                            if (selectedIndex == user.dogs.length - 1) {
                                                 setSelectedIndex(0)
-                                            } else {setSelectedIndex(selectedIndex +1)}
+                                            } else { setSelectedIndex(selectedIndex + 1) }
                                         }} className="btn text-primary switch-button">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
                                                 <path fillRule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5" />
@@ -117,12 +118,10 @@ export const Private = () => {
                             </div>
                         </div>
                     ))}
-
                 </div>
             ) : (
                 <p> A problem has ocurred.</p>
-            )
-            }
+            )}
         </div>
-    )
+    );
 };
