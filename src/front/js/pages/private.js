@@ -38,7 +38,20 @@ export const Private = () => {
 
         <div>
             {authStatus === "pending" ? (
-                <p>Loading...</p>
+                <div
+                    className="progress"
+                    role="progressbar"
+                    aria-label="Animated striped example"
+                    aria-valuenow={75}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                >
+                    <div
+                        className="progress-bar progress-bar-striped progress-bar-animated"
+                        style={{ width: "75%" }}
+                    />
+                </div>
+
             ) : authStatus === "denied" ? (
                 <div className="text-center mt-5">
                     <p>Access Denied. Please sign in to view this page.</p>

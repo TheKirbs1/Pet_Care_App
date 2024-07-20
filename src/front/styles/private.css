@@ -27,9 +27,3 @@
     border-left: 4px solid gray;
     border-radius: 2px; 
 } 
-
-.reminders-button {
-    position: absolute;
-    bottom: 150px;
-    margin-left: 100px;
-}
