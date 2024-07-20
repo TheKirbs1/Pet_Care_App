@@ -155,9 +155,21 @@ export const Account_settings = () => {
 
                 <div className="profileSettings mx-5 mt-5 border border-rounded">
                     <div className="d-flex justify-content-center mt-2"><p>Profile Settings</p></div>
+                        <div className="hstack justify-content-between px-5">
+                            <p>Terms of Use</p>
+                    <Link to="/terms_of_use">Terms of Use</Link>
 
-                    <div className="d-flex justify-content-end mt-3 px-5 mb-5">
+                    </div>
 
+                    <div className="hstack justify-content-between px-5">
+                            <p>Privacy Policy</p>
+                    <Link to="/privacy_policy">Privacy Policy</Link>
+
+                    </div>
+
+
+                    <div className="d-flex justify-content-end mt-3 px-5 mb-5 justify-content-between ">
+                    <h6 className="text-dark me-4">{store.isAccountActive ? "Deactivate Account" : "Reactivate Account"}</h6>
 
                         <button
                             type="button"

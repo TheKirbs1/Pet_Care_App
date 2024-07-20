@@ -16,6 +16,8 @@ import { Sml_Mixed_Breed_Details } from "./pages/sml_mixed_breed_details";
 import { Med_Mixed_Breed_Details } from "./pages/med_mixed_breed_details";
 import { Lrg_Mixed_Breed_Details } from "./pages/lrg_mixed_breed_details";
 import { Account_settings } from "./pages/account_settings";
+import { Terms_Of_Use } from "./pages/terms_of_use";
+import { Privacy_Policy } from "./pages/privacy_policy";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -48,6 +50,8 @@ const Layout = () => {
                         <Route element={<Sml_Mixed_Breed_Details />} path="/SmixedBreed" />
                         <Route element={<Med_Mixed_Breed_Details />} path="/MmixedBreed" />
                         <Route element={<Lrg_Mixed_Breed_Details />} path="/LmixedBreed" />
+                        <Route element={<Terms_Of_Use />} path="/terms_of_use"/>
+                        <Route element={<Privacy_Policy />} path="/privacy_policy"/>
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
