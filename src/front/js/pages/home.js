@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import "../../styles/home.css";
-import header_pups from "../../img/header_pups.png";
 import background from "../../img/background11.png";
 import { Context } from "../store/appContext";
 
 export const Home = () => {
 
     const [dogs, setDogs] = useState([]);
+    const [allDogs, setAllDogs] = useState([]);
     const [mySearch, setMySearch] = useState("");
     const [displaySearch, setDisplaySearch] = useState(false);
     const [currentPage, setCurrentPage] = useState(0);
@@ -66,6 +66,7 @@ export const Home = () => {
             }
 
             setDogs(dogsWithDefaultBredFor);
+            setAllDogs(dogsWithDefaultBredFor);
         } catch (error) {
             console.error(error);
         }
@@ -73,6 +74,10 @@ export const Home = () => {
 
 
     const filterSearch = async () => {
+        if (mySearch.trim() === "") {
+            resetSearch();
+            return;
+        }
         try {
             const res = await fetch(`https://api.thedogapi.com/v1/breeds/search?q=${mySearch}`);
             const data = await res.json();
@@ -101,6 +106,13 @@ export const Home = () => {
         return store.favoriteDog.some(favDog => favDog.name === dog.name);
     };
 
+    const resetSearch = () => {
+        setDogs(allDogs);
+        setMySearch("");
+        setDisplaySearch(false);
+        setCurrentPage(0);
+    };
+
     return (
         <>
             <section>
@@ -113,7 +125,9 @@ export const Home = () => {
                     <div className="homeHeader">
                         <div className="headerCard">
                             <div className="row g-0">
-                                <div className="col-md-3"></div>
+                                <div className="col-md-3">
+                                   
+                                </div>
 
                                 <div className="col-md-6">
                                     <div className="header-card-body">
@@ -140,6 +154,7 @@ export const Home = () => {
                                     aria-describedby="search-addon"
                                     value={mySearch}
                                     onChange={(e) => setMySearch(e.target.value)}
+
                                 />
                                 <span className="input-group-text border-0" id="search-addon">
                                     <i className="fas fa-search" onClick={handleClick}></i>
