@@ -14,7 +14,37 @@
 }
 
 .fullFormContainer {border-radius: 15px;
+   
     
+}
+
+.accountSettingsTitle {
+    font-family: fantasy;
+    font-size: 4rem; 
+    text-decoration-line:  rgba(220, 95, 0, 0.822);   
+}
+
+.fullDiv {
+    background-color: blanchedalmond;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    
+}
+
+.userSettingsDiv {
+    background-color: white;
+
+}
+
+.myPetsDiv{
+    background-color: white;
+}
+
+.profileSettings{
+    background-color: white;
+
 }
 
 
