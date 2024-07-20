@@ -1,28 +1,32 @@
-.full-container {
-    background-color: rgb(220, 95, 0);
-    border-color: rgb(55, 58, 64); 
-    border-radius: 35px;
-    box-shadow:  
-    0 0 50px 10px rgb(238, 238, 238),
-    0 0 50px 30px rgb(72, 169, 166),
-    0 0 100px 60px rgb(104, 109, 118),
-    0 0 140px 90px rgb(220, 95, 0); 
+.everythingDiv {
+    background-color: blanchedalmond;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .signupForm {
     font-family: "Gill Sans", sans-serif;
-    background-color: rgb(104, 109, 118);
     width: 100%;
+    height: 100%;
+}
+
+.signupFullDiv {
+    padding: 0;
+}
+
+.fullSignupContainer {
+    padding: 0; 
 }
 
 .signup-btn{
+    margin-top: 20px;
+    width: 65%;
     overflow: hidden;
-    background-color:  rgb(55, 58, 64); 
-    border-color: rgb(72, 169, 166);
+    background-color:   rgb(220, 95, 0);
 }
 
 .signup-btn:hover{
-    background-color: rgb(104, 109, 118);
+    background-color: rgba(220, 95, 0, 0.822);
     box-shadow: 0 0 10px 10px rgb(72, 169, 166)
 }
 
@@ -38,5 +42,47 @@
     font-family: fantasy;
     font-size: 4rem; 
     text-align: center; 
-    margin-top: 10px; 
+    margin-top: 10px;
+    position: relative;     
+}
+
+.signUpTitle::after {
+    content: ' ';
+    display: block;
+    width: 50%; 
+    border: 2px solid rgb(220, 95, 0);
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    position: absolute;
+    bottom: -8px; 
+    left: 25%;
+}
+
+.carouselContainer, .signupFormContainer {
+    flex: 1; 
+    height: 80%; 
+    border-radius: 5%; 
+}
+
+.carouselContainer {
+    border-radius: 5% 0% 0% 5%; 
+    padding: 0;
+}
+
+.signupFormContainer {
+    background-color:white;
+    border-radius: 0% 5% 5% 0%;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 5% 0% 0% 5%;
+}
+
+.bothCards {
+    margin-top: 20px;
+    display: flex; 
+    justify-content: center; 
 }
