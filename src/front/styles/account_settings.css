@@ -1,9 +1,20 @@
-.orange-button {
-    background-color: orange !important;
-    border-color: orange !important;
+
+.save-btn{
+    margin-top: 20px;
+    width: 100%;
+    overflow: hidden;
+    background-color:   rgb(220, 95, 0);
+    border-color: rgb(220, 95, 0);;
+    
 }
 
-.orange-button:hover {
-    background-color: darkorange !important;
-    border-color: darkorange !important;
+.save-btn:hover{
+    background-color: rgba(220, 95, 0, 0.822);
+    box-shadow: 0 0 10px 10px rgb(72, 169, 166)
 }
+
+.fullFormContainer {border-radius: 15px;
+    
+}
+
+
