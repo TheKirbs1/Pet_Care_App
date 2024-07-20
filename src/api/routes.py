@@ -6,10 +6,15 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Dog
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
+import json
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
+
+import cloudinary.uploader as uploader
+from cloudinary.uploader import destroy
+from cloudinary.api import delete_resources_by_tag
 
 api = Blueprint('api', __name__)
 
@@ -17,30 +22,30 @@ api = Blueprint('api', __name__)
 CORS(api)
 
 
-# @api.route('/token', methods=['POST'])
-# def generate_token():
+@api.route('/token', methods=['POST'])
+def generate_token():
 
-#     email = request.json.get("email", None)
-#     password = request.json.get("pasword", None)
+    email = request.json.get("email", None)
+    password = request.json.get("pasword", None)
 
-#     # quey the User table to check ir the user exists
-#     email = email.lower()
-#     user = User.query.filter_by(email=email, password=password).first()
+    # quey the User table to check ir the user exists
+    email = email.lower()
+    user = User.query.filter_by(email=email, password=password).first()
 
-#     if user is None:
-#         response = {
-#             "msg": "Email or Password does not match."
-#         }
-#         return jsonify(response), 401
+    if user is None:
+        response = {
+            "msg": "Email or Password does not match."
+        }
+        return jsonify(response), 401
     
-#     access_token = create_access_token(identity=user.id)
-#     response = {
-#         "access_token": access_token,
-#         "user_id": user.id,
-#         "msg": f'Welcome {user.email}!'
-#     }
+    access_token = create_access_token(identity=user.id)
+    response = {
+        "access_token": access_token,
+        "user_id": user.id,
+        "msg": f'Welcome {user.email}!'
+    }
 
-#     return jsonify(response), 200
+    return jsonify(response), 200
 def editUserSettings(email, password):
     user_id = get_jwt_identity()
     user = User.query.filter_by(id=user_id).first()
@@ -190,32 +195,12 @@ def get_user():
     
     return jsonify({"msg": "Here is your profile info", "user" : current_user.serialize()}), 200
 
-@api.route('/user', methods=["GET"])
-def get_all_users():
-    users = User.query.all()
-    all_users = [user.serialize() for user in users]
-    return jsonify(all_users), 200
-
-@api.route('/user/<int:user_id>/dogs', methods=['GET'])
-def get_all_dogs(user_id):
-    user = User.query.filter_by(id=user_id).first()
-    if not user:
-        return jsonify({'msg': 'User not found'}), 404
-    user_dogs = Dog.query.filter_by(user_id=user_id).all()
-    processed_dogs = [dog.serialize() for dog in user_dogs]
-
-    response = {
-        'msg': f'Hello {user.email}, here are your registered pets.',
-        'pets': processed_dogs
-    }
-
-    return jsonify(response), 200
-
 @api.route('/private/pet_registration', methods=['POST'])
-# @jwt_required()
+@jwt_required()
 def add_pet():
-    data = request.get_json()
-    # user_id = get_jwt_identity()
+    user_id = get_jwt_identity()
+    raw_data = request.form.get("data")
+    data = json.loads(raw_data)
     new_pet = Dog(
         name=data['name'],
         breed=data['breed'],
@@ -223,10 +208,19 @@ def add_pet():
         birth=data['birth'],
         spayed_neutered=data['spayedNeutered'],
         weight=data['weight'],
-        user_id=1 #replace this with user_id
+        user_id=user_id,
     )
     db.session.add(new_pet)
     db.session.commit()
+    db.session.refresh(new_pet)
+    avatar = request.files.getlist("file")
+    for image_file in avatar:
+        response = uploader.upload(image_file)
+        print(f"{response.items()}")
+        image_url=response["secure_url"]
+        new_pet.avatar = image_url
+        db.session.commit()
+        db.session.refresh(new_pet)
     
     response = {
         'msg': f'Your pet has been successfully registered!',
