@@ -10,7 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			password: null,
 			isAccountActive: true,
 			userDogs: [],
-			favoriteDog: []
+			favoriteDog: JSON.parse(sessionStorage.getItem('favoriteDog')) || []
 
 		},
 		actions: {
@@ -210,10 +210,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			addFavorite: (dog) => {
 				let favDog = getStore().favoriteDog
-				favDog = favDog.filter((dog_i) => dog_i.name != dog.name)
-				let favs = [...favDog, dog]
-				setStore({ favoriteDog: favs })
-				console.log(favs)
+				favDog = favDog.filter((dog_i) => dog_i.name != dog.name);
+				let favs = [...favDog, dog];
+				setStore({ favoriteDog: favs });
+				sessionStorage.setItem('favoriteDog', JSON.stringify(favs));
+				// console.log(favs)
+			},
+
+			removeFavorite: (dogName) => {
+				let favDog = getStore().favoriteDog;
+				favDog = favDog.filter((dog_i) => dog_i.name !== dogName)
+				sessionStorage.setItem('favoriteDog', JSON.stringify(favDog));
+				setStore({ favoriteDog: favDog })
+				// console.log(favDog);
 			}
 
 		}
