@@ -1,5 +1,7 @@
-#app, body {
+.everythingDiv {
     background-color: blanchedalmond;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .signupForm {
@@ -13,9 +15,7 @@
 }
 
 .fullSignupContainer {
-    padding: 0;
-    height: 80%;
-    margin-bottom: 50px;    
+    padding: 0; 
 }
 
 .signup-btn{

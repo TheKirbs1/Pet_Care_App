@@ -93,7 +93,7 @@ export const Signup = () => {
 
 
                 {/* Column for signup form */}
-                <div className="col-md-5 fullSignupContainer">
+                <div className="col-md-5 fullSignupContainer d-flex">
                     <form className="signupForm">
                         <div className="signupFullDiv container d-flex">
                             <div className="signupFormContainer p-3 w-100">
