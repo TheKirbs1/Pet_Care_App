@@ -1,31 +1,25 @@
-.pet-registration {
+.petRegistrationForm {
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
 }
-.save-button {
-    padding: 10px 100px;
+
+.saveButton {
+    margin-top: 90px;
     font-weight: bold;
-   
+    padding: 10px 80px;
+    background-color: rgb(9, 139, 148);
+    border-color:rgb(9, 139, 148);
 }
 
-/* gender && Spayed or Neutered buttons*/
-.gender-buttons, .spayed-neutered {
-    /* height: 70px;
-    width: 350px; */
-    /* border: 1px solid lightgray;
-    border-radius: 5px; */
-    /* display: flex; */
-    justify-content: center;
-    align-items: flex-end;
+.saveButton:hover {
+    background-color: rgba(9, 139, 148, 0.747);
 }
 
-.weight-buttons {
-    /* border: 1px solid lightgray;
-    border-radius: 5px; */
-    /* display: flex; */
-    justify-content: center;
-    align-items: flex-end;
+.cancelButton {
+    margin-top: 90px;
+    padding: 10px 70px;
+    font-weight: bold;
 }
