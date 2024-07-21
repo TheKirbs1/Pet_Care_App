@@ -154,7 +154,7 @@ export const Account_settings = () => {
                 </div>
 
                 <div className="myPetsDiv d-flex justify-content-center vstack mx-5 mt-5 pb-4">
-                    <b className="d-flex justify-content-center ">User Pets</b>
+                    <b className="d-flex justify-content-center ">My Pets</b>
                     <div className="border border-dark border-start-0 border-end-0 border-3 mx-4">
                         {dogs ? (
                             dogs.length > 0 ? (
