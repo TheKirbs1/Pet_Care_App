@@ -1,21 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 export const Terms_Of_Use = () => {
     return (
-        <div className="py-5">
+        <div className="py-2">
+            <div className="justify-content-end px-2 pt-1">
+                <Link to="/account_settings">
+                    <i className="fa-solid text-black fa-arrow-left fa-lg">
+                    </i>
+                </Link>
+            </div>
             <div className="d-flex justify-content-center pb-2">
+
                 <h1>Terms of Use</h1>
             </div>
 
             <div className="px-5">
                 <p>
-                    Terms of Use for Petpals
+                    Terms of Use for Petpal
 
                     Last Updated: July 2024
 
                     1. Acceptance of Terms
 
-                    By accessing and using Petpals website and services you can gather info and untilize to help with pets and knowledge on pets, you agree to comply with and be bound by these Terms of Use. If you do not agree to these terms, please do not use our Service.
+                    By accessing and using Petpal website and services you can gather info and untilize to help with pets and knowledge on pets, you agree to comply with and be bound by these Terms of Use. If you do not agree to these terms, please do not use our Service.
 
                     2. Description of Service
 

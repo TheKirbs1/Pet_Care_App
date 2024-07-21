@@ -34,17 +34,19 @@
 }
 
 .userSettingsDiv {
-    background-color: white;
+    background-color: white; 
+    border-radius: 20px;
 
 }
 
 .myPetsDiv{
     background-color: white;
+    border-radius: 20px;
 }
 
 .profileSettings{
     background-color: white;
-
+    border-radius: 20px;
 }
 
 
