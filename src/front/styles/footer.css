@@ -1,7 +1,15 @@
-i.fa-solid.fa-envelope {
-    color: #000000;
-  }
-
-i.fa-solid.fa-address-card {
-    color: #000000;
+.icon-circle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color:  rgb(220, 95, 0);
 }
+
+.icon-circle i {
+  color: black;
+  font-size: 10px;
+}
+
