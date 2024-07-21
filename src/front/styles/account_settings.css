@@ -44,9 +44,34 @@
     border-radius: 20px;
 }
 
-.profileSettings{
+.legalandprivacy{
     background-color: white;
     border-radius: 20px;
 }
 
+.accountManagement{
+    background-color: white;
+    border-radius: 20px;
+}
 
+.exitButton{
+    background-color:   rgb(220, 95, 0);
+    border-color: rgb(220, 95, 0);;
+    margin-right: 15px;
+ 
+}
+
+.exitButton:hover{
+    background-color: rgba(220, 95, 0, 0.822);
+    box-shadow: 0 0 10px 10px rgb(72, 169, 166)
+}
+
+.input-wrapper {
+    width: 1000px; 
+    max-width: 100%; 
+}
+
+.email-input, .password-input {
+    width: 100%;
+    box-sizing: border-box;
+}

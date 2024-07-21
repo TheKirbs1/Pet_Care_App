@@ -88,49 +88,73 @@ export const Account_settings = () => {
 
     return (
         <div className="fullDiv">
-            <div><h1 className="acountSettingsTitle d-flex justify-content-center align-content-center text-decoration-underline" >ACCOUNT SETTINGS</h1></div>
-            <div className="d-flex justify-content-center align-content-center box mx-5 my-5 pb-2 vstack rounded-2" >
-                <div className="userSettingsDiv vstack mt-5 mx-5 border">
+            <div>
+                <h1 className="accountSettingsTitle d-flex justify-content-center align-items-center position-relative"
+                    style={{
+                        paddingBottom: '10px' // Adjust this value to position the underline
+                    }}>
+                    ACCOUNT SETTINGS
+                    <span style={{
+                        position: 'absolute',
+                        bottom: '0',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        width: '400px', // Adjust this value to change the underline width
+                        height: '2px', // Adjust this value to change the underline thickness
+                        backgroundColor: 'rgb(220, 95, 0)'
+                    }}></span>
+                </h1>
+            </div>
 
-                    <p className="d-flex justify-content-center align-items-center">USER SETTINGS</p>
+
+            <div className="d-flex justify-content-center align-content-center box mx-5 mt-5 pb-2 vstack rounded-2" >
+                <div className="userSettingsDiv vstack mt-1 mx-5">
+
+                    <b className="d-flex justify-content-center align-items-center">User Settings</b>
 
 
                     <div className="w-full max-w-md ">
 
                         <div className="mb-1 vstack px-2">
-                            <label className="block mb-2">Edit Email:</label>
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                style={{ width: '100px', minWidth: '1000px' }}
-                            />
+                            <label className="block mb-2"><b>Edit Email:</b></label>
+                            <div className="input-wrapper">
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="email-input"
+                                />
+                            </div>
                             {emailError && <div className="text-danger">{emailError}</div>}
                         </div>
+
                         <div className="mb-1 vstack px-2">
-                            <label className="block mb-2 font-bold">Edit Password:</label>
-                            <input
-                                type="password"
-                                placeholder="Enter your password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                style={{ width: '100px', minWidth: '1000px' }}
-                            />
+                            <label className="block mb-2 font-bold"><b>Edit Password:</b></label>
+                            <div className="input-wrapper">
+                                <input
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className="password-input"
+                                />
+                            </div>
                             {passwordError && <div className="text-danger">{passwordError}</div>}
                         </div>
+
                     </div>
                     <div className="d-flex justify-content-end align-content-center pt-1 mb-2 mx-3">
                         <button type="button" className="save-btn btn-primary text-dark"
                             style={{ width: '100px', minWidth: '100px' }}
                             onClick={handleEditUserSettings}>
-                            Save
+                            SAVE
                         </button>
                     </div>
                 </div>
 
-                <div className="myPetsDiv d-flex justify-content-center vstack mx-5 mt-5 pb-4 border">
-                    <p className="d-flex justify-content-center ">MY PETS</p>
+                <div className="myPetsDiv d-flex justify-content-center vstack mx-5 mt-5 pb-4">
+                    <b className="d-flex justify-content-center ">User Pets</b>
                     <div className="border border-dark border-start-0 border-end-0 border-3 mx-4">
                         {dogs ? (
                             dogs.length > 0 ? (
@@ -153,23 +177,27 @@ export const Account_settings = () => {
                     </div>
                 </div>
 
-                <div className="profileSettings mx-5 mt-5 border border-rounded">
-                    <div className="d-flex justify-content-center mt-2"><p>Profile Settings</p></div>
-                        <div className="hstack justify-content-between px-5">
-                            <p>Terms of Use</p>
-                    <Link to="/terms_of_use">Terms of Use</Link>
+                <div className="legalandprivacy mx-5 mt-5 pb-2 border-rounded">
+                    <div className="d-flex justify-content-center mt-2"><b>Legal and Privacy</b></div>
+                    <div className="hstack justify-content-between px-5">
+                        <b>Terms of Use</b>
+                        <Link to="/terms_of_use">Terms of Use</Link>
 
                     </div>
 
                     <div className="hstack justify-content-between px-5">
-                            <p>Privacy Policy</p>
-                    <Link to="/privacy_policy">Privacy Policy</Link>
+                        <b>Privacy Policy</b>
+                        <Link to="/privacy_policy">Privacy Policy</Link>
 
                     </div>
+                </div>
+
+                <div className="accountManagement mx-5 mt-5 border-rounded">
+                <div className="d-flex justify-content-center mt-2"><b>Account Management</b></div>
 
 
                     <div className="d-flex justify-content-end mt-3 px-5 mb-5 justify-content-between ">
-                    <h6 className="text-dark me-4">{store.isAccountActive ? "Deactivate Account" : "Reactivate Account"}</h6>
+                        <b className="text-dark me-4">{store.isAccountActive ? "Deactivate Account" : "Reactivate Account"}</b>
 
                         <button
                             type="button"
@@ -205,10 +233,27 @@ export const Account_settings = () => {
                             </div>
                         </div>
                     </div>
+
                 </div>
 
 
             </div>
+            <div className="d-flex justify-content-end mx-5 px-5 mt-1">
+                <button className="exitButton" style={{ width: "100px" }}>
+                    <Link
+                        to="/private"
+                        style={{
+                            color: 'black',
+                            textDecoration: 'none',
+
+                        }}
+                    >
+                        EXIT
+                    </Link>
+                </button>
+            </div>
+
+
         </div>
     );
 };
