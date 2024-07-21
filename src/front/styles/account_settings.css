@@ -1,15 +1,15 @@
-
 .save-btn{
     margin-top: 20px;
     width: 100%;
     overflow: hidden;
-    background-color:   rgb(220, 95, 0);
-    border-color: rgb(220, 95, 0);;
+    background-color:   rgb(72, 169, 166);
+    border-color: black;
+    border-radius: 10px;
     
 }
 
 .save-btn:hover{
-    background-color: rgba(220, 95, 0, 0.822);
+    background-color: rgb(72, 169, 166);
     box-shadow: 0 0 10px 10px rgb(72, 169, 166)
 }
 
@@ -20,49 +20,54 @@
 
 .accountSettingsTitle {
     font-family: fantasy;
-    font-size: 4rem; 
-    text-decoration-line:  rgba(220, 95, 0, 0.822);   
+    font-size: 4rem;  
 }
 
 .fullDiv {
-    background-color: blanchedalmond;
+    background-color: rgb(255, 255, 255);
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 10%;
     padding-right: 10%;
     
+    margin-left: 20%;
+    margin-right: 20%;
+   
+    border-radius: 10px;
+    
 }
 
 .userSettingsDiv {
-    background-color: white; 
+    background-color: lightgray; 
     border-radius: 20px;
 
 }
 
 .myPetsDiv{
-    background-color: white;
+    background-color: lightgray;
     border-radius: 20px;
 }
 
 .legalandprivacy{
-    background-color: white;
+    background-color: lightgray;
     border-radius: 20px;
 }
 
 .accountManagement{
-    background-color: white;
+    background-color: lightgray;
     border-radius: 20px;
 }
 
 .exitButton{
-    background-color:   rgb(220, 95, 0);
-    border-color: rgb(220, 95, 0);;
+    background-color:   rgb(72, 169, 166);
+    border-color: black;
     margin-right: 15px;
+    border-radius: 10px;
  
 }
 
 .exitButton:hover{
-    background-color: rgba(220, 95, 0, 0.822);
+    background-color: rgb(72, 169, 166);
     box-shadow: 0 0 10px 10px rgb(72, 169, 166)
 }
 
@@ -75,3 +80,10 @@
     width: 100%;
     box-sizing: border-box;
 }
+
+.backgroundImage{
+    padding-top: 10px;
+    padding-bottom: 20px;
+     background-image: url('https://ag-alchemy.com/cdn/shop/products/howlidaybones_1024x.png?v=1669825291')
+     
+ }
