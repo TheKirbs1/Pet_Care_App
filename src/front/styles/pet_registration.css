@@ -30,6 +30,9 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.formContainer {
+    background-image: url("https://images.pexels.com/photos/7210273/pexels-photo-7210273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+}
 .petRegistrationForm {
     border: 1px solid #ccc;
     padding: 20px;
@@ -37,6 +40,7 @@ body {
     background-color: #f9f9f9;
     max-width: 800px;
     margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .form-title {
@@ -60,9 +64,28 @@ body {
     font-weight: 700;
 }
 
+.buttonsTitle {
+    font-weight: 700
+
+}
+
+input[type="text"],
+input[type="date"],
+input[type="file"] {
+    background-color: #2fc5b662; /* Turquoise color */
+    border-color: none;
+    color: #fff;
+}
+
 .btn-check:checked + .btn-outline-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: rgb(231, 124, 41);
+    border-color: rgb(220, 95, 0);
+    color: #fff;
+}
+
+.btn-outline-warning:hover {
+    background-color: rgb(231, 124, 41);
+    border-color: rgb(220, 95, 0);
     color: #fff;
 }
 
@@ -72,9 +95,13 @@ body {
 }
 
 .saveButton {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
+    background-color: rgb(72, 169, 166);
+    border-color: rgb(72, 169, 166);
+    color:#fff;
+}
+
+.saveButton:hover {
+    background-color: rgb(41, 99, 97);
 }
 
 .cancelButton {
