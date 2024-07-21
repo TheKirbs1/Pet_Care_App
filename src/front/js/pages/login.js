@@ -64,7 +64,7 @@ export const Login = () => {
 
 
             <div className="fullloginform container d-flex justify-content-center align-items-center">
-                <div className="welcome vstack ">
+                <div className="welcome vstack pe-3 ">
                     <div className="welcometext">
                     <h1 >WELCOME.</h1>
                     <p>

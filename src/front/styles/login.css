@@ -1,6 +1,11 @@
 .fulldisplay{
-   background-color: blanchedalmond;
-   padding-bottom: 50px;
+    background-image: url('https://images.unsplash.com/photo-1657464381456-1c49d6dd3043?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Keep your existing styles */
+    padding-bottom: 50px;
    
 }
 
@@ -15,16 +20,12 @@
 }
 .welcome{
     margin-top: 3%;
-    padding-bottom: 100px;
-    margin-left: 0px;
-   
-
 }
 
 .welcometext{
     margin-top: 15%;
     margin-left: 00px;
-    width: 70%;
+    width: 95%;
 }
 
 .loginDiv{
@@ -32,11 +33,7 @@
     border-radius: 30px;
     border:80%;
     background-color: white;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     margin-top: 110px;
-    margin-right: 100px;
-   
-   
-  
 
 }
