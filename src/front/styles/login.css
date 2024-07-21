@@ -1,4 +1,4 @@
-.fulldisplay{
+.fulldisplay {
     background-image: url('https://images.unsplash.com/photo-1657464381456-1c49d6dd3043?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
     background-position: center;
@@ -6,34 +6,37 @@
     background-attachment: fixed;
     /* Keep your existing styles */
     padding-bottom: 50px;
-   
+
 }
 
-.fullloginform{
-    
-   
-}
-.h1,.loginTitle{
- 
-    
-    
-}
-.welcome{
+.fullloginform {}
+
+.h1,
+.loginTitle {}
+
+.welcome {
     margin-top: 3%;
 }
 
-.welcometext{
+.welcometext {
     margin-top: 15%;
     margin-left: 00px;
     width: 95%;
+    color: white;
+
 }
 
-.loginDiv{
-    
+.loginDiv {
+
     border-radius: 30px;
-    border:80%;
+    border: 80%;
     background-color: white;
     margin-bottom: 100px;
     margin-top: 110px;
 
+}
+
+.saveLogin {
+    background-color: rgb(72, 169, 166);
+    color: white;
 }

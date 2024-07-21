@@ -67,14 +67,14 @@ export const Login = () => {
                 <div className="welcome vstack pe-3 ">
                     <div className="welcometext">
                     <h1 >WELCOME.</h1>
-                    <p>
+                    <h6>
                     Welcome to Petpal! We're your one-stop resource for pet care information, tips, and advice. From basic care to expert insights, we've got you covered. Can't find what you need? Just email us. Join our community, learn, and give your pets the best life possible. Start exploring Petpal today!
-                    </p>
+                    </h6>
                     </div>
                 </div>
 
                 <div className="loginDiv w-100 w-md-40 w-lg-20 mx-5">
-                    <h1 className=" loginTitle container d-flex justify-content-center mt-4">Login</h1>
+                    <h1 className=" loginTitle container d-flex justify-content-center mt-4">LOGIN</h1>
 
                     <div className="d-flex flex-column justify-content-center align-items-center vstack mt-2">
                         <div className="w-75">
@@ -104,7 +104,7 @@ export const Login = () => {
                             {error && <h6 className="text-danger fw-normal">{error}</h6>}
                         </div>
                         <div className="container d-flex justify-content-center align-items-center">
-                            <button type="button" className="btn btn-light btn-md w-25 btn-outline-dark mt-2" onClick={handleSubmit}>LOGIN</button>
+                            <button type="button" className="saveLogin btn btn-light btn-md w-25 btn-outline-dark mt-2" onClick={handleSubmit}>LOGIN</button>
                         </div>
 
                         <div className="container d-flex justify-content-center align-items-centermb-4">

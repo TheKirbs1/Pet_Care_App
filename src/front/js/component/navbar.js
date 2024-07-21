@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import LogoOption2 from "../../img/LogoOption2.png"
+import PETPAL from "../../img/PETPAL.png"
 
 import "../../styles/navbar.css";
 
@@ -9,22 +10,26 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context)
 
 	return (
-		<nav className="navbar">
-			<div className="nav-container container-fluid">
-				<Link to="/" id="home-logo">
-					<div className="logo-div">
-						<img src={LogoOption2} className="logo-img img-fluid" style={{ maxHeight: 120 }} alt="Pet Logo/Home Button" />
-					</div>
-				</Link>
-				<div className="join-now ms-auto">
+		<>
+		<div className="join-now1 d-flex justify-content-center">
 					{!store.token ?
 						<Link to="/signup">
-							<button className="btn join-now-btn">Join Now!</button>
+							<button className="btn join-now-btn"><b>Join Now!</b></button>
 						</Link>
 						:
 						<div></div>
 					}
 				</div>
+		<nav className="navbar">
+			
+			<div className="nav-container container-fluid">
+				<Link to="/" id="home-logo">
+					<div className="logo-div">
+						<img src={PETPAL} className="logo-img img-fluid circular-logo" style={{ maxHeight: 120 }} alt="Pet Logo/Home Button" />
+					</div>
+
+				</Link>
+			
 				<div className="menu">
 					<ul>
 						<li className="nav-item dropdown">
@@ -64,5 +69,6 @@ export const Navbar = () => {
 				</div>
 			</div>
 		</nav>
+		</>
 	);
 };
