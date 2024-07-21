@@ -1,33 +1,42 @@
 .fulldisplay{
    background-color: blanchedalmond;
-   padding-bottom: 200px;
+   padding-bottom: 50px;
+   
 }
-.h1,.signupTitle{
-    text-decoration: underline;
-    text-decoration-color:   rgba(220, 95, 0, 0.822);
+
+.fullloginform{
+    
+   
+}
+.h1,.loginTitle{
+ 
     
     
 }
 .welcome{
-    margin-top: 82.5px;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    background-color:  rgb(238, 174, 125);;
-    padding-bottom: 500px;
+    margin-top: 3%;
+    padding-bottom: 100px;
+    margin-left: 0px;
    
 
 }
 
 .welcometext{
-    margin-top: 50%;
-    margin-right: 30px;
-    margin-left: 30px;
+    margin-top: 15%;
+    margin-left: 00px;
+    width: 70%;
 }
 
 .loginDiv{
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    
+    border-radius: 30px;
+    border:80%;
     background-color: white;
+    margin-bottom: 200px;
+    margin-top: 110px;
+    margin-right: 100px;
+   
+   
   
 
 }

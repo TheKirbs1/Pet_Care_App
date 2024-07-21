@@ -63,35 +63,35 @@ export const Login = () => {
         <div className="fulldisplay">
 
 
-            <div className="container d-flex justify-content-center align-items-center">
-                <div className="welcome vstack justify-content-middle">
+            <div className="fullloginform container d-flex justify-content-center align-items-center">
+                <div className="welcome vstack ">
                     <div className="welcometext">
                     <h1 >WELCOME.</h1>
                     <p>
-                        Hello welcome to Petpal, where you will find some of you Pets facts and info and if you dont, fell free to email us.
+                    Welcome to Petpal! We're your one-stop resource for pet care information, tips, and advice. From basic care to expert insights, we've got you covered. Can't find what you need? Just email us. Join our community, learn, and give your pets the best life possible. Start exploring Petpal today!
                     </p>
                     </div>
                 </div>
 
-                <div className="loginDiv  p-3 w-75 w-md-40 w-lg-20 ">
-                    <h1 className=" signupTitle container d-flex justify-content-center">Signup</h1>
+                <div className="loginDiv w-100 w-md-40 w-lg-20 mx-5">
+                    <h1 className=" loginTitle container d-flex justify-content-center mt-4">Login</h1>
 
-                    <div className="d-flex flex-column justify-content-center align-items-center vstack mt-5">
+                    <div className="d-flex flex-column justify-content-center align-items-center vstack mt-2">
                         <div className="w-75">
-                            <h1 className="fw-normal text-start">Email:</h1>
+                            <h1 className="fw-normal text-start"></h1>
                             <input
                                 type="email"
-                                placeholder="email@example.com"
+                                placeholder="Email"
                                 className="form-control form-control-lg w-100 rounded-0"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
-                        <div className="w-75">
-                            <h1 className="fw-normal text-start">Password:</h1>
+                        <div className="w-75 mt-2">
+                            <h1 className="fw-normal text-start"></h1>
                             <input
                                 type="password"
-                                placeholder="Must have at least 6 characters"
+                                placeholder="Password"
                                 className="form-control form-control-lg w-100 rounded-0"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -104,10 +104,10 @@ export const Login = () => {
                             {error && <h6 className="text-danger fw-normal">{error}</h6>}
                         </div>
                         <div className="container d-flex justify-content-center align-items-center">
-                            <button type="button" className="btn btn-light btn-md w-25 btn-outline-dark" onClick={handleSubmit}>LOGIN</button>
+                            <button type="button" className="btn btn-light btn-md w-25 btn-outline-dark mt-2" onClick={handleSubmit}>LOGIN</button>
                         </div>
 
-                        <div className="container d-flex justify-content-center align-items-center">
+                        <div className="container d-flex justify-content-center align-items-centermb-4">
                             <p className="fw-lighter">Don't have an Account?
                                 <button type="button" className="btn btn-link" onClick={handleSignUpClick}>Sign up Here</button>
                             </p>
