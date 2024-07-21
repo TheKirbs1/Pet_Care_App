@@ -7,31 +7,31 @@ export const About_us = () => {
     return (
         <div className="">
 
-<>
-    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', zIndex: -1 }}>
-      <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel" data-bs-interval="2000" style={{ width: '100%', height: '100%'}}>
-        <div className="carousel-inner" style={{ height: '100%' }}>
-          <div className="carousel-item active">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fphotos%2Fwhite-background-c&psig=AOvVaw1N472tdH_32wm8PWU_XNtP&ust=1721349769811000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCICM-t2tr4cDFQAAAAAdAAAAABAS" className="d-block w-100 h-100" alt="..." style={{ objectFit: 'cover' }} />
-          </div>
-        </div>
-      </div>
-      
-    
-    </div>
+            <>
+                <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', zIndex: -1 }}>
+                    <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel" data-bs-interval="2000" style={{ width: '100%', height: '100%' }}>
+                        <div className="carousel-inner" style={{ height: '100%' }}>
+                            <div className="carousel-item active">
+                                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fphotos%2Fwhite-background-c&psig=AOvVaw1N472tdH_32wm8PWU_XNtP&ust=1721349769811000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCICM-t2tr4cDFQAAAAAdAAAAABAS" className="d-block w-100 h-100" alt="..." style={{ objectFit: 'cover' }} />
+                            </div>
+                        </div>
+                    </div>
 
-    
-    <div style={{ position: 'relative', zIndex: 1 }}>
-     
-    </div>
-  </>
+
+                </div>
+
+
+                <div style={{ position: 'relative', zIndex: 1 }}>
+
+                </div>
+            </>
 
             <div className="d-flex justify-content-center align-items-center vstack px-3">
-            <h1 className="text-dark">Mission Statement</h1>
+                <h1 className="text-dark">Mission Statement</h1>
 
-<b className="w-50 my-3">
-    PetPal's mission is to empower pet lovers with comprehensive information about dog breeds, enabling them to make informed decisions when considering adoption or purchase. Our app serves as a valuable resource for users to care for their beloved pets, offering insights to ensure their dogs' health and well-being. With PetPal, users can learn fascinating facts about different breeds and easily track their dog's health, fostering a community of informed and responsible pet owners.
-</b>
+                <b className="w-50 my-3">
+                    PetPal's mission is to empower pet lovers with comprehensive information about dog breeds, enabling them to make informed decisions when considering adoption or purchase. Our app serves as a valuable resource for users to care for their beloved pets, offering insights to ensure their dogs' health and well-being. With PetPal, users can learn fascinating facts about different breeds and easily track their dog's health, fostering a community of informed and responsible pet owners.
+                </b>
                 <div id="carouselExampleSlidesOnly" className="carousel slide my-3" data-bs-ride="carousel" data-bs-interval="2000" style={{ width: '70%', height: '500px' }} >
                     <div className="carousel-inner" style={{ height: '100%' }} >
                         <div className="carousel-item active">
@@ -86,7 +86,7 @@ export const About_us = () => {
                         <div className="border-top border-4 border-dark my-2 w-100 mx-auto"></div>
                         <p className="mt-2"><b>DISSERTATION: </b>I am deeply committed to animal welfare, having adopted and rescued numerous dogs over the years. My background in veterinary medicine, combined with my experience as a dog groomer and pet sitter, has equipped me with a comprehensive understanding of pet care. Transitioning into coding, my goal is to create innovative tools and build a supportive community that empowers pet lovers to better understand and meet their dogs' needs.</p>
                         <div className="mt-auto">
-                           <p>
+                            <p>
                                 <b>Certifications: </b>
                                 4Geeks Academy, Miami, FL
                                 Full-Stack Web Development Bootcamp, March 2024 - July 2024.

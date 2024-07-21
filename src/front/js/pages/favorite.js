@@ -12,6 +12,9 @@ export const Favorite = () => {
 
     return (
         <>
+            <div className="d-flex justify-content-center align-items-center vstack px-3 mt-4 mb-4">
+                <h1 className="text-dark">My Favorites</h1>
+            </div>
             <div className="card-container">
                 {store.favoriteDog.map((dog, index) => (
                     <div className="card" style={{ width: "18rem" }} key={index}>
