@@ -1,4 +1,4 @@
-.petRegistrationForm {
+/* .petRegistrationForm {
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -22,4 +22,63 @@
     margin-top: 90px;
     padding: 10px 70px;
     font-weight: bold;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.petRegistrationForm {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.file-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-label {
+    font-weight: 700;
+}
+
+.btn-check:checked + .btn-outline-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #fff;
+}
+
+.saveButton, .cancelButton {
+    width: 120px;
+    margin: 10px;
+}
+
+.saveButton {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.cancelButton {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
 }
