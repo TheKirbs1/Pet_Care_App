@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import "../../styles/login.css";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -59,10 +60,21 @@ export const Login = () => {
     };
 
     return (
-        <>
-            <div className="container d-flex justify-content-center align-items-center vh-100">
-                <div className="border border-2 p-3 w-75 w-md-40 w-lg-20 mt-5">
-                    <h1 className="container d-flex justify-content-center">Sign In</h1>
+        <div className="fulldisplay">
+
+
+            <div className="container d-flex justify-content-center align-items-center">
+                <div className="welcome vstack justify-content-middle">
+                    <div className="welcometext">
+                    <h1 >WELCOME.</h1>
+                    <p>
+                        Hello welcome to Petpal, where you will find some of you Pets facts and info and if you dont, fell free to email us.
+                    </p>
+                    </div>
+                </div>
+
+                <div className="loginDiv  p-3 w-75 w-md-40 w-lg-20 ">
+                    <h1 className=" signupTitle container d-flex justify-content-center">Signup</h1>
 
                     <div className="d-flex flex-column justify-content-center align-items-center vstack mt-5">
                         <div className="w-75">
@@ -103,6 +115,6 @@ export const Login = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
