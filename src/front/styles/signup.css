@@ -5,18 +5,21 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding-bottom: 50px;
-
+    margin:0;
 }
 
 .welcome {
     margin-top: 3%;
 }
 
-.welcometext {
-    margin-top: 15%;
+.welcometext img {
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
     margin-left: 00px;
-    width: 95%;
-    color: white;
+    margin-right: 50%;
+    height:500px;
+    width: 500px;
 }
 
 .signupDiv {
@@ -25,6 +28,7 @@
     background-color: white;
     margin-bottom: 100px;
     margin-top: 110px;
+    
 }
 
 .signup-btn {

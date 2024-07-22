@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/signup.css";
 import GeekPet from "../../img/GeekPet.png";
+import Fact85 from "../../img/85Fact.png"
 
 
 
@@ -71,19 +72,15 @@ export const Signup = () => {
             <div className="fulldisplay">
 
 
-                <div className="fullloginform container d-flex justify-content-center align-items-center">
-                    <div className="welcome vstack pe-3 ">
+                <div className="fullSignupform container d-flex justify-content-center align-items-center">
+                    <div className="welcome vstack pe-3">
                         <div className="welcometext">
-                        <h1 >WELCOME.</h1>
-                        <h6>
-                        Welcome to Petpal! We're your one-stop resource for pet care information, tips, and advice. From basic care to expert insights, we've got you covered. Can't find what you need? Just email us. Join our community, learn, and give your pets the best life possible. Start exploring Petpal today!
-                        </h6>
+                        <img src={Fact85} className="fact85" alt="Dog Owner Fact" />
                         </div>
                 </div>
 
 
-                {/* Column for signup form */}
-                <div className="signupDiv w-100 w-md-40 w-lg-20 mx-5">
+                <div className="signupDiv w-75 w-md-40 w-lg-20 mx-5">
                                 <div className="pup-div container d-flex justify-content-center">
                                     <img src={GeekPet} className="logo-img img-fluid" style={{ maxHeight: 110 }} alt="Smart Pup" />
                                 </div>
