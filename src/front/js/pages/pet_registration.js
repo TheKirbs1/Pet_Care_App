@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { Context } from "../store/appContext";
 import { Link, useNavigate } from "react-router-dom";
-// import background from "../../img/background11.png";
 import "../../styles/pet_registration.css";
 
 export const Pet_registration = () => {
@@ -13,25 +12,33 @@ export const Pet_registration = () => {
     const [spayedNeutered, setSpayedNeutered] = useState("");
     const [weight, setWeight] = useState("");
     const [imageSizeError, setImageSizeError] = useState(false);
-    const [uploadImage, setUploadImage] = useState(null)
+    const [uploadImage, setUploadImage] = useState(null);
     const [avatar, setAvatar] = useState(null);
+    const [successMessage, setSuccessMessage] = useState("");
     const navigate = useNavigate();
+    const successAlertRef = useRef(null);
 
     const handleImageUpload = (event) => {
         const files = event.target.files;
         let file_size = files[0].size;
         if (file_size <= 100000) {
-            setImageSizeError(false)
-
+            setImageSizeError(false);
             setUploadImage(files[0]);
         } else {
-            setImageSizeError(true)
-            alert("Image is too large.")
+            setImageSizeError(true);
+            alert("Image is too large.");
         }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validation check
+        if (!name || !breed || !gender || !birth || !weight) {
+            alert("Please complete all required fields.");
+            return;
+        }
+
         let dog = {
             name: name,
             breed: breed,
@@ -40,26 +47,39 @@ export const Pet_registration = () => {
             spayedNeutered: spayedNeutered,
             weight: weight,
             avatar: uploadImage,
-        }
-        let success = await actions.savePetInfo(dog)
+        };
+        let success = await actions.savePetInfo(dog);
         if (success) {
-            setName("")
-            setBreed("")
-            setGender("")
-            setBirth("")
-            setSpayedNeutered("")
-            setWeight("")
-            setAvatar(null)
-            alert("Dog Successfully registered!");
-            navigate("/private")
+            setName("");
+            setBreed("");
+            setGender("");
+            setBirth("");
+            setSpayedNeutered("");
+            setWeight("");
+            setAvatar(null);
+            setSuccessMessage("Dog Successfully registered!");
+            successAlertRef.current.focus();
+            setTimeout(() => {
+                navigate("/private");
+            }, 1000);
         } else {
-            alert("An error ocurred while adding your dog to your account. Please, try again later.")
+            alert("An error occurred while adding your dog to your account. Please, try again later.");
         }
-    }
+    };
 
     return (
         <div className="formContainer">
-            <form className="petRegistrationForm row g-4">
+            {successMessage && (
+                <div
+                    className="alert alert-success"
+                    role="alert"
+                    tabIndex="-1"
+                    ref={successAlertRef}
+                >
+                    {successMessage}
+                </div>
+            )}
+            <form className="petRegistrationForm row g-4" onSubmit={handleSubmit}>
                 <h1 className="form-title d-flex justify-content-center">
                     Add your pet
                 </h1>
@@ -99,7 +119,7 @@ export const Pet_registration = () => {
                 </div>
                 <div className="col-md-6">
                     <label htmlFor="dogName" className="form-label">
-                        Name
+                        Name <span className="text-danger">*</span>
                     </label>
                     <input
                         onChange={(e) => setName(e.target.value)}
@@ -107,11 +127,12 @@ export const Pet_registration = () => {
                         type="text"
                         className="form-control"
                         id="dogName"
+                        required
                     />
                 </div>
                 <div className="col-md-6">
                     <label htmlFor="dogBreed" className="form-label">
-                        Breed
+                        Breed <span className="text-danger">*</span>
                     </label>
                     <input
                         onChange={(e) => setBreed(e.target.value)}
@@ -119,22 +140,24 @@ export const Pet_registration = () => {
                         type="text"
                         className="form-control"
                         id="dogBreed"
+                        required
                     />
                 </div>
                 <div className="col-md-12">
                     <label htmlFor="birthday" className="form-label">
-                        Date of Birth
+                        Date of Birth <span className="text-danger">*</span>
                     </label>
                     <input
                         onChange={(e) => setBirth(e.target.value)}
                         type="date"
                         className="form-control"
                         id="birthday"
+                        required
                     />
                 </div>
                 <div className="col-md-12">
                     <div className="weight-buttons mb-3 text-center">
-                        <p className="buttonsTitle">Weight</p>
+                        <p className="buttonsTitle">Weight <span className="text-danger">*</span></p>
                         <input
                             onChange={() => setWeight("0-25 lbs")}
                             type="radio"
@@ -143,6 +166,7 @@ export const Pet_registration = () => {
                             name="weight-options"
                             id="option1-outlined"
                             autoComplete="off"
+                            required
                         />
                         <label
                             className="btn btn-outline-warning me-3 mb-3 px-5"
@@ -158,6 +182,7 @@ export const Pet_registration = () => {
                             name="weight-options"
                             id="option2-outlined"
                             autoComplete="off"
+                            required
                         />
                         <label
                             className="btn btn-outline-warning me-3 mb-3 px-5"
@@ -173,6 +198,7 @@ export const Pet_registration = () => {
                             name="weight-options"
                             id="option3-outlined"
                             autoComplete="off"
+                            required
                         />
                         <label
                             className="btn btn-outline-warning me-3 mb-3 px-5"
@@ -188,6 +214,7 @@ export const Pet_registration = () => {
                             name="weight-options"
                             id="option4-outlined"
                             autoComplete="off"
+                            required
                         />
                         <label
                             className="btn btn-outline-warning mb-3 px-5"
@@ -199,7 +226,7 @@ export const Pet_registration = () => {
                 </div>
                 <div className="col-md-6">
                     <div className="gender-buttons text-center mb-3">
-                        <p className="buttonsTitle">Gender</p>
+                        <p className="buttonsTitle">Gender <span className="text-danger">*</span></p>
                         <input
                             onChange={() => setGender("Male")}
                             type="radio"
@@ -208,6 +235,7 @@ export const Pet_registration = () => {
                             name="gender-options"
                             id="male-outlined"
                             autoComplete="off"
+                            required
                         />
                         <label
                             className="btn btn-outline-warning mb-3 me-5 px-5"
@@ -223,6 +251,7 @@ export const Pet_registration = () => {
                             name="gender-options"
                             id="female-outlined"
                             autoComplete="off"
+                            required
                         />
                         <label
                             className="btn btn-outline-warning mb-3 px-5"
@@ -269,14 +298,13 @@ export const Pet_registration = () => {
                 </div>
                 <div className="col-md-12 text-center">
                     <button
-                        onClick={(e) => handleSubmit(e)}
                         type="submit"
                         className="btn btn-lg saveButton me-5"
                     >
                         Save
                     </button>
                     <Link to={`/private`}>
-                        <button type="submit" className="btn btn-danger btn-lg cancelButton">
+                        <button type="button" className="btn btn-danger btn-lg cancelButton">
                             Cancel
                         </button>
                     </Link>
