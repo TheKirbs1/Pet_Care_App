@@ -49,9 +49,9 @@ body {
 
 }
 
-input[type="text"],
-input[type="date"],
-input[type="file"] {
+.petRegistrationForm input[type="text"],
+.petRegistrationForm input[type="date"],
+.petRegistrationForm input[type="file"] {
     background-color: #2fc5b662; /* Turquoise color */
     border: none;
     color: #fff;
