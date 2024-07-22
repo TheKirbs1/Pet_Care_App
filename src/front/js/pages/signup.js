@@ -3,9 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/signup.css";
 import GeekPet from "../../img/GeekPet.png";
-import slide1 from "../../img/slide1.png";
-import slide2 from "../../img/slide2.png";
-import slide3 from "../../img/slide3.png";
+import Fact85 from "../../img/85Fact.png"
+
 
 
 export const Signup = () => {
@@ -70,33 +69,18 @@ export const Signup = () => {
     }, [store.isSignUpSuccessful]);
 
     return (
-        <div className="everythingDiv container-fluid">
-            <div className="bothCards row">
-            <div className="col-md-1"></div>
-                {/* Column for carousel */}
-                                
-                    <div className="col-md-5 carouselContainer d-flex">
-                    <div id="signupCarousel" className="carousel slide d-flex" data-bs-ride="carousel">
-                        <div className="carousel-inner">
-                            <div className="carousel-item active">
-                                <img src={slide1} className="d-block w-100" alt="Slide 1" />
-                            </div>
-                            <div className="carousel-item">
-                                <img src={slide2} className="d-block w-100" alt="Slide 2" />
-                            </div>
-                            <div className="carousel-item">
-                                <img src={slide3} className="d-block w-100" alt="Slide 3" />
-                            </div>
+            <div className="fulldisplay">
+
+
+                <div className="fullSignupform container d-flex justify-content-center align-items-center">
+                    <div className="welcome vstack pe-3">
+                        <div className="welcometext">
+                            <img src={Fact85} className="fact85" alt="Dog Owner Fact" />
                         </div>
-                    </div>
                 </div>
 
 
-                {/* Column for signup form */}
-                <div className="col-md-5 fullSignupContainer d-flex">
-                    <form className="signupForm">
-                        <div className="signupFullDiv container d-flex">
-                            <div className="signupFormContainer p-3 w-100">
+                <div className="signupDiv w-75 w-md-40 w-lg-20 mx-5">
                                 <div className="pup-div container d-flex justify-content-center">
                                     <img src={GeekPet} className="logo-img img-fluid" style={{ maxHeight: 110 }} alt="Smart Pup" />
                                 </div>
@@ -104,9 +88,9 @@ export const Signup = () => {
                                 <div>
                                     {store.signupMessage || ""}
                                 </div>
-                                <div className="d-flex flex-column justify-content-center align-items-center vstack mt-5">
+                                <div className="d-flex flex-column justify-content-center align-items-center vstack mt-2">
                                     <div className="w-75">
-                                        <h2 className="email fw-normal text-start">Email:</h2>
+                                        <h1 className="email fw-normal text-start">Email:</h1>
                                         <input
                                             type="email"
                                             className="form-control form-control-lg w-100 rounded-0"
@@ -118,7 +102,7 @@ export const Signup = () => {
                                     </div>
 
                                     <div className="w-75 mt-2">
-                                        <h2 className="password fw-normal text-start">Password:</h2>
+                                        <h1 className="password fw-normal text-start">Password:</h1>
                                         <input
                                             type="password"
                                             className="form-control form-control-lg w-100 rounded-0"
@@ -140,12 +124,8 @@ export const Signup = () => {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-                <div className="col-md-1"></div>
             </div>
-        </div>
     );
 };
