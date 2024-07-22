@@ -1,61 +1,35 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import LogoOption2 from "../../img/LogoOption2.png"
 
+
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
-	const [dogs, setDogs] = useState([]);
 	const { store, actions } = useContext(Context)
-	const [allDogs, setAllDogs] = useState([]);
-	const [mySearch, setMySearch] = useState("");
-	const [displaySearch, setDisplaySearch] = useState(false);
-
-	const filterSearch = async () => {
-		if (mySearch.trim() === "") {
-			resetSearch();
-			return;
-		}
-		try {
-			const res = await fetch(`https://api.thedogapi.com/v1/breeds/search?q=${mySearch}`);
-			const data = await res.json();
-			const dogsWithDefaultBredFor = data.map(dog => ({
-				...dog,
-				bred_for: dog.bred_for || "Companionship"
-			}));
-			setDogs(dogsWithDefaultBredFor);
-			setDisplaySearch(true);
-		} catch (error) {
-			console.error(error);
-		}
-	};
-
-	const resetSearch = () => {
-		setDogs(allDogs);
-		setMySearch("");
-		setDisplaySearch(false);
-		setCurrentPage(0);
-		filterSearch()
-	};
 
 	return (
-		<nav className="navbar">
-			<div className="nav-container container-fluid">
-				<Link to="/" id="home-logo" onClick={resetSearch}>
-					<div className="logo-div">
-						<img src={LogoOption2} className="logo-img img-fluid" style={{ maxHeight: 120 }} alt="Pet Logo/Home Button" />
-					</div>
-				</Link>
-				<div className="join-now ms-auto">
+		<>
+		<div className="join-now1 d-flex justify-content-center">
 					{!store.token ?
 						<Link to="/signup">
-							<button className="btn join-now-btn">Join Now!</button>
+							<button className="btn join-now-btn"><b>Join Now!</b></button>
 						</Link>
 						:
 						<div></div>
 					}
 				</div>
+		<nav className="navbar">
+			
+			<div className="nav-container container-fluid">
+				<Link to="/" id="home-logo">
+					<div className="logo-div">
+						<img src={LogoOption2} className="logo-img img-fluid circular-logo" style={{ maxHeight: 120 }} alt="Pet Logo/Home Button" />
+					</div>
+
+				</Link>
+			
 				<div className="menu">
 					<ul>
 						<li className="nav-item dropdown">
@@ -95,5 +69,6 @@ export const Navbar = () => {
 				</div>
 			</div>
 		</nav>
+		</>
 	);
 };
