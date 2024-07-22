@@ -48,9 +48,9 @@ body {
     font-weight: 700;
 }
 
-input[type="text"],
-input[type="date"],
-input[type="file"] {
+.editPetForm input[type="text"],
+.editPetForm input[type="date"],
+.editPetForm input[type="file"] {
     background-color: #2fc5b662; /* Turquoise color */
     border: none;
     color: #fff;
