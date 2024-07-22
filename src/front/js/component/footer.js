@@ -29,7 +29,7 @@ export const Footer = () => (
       </div>
       <div className="text-body-secondary">
         <div className="text-body-secondary">
-          <h6>@ 2024 ERROR 500 <i className="fa-regular fa-copyright text-body-secondary"></i></h6>
+          <h6 className="text-dark">@ 2024 ERROR 500 <i className="fa-regular fa-copyright text-body-dark"></i></h6>
         </div>
       </div>
     </div>
