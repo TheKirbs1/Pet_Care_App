@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.getStartedTitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.addFirstPet {
+    background-color: rgb(72, 169, 166);
+    border: none;
+    color: #fff;
+}
+
 .edit-button {
     position:absolute;
     top: 90px;
@@ -27,3 +47,16 @@
     border-left: 4px solid gray;
     border-radius: 2px; 
 } 
+
+.header{
+    width:100%;
+    max-width:100%px;
+    min-width:300px;
+    height:150px;
+    background: linear-gradient(135deg, #00c8ffd3,rgba(72, 169, 166, 0.89));
+    background-size:cover;
+    background-position: center center;
+    transition: all .08s linear;
+  }
+
+  
