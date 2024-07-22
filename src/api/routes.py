@@ -227,3 +227,39 @@ def add_pet():
     }
     return jsonify(response), 201
 
+@api.route('/user/favorite/<int:dog_id>', methods=['PUT'])
+@jwt_required()
+def add_favorite(dog_id):
+    dog=Dog.query.filter_by(id=dog_id).first()
+    if dog is None:
+        return jsonify({'msg':'Dog does not exist'}),404
+    user=User.query.filter_by(id=get_jwt_identity()).first()
+    if user.favorite_dogs is None:
+        user.favorite_dogs=[]
+    user.favorite_dogs.append(dog)
+
+    db.session.commit()
+
+    response = {
+        'msg': f'Your favorite has been successfully saved!'
+    }
+    return jsonify(response), 200
+
+@api.route('/user/favorite/<int:dog_id>', methods=['DELETE'])
+@jwt_required()
+def delete_favorite(dog_id):
+    dog=Dog.query.filter_by(id=dog_id).first()
+    if dog is None:
+        return jsonify({'msg':'Dog does not exist'}),404
+    user=User.query.filter_by(id=get_jwt_identity()).first()
+    if dog not in user.favorite_dogs:
+        return jsonify({'msg':'Dog is not a part of favorite list'}),404
+    user.favorite_dogs.remove(dog)
+
+    db.session.commit()
+
+    response = {
+        'msg': f'Your favorite has been successfully removed!'
+    }
+    return jsonify(response), 200
+

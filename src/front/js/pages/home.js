@@ -126,7 +126,7 @@ export const Home = () => {
                         <div className="headerCard">
                             <div className="row g-0">
                                 <div className="col-md-3">
-                                   
+
                                 </div>
 
                                 <div className="col-md-6">
