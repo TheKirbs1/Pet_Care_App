@@ -82,4 +82,5 @@ input[type="file"] {
 
 .saveButton:hover {
     background-color: rgb(41, 99, 97);
+    color:#fff;
 }
