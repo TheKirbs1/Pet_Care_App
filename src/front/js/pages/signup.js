@@ -69,7 +69,7 @@ export const Signup = () => {
     }, [store.isSignUpSuccessful]);
 
     return (
-            <div className="fulldisplay">
+            <div className="signupFullDisplay">
 
 
                 <div className="fullSignupform container d-flex justify-content-center align-items-center">
