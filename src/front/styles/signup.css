@@ -15,11 +15,12 @@
 .welcometext img {
     justify-content: center;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 10%;
     margin-left: 00px;
     margin-right: 50%;
     height:500px;
     width: 500px;
+    pointer-events: none;
 }
 
 .signupDiv {
@@ -34,4 +35,8 @@
 .signup-btn {
     background-color: rgb(72, 169, 166);
     color: white;
+}
+
+.signUpTitle, .pup-div, .email, .password{
+    pointer-events: none;
 }

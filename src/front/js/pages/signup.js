@@ -75,7 +75,7 @@ export const Signup = () => {
                 <div className="fullSignupform container d-flex justify-content-center align-items-center">
                     <div className="welcome vstack pe-3">
                         <div className="welcometext">
-                        <img src={Fact85} className="fact85" alt="Dog Owner Fact" />
+                            <img src={Fact85} className="fact85" alt="Dog Owner Fact" />
                         </div>
                 </div>
 
