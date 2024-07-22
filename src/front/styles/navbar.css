@@ -1,5 +1,5 @@
 .nav-container {
-    background-color: white;
+    background-color: rgb(104, 109, 118);;
 }
 
 li {
@@ -10,11 +10,14 @@ ul {
     margin: 0
 }
 
-.nav-container {}
+.nav-container {
+    margin: 0;
+}
 
 .navbar {
     width: 100%;
     margin-right: 125rem;
+    background-color:rgb(104, 109, 118);
 }
 
 .dropdown-menu {

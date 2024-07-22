@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import LogoOption2 from "../../img/LogoOption2.png"
-import PETPAL from "../../img/PETPAL.png"
+
 
 import "../../styles/navbar.css";
 
@@ -25,7 +25,7 @@ export const Navbar = () => {
 			<div className="nav-container container-fluid">
 				<Link to="/" id="home-logo">
 					<div className="logo-div">
-						<img src={PETPAL} className="logo-img img-fluid circular-logo" style={{ maxHeight: 120 }} alt="Pet Logo/Home Button" />
+						<img src={LogoOption2} className="logo-img img-fluid circular-logo" style={{ maxHeight: 120 }} alt="Pet Logo/Home Button" />
 					</div>
 
 				</Link>
