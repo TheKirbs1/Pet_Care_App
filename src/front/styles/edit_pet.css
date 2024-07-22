@@ -1,34 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.formContainer {
+    background-image: url("https://images.pexels.com/photos/7210273/pexels-photo-7210273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 23px;
+    padding-bottom: 23px;
+}
 .editPetForm {
-    margin: auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .form-title {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: rgba(9, 139, 148, 0.89);
-}
-
-.saveButton {
-    margin-top: 90px;
-    font-weight: bold;
-    padding: 10px 80px;
-    background-color: rgb(9, 139, 148);
-    border-color: rgb(9, 139, 148);
-}
-
-.saveButton:hover {
-    background-color: rgba(9, 139, 148, 0.747);
-}
-
-.cancelButton {
-    margin-top: 90px;
-    padding: 10px 70px;
-    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .image-container {
-    display: inline-block;
+    text-align: center;
+    pointer-events: none;
 }
 
 .file-input-container {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-label {
+    font-weight: 700;
+}
+
+.buttonsTitle {
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="file"] {
+    background-color: #2fc5b662; /* Turquoise color */
+    border: none;
+    color: #fff;
+}
+
+.btn-check:checked + .btn-outline-warning {
+    background-color: rgb(231, 124, 41);
+    border-color: rgb(220, 95, 0);
+    color: #fff;
+}
+
+.btn-outline-warning:hover {
+    background-color: rgb(231, 124, 41);
+    border-color: rgb(220, 95, 0);
+    color: #fff;
+}
+
+.saveButton, .cancelButton {
+    width: 120px;
+    margin: 10px;
+}
+
+.saveButton {
+    background-color: rgb(72, 169, 166);
+    border-color: rgb(72, 169, 166);
+    color:#fff;
+}
+
+.saveButton:hover {
+    background-color: rgb(41, 99, 97);
+    color:#fff;
 }
