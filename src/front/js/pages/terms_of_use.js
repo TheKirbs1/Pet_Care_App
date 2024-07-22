@@ -4,12 +4,7 @@ import { Link } from "react-router-dom"
 export const Terms_Of_Use = () => {
     return (
         <div className="py-2">
-            <div className="justify-content-end px-2 pt-1">
-                <Link to="/account_settings">
-                    <i className="fa-solid text-black fa-arrow-left fa-lg">
-                    </i>
-                </Link>
-            </div>
+            
             <div className="d-flex justify-content-center pb-2">
 
                 <h1>Terms of Use</h1>
