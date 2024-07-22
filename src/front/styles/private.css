@@ -4,6 +4,61 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 400px;
+    background-color: white;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    height: 100px;
+    width: 100%;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card img {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    margin-top: -40px;
+    border: 3px solid white;
+    background-color: white;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.card p {
+    color: gray;
+    margin: 5px 0;
+}
+
+.card button {
+    background-color: rgb(72, 169, 166);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.card button:hover {
+    background-color:rgb(72, 169, 166);
+}
+
 .getStartedTitle {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
@@ -19,12 +74,11 @@ body {
 }
 
 .edit-button {
-    position:absolute;
+    position: absolute;
     top: 90px;
     left: 38px;
     cursor: pointer;
 }
-
 
 .right-buttons {
     display: flex;
@@ -42,21 +96,17 @@ body {
     justify-content: space-between;
 }
 
-.vertical-line { 
-    width: 0px; 
+.vertical-line {
+    width: 0px;
     border-left: 4px solid gray;
-    border-radius: 2px; 
-} 
+    border-radius: 2px;
+}
 
-.header{
-    width:100%;
-    max-width:100%px;
-    min-width:300px;
-    height:150px;
-    background: linear-gradient(135deg, #00c8ffd3,rgba(72, 169, 166, 0.89));
-    background-size:cover;
-    background-position: center center;
-    transition: all .08s linear;
-  }
-
-  
+.header {
+    width: 100%;
+    max-width: 100%;
+    min-width: 300px;
+    height: 150px;
+    background: linear-gradient(135deg, #00c8ffd3, rgba(72, 169, 166, 0.89));
+    transition: all 0.08s linear;
+}

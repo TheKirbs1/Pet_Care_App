@@ -132,11 +132,14 @@ export const Private = () => {
                             </div>
                         ))
                     ) : (
-                        <div className="row justify-content-center">
-                            <div className="col-md-6 text-center">
-                                <p className="getStartedTitle">Add a pet to get started</p>
+                        <div className="card">
+                            <div className="card-header"></div>
+                            <div className="card-body">
+                                <img src="https://images.unsplash.com/photo-1716675238240-bb58c1eaaa50?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Placeholder" />
+                                <h3>Welcome</h3>
+                                <p>Please add a pet to get started.</p>
                                 <Link to="pet_registration">
-                                    <button className="btn addFirstPet">
+                                    <button className="addFirstPet">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
                                         </svg>
@@ -153,3 +156,4 @@ export const Private = () => {
         </div>
     );
 };
+
