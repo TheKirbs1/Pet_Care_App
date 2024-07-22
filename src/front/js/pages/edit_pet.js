@@ -1,6 +1,6 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../../styles/edit_pet.css";
 
 export const Edit_pet = () => {
@@ -17,6 +17,7 @@ export const Edit_pet = () => {
     const [successMessage, setSuccessMessage] = useState("");
     const navigate = useNavigate();
     const successAlertRef = useRef(null);
+    const params = useParams();
 
     const handleImageUpload = (event) => {
         const files = event.target.files;
@@ -30,17 +31,39 @@ export const Edit_pet = () => {
         }
     };
 
+    useEffect(() => {
+        const authenticate = async () => {
+            let user = await actions.getProfile();
+            if (user) {
+                let dog = user.dogs.find((item, index ) => item.id == params.id)
+                setName(dog.name),
+                setBreed(dog.breed),
+                setBirth(dog.birth),
+                setWeight(dog.weight),
+                setGender(dog.gender),
+                setSpayedNeutered(dog.spayedNeutered),
+                setAvatar(dog.avatar)
+            } else {
+                setAuthStatus("denied");
+            }
+        };
+        authenticate();
+    }, []);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         let dog = {
+            id: params.id,
             name: name,
             breed: breed,
             gender: gender,
             birth: birth,
             spayedNeutered: spayedNeutered,
             weight: weight,
-            avatar: uploadImage,
         };
+        if (uploadImage) {
+            dog["avatar"] = uploadImage
+        }
         let success = await actions.editPetInfo(dog);
         if (success) {
             setName("");
@@ -88,7 +111,7 @@ export const Edit_pet = () => {
                             />
                         ) : (
                             <img
-                                src="https://static.vecteezy.com/system/resources/thumbnails/005/857/332/small_2x/funny-portrait-of-cute-corgi-dog-outdoors-free-photo.jpg"
+                                src={avatar}
                                 height="200"
                                 width="200"
                                 alt="Placeholder"

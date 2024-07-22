@@ -211,7 +211,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let data = JSON.stringify({ name: dog.name, breed: dog.breed, birth: dog.birth, spayedNeutered: dog.spayedNeutered, gender: dog.gender, weight: dog.weight })
 				let formData = new FormData();
 				formData.append("data", data);
-				formData.append("file", dog.avatar);
+				if (dog.avatar) {
+					formData.append("file", dog.avatar);
+				}
 
 				const response = await fetch(process.env.BACKEND_URL + "api/private/edit_pet/" + dog.id, {
 					method: "PUT",
