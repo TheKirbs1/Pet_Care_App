@@ -1,92 +1,33 @@
-.everythingDiv {
-    background-color: blanchedalmond;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.fulldisplay {
+    background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-bottom: 50px;
+
 }
 
-.signupForm {
-    font-family: "Gill Sans", sans-serif;
-    width: 100%;
-    height: 1325px;
+.welcome {
+    margin-top: 3%;
 }
 
-.signupFullDiv {
-    padding: 0;
-    height: 100%
+.welcometext {
+    margin-top: 15%;
+    margin-left: 00px;
+    width: 95%;
+    color: white;
 }
 
-.fullSignupContainer {
-    padding: 0; 
+.signupDiv {
+    border-radius: 30px;
+    border: 80%;
+    background-color: white;
+    margin-bottom: 100px;
+    margin-top: 110px;
 }
 
-.signup-btn{
-    margin-top: 20px;
-    width: 65%;
-    overflow: hidden;
-    background-color:   rgb(220, 95, 0);
-}
-
-.signup-btn:hover{
-    background-color: rgba(220, 95, 0, 0.822);
-    box-shadow: 0 0 10px 10px rgb(72, 169, 166)
-}
-
-.pup-div{
-    margin-bottom: 10px;
-}
-
-.pup-div, .signUpTitle, .have-account, .email, .password{
-    pointer-events: none;
-}
-
-.signUpTitle {
-    font-family: fantasy;
-    font-size: 4rem; 
-    text-align: center; 
-    margin-top: 10px;
-    position: relative;     
-}
-
-.signUpTitle::after {
-    content: ' ';
-    display: block;
-    width: 50%; 
-    border: 2px solid rgb(220, 95, 0);
-    border-radius: 4px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-    position: absolute;
-    bottom: -8px; 
-    left: 25%;
-}
-
-.carouselContainer, .signupFormContainer {
-    flex: 1; 
-    height: 80%; 
-    border-radius: 5%; 
-}
-
-.carouselContainer {
-    border-radius: 5% 0% 0% 5%; 
-    padding: 0;
-}
-
-.signupFormContainer {
-    background-color:white;
-    border-radius: 0% 5% 5% 0%;
-}
-
-.carousel-item {
-    object-fit: cover;
-    width: 100%;
-    border-radius: 5% 0% 0% 5%;
-}
-.carousel-item img {
-    height: 100%;
-    border-radius: 5% 0% 0% 5%;
-}
-
-.bothCards {
-    margin-top: 20px;
-    display: flex; 
-    justify-content: center; 
+.signup-btn {
+    background-color: rgb(72, 169, 166);
+    color: white;
 }
