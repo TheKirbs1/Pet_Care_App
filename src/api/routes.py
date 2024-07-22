@@ -7,6 +7,7 @@ from api.models import db, User, Dog
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 import json
+from datetime import timedelta
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -38,7 +39,8 @@ def generate_token():
         }
         return jsonify(response), 401
     
-    access_token = create_access_token(identity=user.id)
+    expires = timedelta(minutes=15)
+    access_token = create_access_token(identity=user.id, expires_delta=expires)
     response = {
         "access_token": access_token,
         "user_id": user.id,
