@@ -167,25 +167,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			savePetInfo: async (dog) => {
-					let data = JSON.stringify({name:dog.name, breed:dog.breed, birth:dog.birth, spayedNeutered: dog.spayedNeutered, gender: dog.gender, weight: dog.weight})
-					let formData = new FormData();
-					formData.append("data", data);
-					formData.append("file", dog.avatar);
-					
-					const response = await fetch(process.env.BACKEND_URL + "api/private/pet_registration", {
-						method: "POST",
-						headers: {
-							Authorization: "Bearer " + sessionStorage.getItem("token")
-						},
-						body: formData
-					})
-					if (response.status !== 201) return false;
-					const responseBody = await response.json();
-					console.log(responseBody)
-					return true;
-				},
-
 			getProfile: async () => {
 				let response = await fetch(process.env.BACKEND_URL + "api/private", {
 					method: 'GET',
@@ -206,7 +187,48 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return data.user;
 				}
 			},
-			
+
+			savePetInfo: async (dog) => {
+				let data = JSON.stringify({ name: dog.name, breed: dog.breed, birth: dog.birth, spayedNeutered: dog.spayedNeutered, gender: dog.gender, weight: dog.weight })
+				let formData = new FormData();
+				formData.append("data", data);
+				formData.append("file", dog.avatar);
+
+				const response = await fetch(process.env.BACKEND_URL + "api/private/pet_registration", {
+					method: "POST",
+					headers: {
+						Authorization: "Bearer " + sessionStorage.getItem("token")
+					},
+					body: formData
+				})
+				if (response.status !== 201) return false;
+				const responseBody = await response.json();
+				console.log(responseBody)
+				return true;
+			},
+
+			editPetInfo: async (dog) => {
+				let data = JSON.stringify({ name: dog.name, breed: dog.breed, birth: dog.birth, spayedNeutered: dog.spayedNeutered, gender: dog.gender, weight: dog.weight })
+				let formData = new FormData();
+				formData.append("data", data);
+				formData.append("file", dog.avatar);
+
+				const response = await fetch(process.env.BACKEND_URL + "api/private/edit_pet/" + dog.id, {
+					method: "PUT",
+					headers: {
+						Authorization: "Bearer " + sessionStorage.getItem("token")
+					},
+					body: formData
+				});
+				if (response.status !== 200) return false;
+				const responseBody = await response.json();
+				console.log(responseBody)
+
+				const store = getStore();
+				return true;
+
+			},
+
 		}
 	}
 };

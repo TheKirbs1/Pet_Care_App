@@ -227,3 +227,34 @@ def add_pet():
     }
     return jsonify(response), 201
 
+@api.route('/private/edit_pet', methods=['PUT'])
+@jwt_required()
+def edit_pet():
+    user_id = get_jwt_identity()
+    raw_data = request.form.get("data")
+    data = json.loads(raw_data)
+    edited_pet = Dog(
+        name=data['name'],
+        breed=data['breed'],
+        gender=data['gender'],
+        birth=data['birth'],
+        spayed_neutered=data['spayedNeutered'],
+        weight=data['weight'],
+        user_id=user_id,
+    )
+    db.session.add(edited_pet)
+    db.session.commit()
+    db.session.refresh(edited_pet)
+    avatar = request.files.getlist("file")
+    for image_file in avatar:
+        response = uploader.upload(image_file)
+        print(f"{response.items()}")
+        image_url=response["secure_url"]
+        edited_pet.avatar = image_url
+        db.session.commit()
+        db.session.refresh(edited_pet)
+    
+    response = {
+        'msg': f'Your pet info has been successfully updated!',
+    }
+    return jsonify(response), 200

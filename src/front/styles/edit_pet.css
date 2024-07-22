@@ -1,0 +1,34 @@
+.editPetForm {
+    margin: auto;
+}
+
+.form-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgba(9, 139, 148, 0.89);
+}
+
+.saveButton {
+    margin-top: 90px;
+    font-weight: bold;
+    padding: 10px 80px;
+    background-color: rgb(9, 139, 148);
+    border-color: rgb(9, 139, 148);
+}
+
+.saveButton:hover {
+    background-color: rgba(9, 139, 148, 0.747);
+}
+
+.cancelButton {
+    margin-top: 90px;
+    padding: 10px 70px;
+    font-weight: bold;
+}
+
+.image-container {
+    display: inline-block;
+}
+
+.file-input-container {
+    display: inline-block;
+}
