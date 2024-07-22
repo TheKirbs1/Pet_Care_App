@@ -2,6 +2,14 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
+
+favorite_dogs=db.Table('favorite_dogs',
+    db.Column('dog_id', db.Integer, db.ForeignKey('dog_table.id'), primary_key=True),
+    db.Column('user_id', db.Integer, db.ForeignKey('user_table.id'), primary_key=True)
+)
+
+
 class User(db.Model):
     __tablename__ = "user_table"
     id = db.Column(db.Integer, primary_key=True)
@@ -9,7 +17,7 @@ class User(db.Model):
     password = db.Column(db.String(80), nullable=False)
     is_active = db.Column(db.Boolean, nullable=False)
     dogs = db.relationship("Dog", back_populates="user")
-    favorite_dog_of = db.relationship("FavoriteDog", backref="user")
+    favorite_dogs = db.relationship('Dog', secondary=favorite_dogs, lazy='subquery')
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -18,7 +26,8 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
-            "dogs": [dog.serialize() for dog in self.dogs]
+            "dogs": [dog.serialize() for dog in self.dogs],
+            "favorite_dogs":[dog.serialize() for dog in self.favorite_dogs]
             # do not serialize the password, it's a security breach
         }
 
@@ -36,6 +45,7 @@ class Dog(db.Model):
     avatar = db.Column(db.String(250), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user_table.id"))
     user = db.relationship("User", back_populates="dogs")
+   
     
 
 
@@ -51,22 +61,9 @@ class Dog(db.Model):
             "breed": self.breed,
             "spayed_neutered": self.spayed_neutered,
             "weight": self.weight,
-            "avatar": self.avatar,
+            "avatar": self.avatar
+            
         }
 
 
-class FavoriteDog(db.Model):
-    __tablename__ = "favorite_dog_table"
-    id = db.Column(db.Integer, primary_key=True)
-    user_id_favorites = db.Column(db.Integer, db.ForeignKey("user_table.id"))
-    favorite_dog_id = db.Column(db.Integer, db.ForeignKey('dog_table.id'))
-    
-    def __repr__(self):
-        return f'<FavoriteDog {self.user_id_favorites}>'
-    
-    def serialize(self):
-        return {
-            "id": self.id,
-            "user_id_favorites": self.user_id_favorites,
-        }
 
