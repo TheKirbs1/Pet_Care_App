@@ -33,7 +33,7 @@ export const Private = () => {
         }
         return age;
     }
-    
+
     return (
 
         <div>

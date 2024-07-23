@@ -1,5 +1,5 @@
-.nav-container{
-    background-color: rgb(104, 109, 118);
+.nav-container {
+    background-color: rgb(104, 109, 118);;
 }
 
 li {
@@ -19,30 +19,41 @@ ul {
     margin-right: 125rem;
     background-color:rgb(104, 109, 118);
 }
+
 .dropdown-menu {
     right: 0;
     left: auto;
 }
 
 .dropdown-menu.show {
-    margin-left: -100px; 
-    background-color:rgb(55, 58, 64);
+    margin-left: -100px;
+    background-color: rgb(55, 58, 64);
 }
 
 .logo-div {
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
+    height: 10px;
 }
 
+.circular-logo {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+}
+
+
 .logo-img {
-    max-height: 100%; 
-    width: auto; 
+    max-height: 100%;
+    width: auto;
 }
 
 .logout-btn:hover {
     background-color: rgb(133, 1, 1) !important;
-    color: rgb(242, 243, 247)  !important;
+    color: rgb(242, 243, 247) !important;
 }
+
 .dropdown-item {
     color: rgb(220, 95, 0);
 }
@@ -52,14 +63,20 @@ ul {
 }
 
 .join-now {
-    background-color:  rgb(72, 169, 166);
-    border-radius: 10%;   
+    background-color: rgb(72, 169, 166);
+    border-radius: 10%;
 }
+
+.join-now1 {
+    background-color: rgb(72, 169, 166);
+    width: 100%;
+}
+
 .join-now:hover {
     background-color: rgb(54, 131, 128);
 }
 
-.join-now-btn{
+.join-now-btn {
     margin-right: 0;
 }
 
