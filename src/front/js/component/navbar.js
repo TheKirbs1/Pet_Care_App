@@ -10,9 +10,9 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context)
 
 	const handleLogout = () => {
-		actions.logout(); // Call logout action
+		actions.logout(); 
 	
-		// Redirect to the home page
+
 		window.location.href = "/";
 	  };
 
