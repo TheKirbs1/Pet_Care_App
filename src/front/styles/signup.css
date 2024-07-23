@@ -4,7 +4,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding-bottom: 200px;
     margin:0;
 }
 
@@ -28,8 +27,7 @@
     border: 80%;
     background-color: white;
     margin-bottom: 100px;
-    margin-top: 110px;
-    
+    margin-top: 110px;  
 }
 
 .signup-btn {
