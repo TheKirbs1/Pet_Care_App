@@ -134,7 +134,7 @@ export const Account_settings = () => {
 
                         </div>
                         <div className="d-flex justify-content-end align-content-center pt-1 mb-2 mx-3">
-                            <button type="button" className="save-btn btn-primary text-dark"
+                            <button type="button" className="save-btn btn-primary text-white"
                                 style={{ width: '100px', minWidth: '100px' }}
                                 onClick={handleEditUserSettings}>
                                 SAVE
@@ -232,7 +232,7 @@ export const Account_settings = () => {
                         <Link
                             to="/private"
                             style={{
-                                color: 'black',
+                                color: 'white',
                                 textDecoration: 'none',
 
                             }}
