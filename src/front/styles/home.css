@@ -113,3 +113,7 @@ img {
     padding-right: 10%;
     width: 85%;
 }
+
+.paginate ul {
+    margin-bottom: 0;
+}

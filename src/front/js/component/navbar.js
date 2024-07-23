@@ -29,7 +29,7 @@ export const Navbar = () => {
 			<div className="nav-container container-fluid">
 				<Link to="/" id="home-logo">
 					<div className="logo-div">
-						<img src={LogoOption2} className="logo-img img-fluid circular-logo" style={{ maxHeight: 120 }} alt="Pet Logo/Home Button" />
+						<img src={LogoOption2} className="logo-img img-fluid circular-logo" style={{ maxHeight: 150 }} alt="Pet Logo/Home Button" />
 					</div>
 
 				</Link>
