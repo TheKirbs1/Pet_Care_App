@@ -7,6 +7,7 @@ from api.models import db, User, Dog
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 import json
+from datetime import timedelta
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -38,7 +39,8 @@ def generate_token():
         }
         return jsonify(response), 401
     
-    access_token = create_access_token(identity=user.id)
+    expires = timedelta(minutes=15)
+    access_token = create_access_token(identity=user.id, expires_delta=expires)
     response = {
         "access_token": access_token,
         "user_id": user.id,
@@ -227,6 +229,36 @@ def add_pet():
     }
     return jsonify(response), 201
 
+
+@api.route('/private/edit_pet/<int:dog_id>', methods=['PUT'])
+@jwt_required()
+def edit_pet(dog_id):
+    user_id = get_jwt_identity()
+    raw_data = request.form.get("data")
+    data = json.loads(raw_data)
+    dog = Dog.query.filter_by(id=dog_id).first()
+    dog.name= data["name"]
+    dog.breed= data["breed"]
+    dog.birth= data["birth"]
+    dog.weight= data["weight"]
+    dog.gender= data["gender"]
+    dog.spayedNeutered= data["spayedNeutered"]
+
+    avatar = request.files.getlist("file")
+    if avatar : 
+        for image_file in avatar:
+            response = uploader.upload(image_file)
+            print(f"{response.items()}")
+            image_url=response["secure_url"]
+            dog.avatar = image_url
+    db.session.commit()
+    db.session.refresh(dog)
+    
+    response = {
+        'msg': f'Your pet info has been successfully updated!',
+    }
+    return jsonify(response), 200
+
 @api.route('/user/favorite/<int:dog_id>', methods=['PUT'])
 @jwt_required()
 def add_favorite(dog_id):
@@ -262,4 +294,5 @@ def delete_favorite(dog_id):
         'msg': f'Your favorite has been successfully removed!'
     }
     return jsonify(response), 200
+
 
