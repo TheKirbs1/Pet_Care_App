@@ -37,6 +37,10 @@
     color: white;
 }
 
+.signup-btn:hover {
+    background-color: rgb(45, 161, 157);
+}
+
 .signUpTitle, .pup-div, .email, .password{
     pointer-events: none;
 }
