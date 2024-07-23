@@ -35,7 +35,7 @@ export const Private = () => {
     }
 
     return (
-        <div>
+        <div className="privatePageContainer">
             {authStatus === "pending" ? (
                 <div
                     className="progress"

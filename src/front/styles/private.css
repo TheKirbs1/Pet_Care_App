@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-body {
+.privatePageContainer {
     font-family: 'Roboto', sans-serif;
 }
 
-.card {
+.privatePageContainer .card {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -16,17 +16,17 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.card-header {
+.privatePageContainer .card-header {
     background: linear-gradient(135deg, #00c6ff, #0072ff);
     height: 100px;
     width: 100%;
 }
 
-.card-body {
+.privatePageContainer .card-body {
     padding: 20px;
 }
 
-.card img {
+.privatePageContainer .card img {
     border-radius: 50%;
     width: 130px;
     height: 130px;
@@ -35,17 +35,17 @@ body {
     background-color: white;
 }
 
-.card h3 {
+.privatePageContainer .card h3 {
     margin: 10px 0;
     font-size: 1.5rem;
 }
 
-.card p {
+.privatePageContainer .card p {
     color: gray;
     margin: 5px 0;
 }
 
-.card button {
+.privatePageContainer .card button {
     background-color: rgb(72, 169, 166);
     border: none;
     color: #fff;
@@ -55,11 +55,11 @@ body {
     margin-top: 10px;
 }
 
-.card button:hover {
+.privatePageContainer .card button:hover {
     background-color:rgb(72, 169, 166);
 }
 
-.getStartedTitle {
+.privatePageContainer .getStartedTitle {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
@@ -67,42 +67,42 @@ body {
     margin-top: 40px;
 }
 
-.addFirstPet {
+.privatePageContainer .addFirstPet {
     background-color: rgb(72, 169, 166);
     border: none;
     color: #fff;
 }
 
-.edit-button {
+.privatePageContainer .edit-button {
     position: absolute;
     top: 90px;
     left: 38px;
     cursor: pointer;
 }
 
-.right-buttons {
+.privatePageContainer .right-buttons {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     margin-right: 30px;
 }
 
-.profile-picture {
+.privatePageContainer .profile-picture {
     margin-top: 60px;
 }
 
-.dog-info {
+.privatePageContainer .dog-info {
     display: flex;
     justify-content: space-between;
 }
 
-.vertical-line {
+.privatePageContainer .vertical-line {
     width: 0px;
     border-left: 4px solid gray;
     border-radius: 2px;
 }
 
-.header {
+.privatePageContainer .header {
     width: 100%;
     max-width: 100%;
     min-width: 300px;
