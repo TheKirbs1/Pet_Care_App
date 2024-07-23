@@ -40,11 +40,11 @@
     align-items: center;
 }
 
-.form-label {
+.editPetContainer .form-label {
     font-weight: 700;
 }
 
-.buttonsTitle {
+.editPetContainer .buttonsTitle {
     font-weight: 700;
 }
 
