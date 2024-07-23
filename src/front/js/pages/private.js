@@ -77,11 +77,11 @@ export const Private = () => {
                                             <img
                                                 src={dog.avatar ? dog.avatar : "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*"}
                                                 alt="profile picture"
-                                                className="img-fluid rounded-circle w-50"
+                                                className="avatarPlaceholder"
                                             />
                                         </div>
-                                        <div className="name justify-content-center align-items-center d-flex mt-3">
-                                            <h3 key={dog.id} className="title">{dog.name}</h3>
+                                        <div className="name justify-content-center align-items-center d-flex mt-5">
+                                            <h3 key={dog.id} className="dogTitle">{dog.name}</h3>
                                         </div>
                                     </div>
                                     <div className="col-md-4">
@@ -109,20 +109,20 @@ export const Private = () => {
                                 </div>
                                 <div className="row">
                                     <div className="col-md-3"></div>
-                                    <div className="col-md-6 dog-info mt-3">
-                                        <div className="dog-age"><h5>Age</h5></div>
+                                    <div className="col-md-6 dog-info text-center mt-5">
+                                        <div className="dog-age-title"><p>Age</p></div>
                                         <div className="vertical-line"></div>
-                                        <div className="dog-breed"><h5>Breed</h5></div>
+                                        <div className="dog-breed-title"><p>Breed</p></div>
                                         <div className="vertical-line"></div>
-                                        <div className="dog-gender"><h5>Gender</h5></div>
+                                        <div className="dog-gender-title"><p>Gender</p></div>
                                         <div className="vertical-line"></div>
-                                        <div className="dog-weight"><h5>Weight</h5></div>
+                                        <div className="dog-weight-title"><p>Weight</p></div>
                                     </div>
                                     <div className="col-md-3"></div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-md-3 d-flex justify-content-center"></div>
-                                    <div className="col-md-6 dog-info mt-3">
+                                    <div className="col-md-3 d-flex text-center"></div>
+                                    <div className="col-md-6 dog-info mt-3 text-center">
                                         <div className="dog-age"><h5>{calculateAge(dog.birth)}</h5></div>
                                         <div className="dog-breed"><h5>{dog.breed}</h5></div>
                                         <div className="dog-gender"><h5>{dog.gender}</h5></div>
@@ -136,7 +136,7 @@ export const Private = () => {
                         <div className="card">
                             <div className="card-header"></div>
                             <div className="card-body">
-                                <img src="https://images.unsplash.com/photo-1716675238240-bb58c1eaaa50?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Placeholder" />
+                                <img src="https://images.unsplash.com/photo-1716675238240-bb58c1eaaa50?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avatar" />
                                 <h3>Welcome</h3>
                                 <p>Please add a pet to get started.</p>
                                 <Link to="pet_registration">
@@ -157,4 +157,3 @@ export const Private = () => {
         </div>
     );
 };
-
