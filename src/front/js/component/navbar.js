@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import LogoOption2 from "../../img/LogoOption2.png"
 
-
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
@@ -11,8 +10,6 @@ export const Navbar = () => {
 
 	const handleLogout = () => {
 		actions.logout(); 
-	
-
 		window.location.href = "/";
 	  };
 
