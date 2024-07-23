@@ -2,6 +2,7 @@
 
 .privatePageContainer {
     font-family: 'Roboto', sans-serif;
+    margin-bottom: 230px;
 }
 
 .privatePageContainer .card {
@@ -11,19 +12,24 @@
     width: 400px;
     background-color: white;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 200px;
+    margin-bottom: 200px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
+
 }
 
 .privatePageContainer .card-header {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    background: linear-gradient(135deg,  rgba(104, 109, 118), rgba(231, 124, 41), rgb(72, 169, 166));
     height: 100px;
     width: 100%;
 }
 
 .privatePageContainer .card-body {
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .privatePageContainer .card img {
@@ -78,8 +84,16 @@
     top: 90px;
     left: 38px;
     cursor: pointer;
+    color:#fff;
 }
 
+.privatePageContainer .add-pet {
+    color:rgb(72, 169, 166);
+}
+
+.privatePageContainer .switch-button {
+    color:rgb(72, 169, 166)
+}
 .privatePageContainer .right-buttons {
     display: flex;
     flex-direction: column;
@@ -107,6 +121,6 @@
     max-width: 100%;
     min-width: 300px;
     height: 150px;
-    background: linear-gradient(135deg, #00c8ffd3, rgba(72, 169, 166, 0.89));
+    background: linear-gradient(135deg, rgba(104, 109, 118), rgba(231, 124, 41), rgb(72, 169, 166));
     transition: all 0.08s linear;
 }
