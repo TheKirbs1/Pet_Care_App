@@ -1,8 +1,9 @@
 import React from "react";
+import "../../styles/privacy_policy.css";
 
 export const Privacy_Policy = () => {
     return (
-        <div className="py-2">
+        <div className="privacyPolicy py-2">
         
             <div className="d-flex justify-content-center pb-2">
                 <h1>Privacy Policy</h1>

@@ -2,11 +2,11 @@
     background-color: rgb(104, 109, 118);;
 }
 
-li {
+.menu li {
     list-style-type: none;
 }
 
-ul {
+.menu ul {
     margin: 0
 }
 
@@ -42,7 +42,6 @@ ul {
     width: 60px;
     height: 60px;
 }
-
 
 .logo-img {
     max-height: 100%;

@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import LogoOption2 from "../../img/LogoOption2.png"
 
-
 import "../../styles/navbar.css";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context)
+
+	const handleLogout = () => {
+		actions.logout(); 
+		window.location.href = "/";
+	  };
 
 	return (
 		<>
@@ -25,7 +29,7 @@ export const Navbar = () => {
 			<div className="nav-container container-fluid">
 				<Link to="/" id="home-logo">
 					<div className="logo-div">
-						<img src={LogoOption2} className="logo-img img-fluid circular-logo" style={{ maxHeight: 120 }} alt="Pet Logo/Home Button" />
+						<img src={LogoOption2} className="logo-img img-fluid circular-logo" style={{ maxHeight: 150 }} alt="Pet Logo/Home Button" />
 					</div>
 
 				</Link>
@@ -58,9 +62,12 @@ export const Navbar = () => {
 									{!store.token ?
 										<div></div>
 										:
-										<button className="dropdown-item logout-btn" onClick={() => actions.logout()}>
-											Log out
-										</button>
+										<button
+										className="dropdown-item logout-btn"
+										onClick={handleLogout} 
+									  	>
+										Log out
+									  </button>
 									}
 								</li>
 							</ul>
