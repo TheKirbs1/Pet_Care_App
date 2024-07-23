@@ -84,7 +84,7 @@ export const Edit_pet = () => {
     };
 
     return (
-        <div className="formContainer">
+        <div className="editPetContainer">
             {successMessage && (
                 <div
                     className="alert alert-success"
