@@ -9,6 +9,13 @@ import "../../styles/navbar.css";
 export const Navbar = () => {
 	const { store, actions } = useContext(Context)
 
+	const handleLogout = () => {
+		actions.logout(); // Call logout action
+	
+		// Redirect to the home page
+		window.location.href = "/";
+	  };
+
 	return (
 		<>
 		<div className="join-now1 d-flex justify-content-center">
@@ -58,9 +65,12 @@ export const Navbar = () => {
 									{!store.token ?
 										<div></div>
 										:
-										<button className="dropdown-item logout-btn" onClick={() => actions.logout()}>
-											Log out
-										</button>
+										<button
+										className="dropdown-item logout-btn"
+										onClick={handleLogout} 
+									  	>
+										Log out
+									  </button>
 									}
 								</li>
 							</ul>
