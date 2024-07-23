@@ -4,7 +4,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding-bottom: 50px;
     margin:0;
 }
 
@@ -28,8 +27,7 @@
     border: 80%;
     background-color: white;
     margin-bottom: 100px;
-    margin-top: 110px;
-    
+    margin-top: 110px;  
 }
 
 .signup-btn {
@@ -38,7 +36,8 @@
 }
 
 .signup-btn:hover {
-    background-color: rgb(45, 161, 157);
+    background-color: rgb(25, 78, 77);
+    color: white;
 }
 
 .signUpTitle, .pup-div, .email, .password{

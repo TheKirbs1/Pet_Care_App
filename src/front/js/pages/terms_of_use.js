@@ -1,8 +1,10 @@
 import React from "react";
+import "../../styles/terms_of_use.css";
+
 
 export const Terms_Of_Use = () => {
     return (
-        <div className="py-2">
+        <div className="termsOfUse py-2">
             
             <div className="d-flex justify-content-center pb-2">
 
