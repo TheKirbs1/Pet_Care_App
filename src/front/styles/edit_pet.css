@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-.petRegistrationContainer {
+.editPetContainer {
     font-family: 'Roboto', sans-serif;
 }
 
-.petRegistrationContainer {
+.editPetContainer {
     background-image: url("https://images.pexels.com/photos/7210273/pexels-photo-7210273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-position: center;
     background-repeat: no-repeat;
@@ -12,7 +12,7 @@
     padding-top: 23px;
     padding-bottom: 23px;
 }
-.petRegistrationForm {
+.editPetForm {
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 8px;
@@ -40,18 +40,17 @@
     align-items: center;
 }
 
-.form-label {
+.editPetContainer .form-label {
     font-weight: 700;
 }
 
-.buttonsTitle {
-    font-weight: 700
-
+.editPetContainer .buttonsTitle {
+    font-weight: 700;
 }
 
-.petRegistrationForm input[type="text"],
-.petRegistrationForm input[type="date"],
-.petRegistrationForm input[type="file"] {
+.editPetForm input[type="text"],
+.editPetForm input[type="date"],
+.editPetForm input[type="file"] {
     background-color: #2fc5b662; /* Turquoise color */
     border: none;
     color: #fff;
