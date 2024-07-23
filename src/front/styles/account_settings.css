@@ -1,9 +1,89 @@
-.orange-button {
-    background-color: orange !important;
-    border-color: orange !important;
+.save-btn{
+    margin-top: 20px;
+    width: 100%;
+    overflow: hidden;
+    background-color:   rgb(72, 169, 166);
+    border-color: black;
+    border-radius: 10px;
+    
 }
 
-.orange-button:hover {
-    background-color: darkorange !important;
-    border-color: darkorange !important;
+.save-btn:hover{
+    background-color: rgb(72, 169, 166);
+    box-shadow: 0 0 10px 10px rgb(72, 169, 166)
 }
+
+.fullFormContainer {border-radius: 15px;
+   
+    
+}
+
+.accountSettingsTitle {
+    font-family: fantasy;
+    font-size: 4rem;  
+}
+
+.fullDiv {
+    background-color: rgb(255, 255, 255);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    
+    margin-left: 20%;
+    margin-right: 20%;
+   
+    border-radius: 10px;
+    
+}
+
+.userSettingsDiv {
+    background-color: lightgray; 
+    border-radius: 20px;
+
+}
+
+.myPetsDiv{
+    background-color: lightgray;
+    border-radius: 20px;
+}
+
+.legalandprivacy{
+    background-color: lightgray;
+    border-radius: 20px;
+}
+
+.accountManagement{
+    background-color: lightgray;
+    border-radius: 20px;
+}
+
+.exitButton{
+    background-color:   rgb(72, 169, 166);
+    border-color: black;
+    margin-right: 15px;
+    border-radius: 10px;
+ 
+}
+
+.exitButton:hover{
+    background-color: rgb(72, 169, 166);
+    box-shadow: 0 0 10px 10px rgb(72, 169, 166)
+}
+
+.input-wrapper {
+    width: 1000px; 
+    max-width: 100%; 
+}
+
+.email-input, .password-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.backgroundImage{
+    padding-top: 10px;
+    padding-bottom: 20px;
+     background-image: url('https://ag-alchemy.com/cdn/shop/products/howlidaybones_1024x.png?v=1669825291')
+     
+ }
