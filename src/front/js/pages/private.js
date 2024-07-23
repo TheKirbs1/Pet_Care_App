@@ -26,12 +26,21 @@ export const Private = () => {
     const calculateAge = (birthDate) => {
         const today = new Date();
         const birth = new Date(birthDate);
-        let age = today.getFullYear() - birth.getFullYear();
-        const monthDiff = today.getMonth() - birth.getMonth();
-        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-            age--;
+        let ageYears = today.getFullYear() - birth.getFullYear();
+        let ageMonths = today.getMonth() - birth.getMonth();
+
+        if (ageMonths < 0 || (ageMonths === 0 && today.getDate() < birth.getDate())) {
+            ageYears--;
+            ageMonths += 12;
         }
-        return age;
+
+        if (ageYears === 1) {
+            return "1 year";
+        } else if (ageYears > 1) {
+            return `${ageYears} years`;
+        } else {
+            return ageMonths === 1 ? "1 month" : `${ageMonths} months`;
+        }
     }
 
     return (
