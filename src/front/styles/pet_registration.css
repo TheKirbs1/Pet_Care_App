@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-body {
+.petRegistrationContainer {
     font-family: 'Roboto', sans-serif;
 }
 
-.formContainer {
+.petRegistrationContainer {
     background-image: url("https://images.pexels.com/photos/7210273/pexels-photo-7210273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
     background-position: center;
     background-repeat: no-repeat;

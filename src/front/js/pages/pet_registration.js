@@ -68,7 +68,7 @@ export const Pet_registration = () => {
     };
 
     return (
-        <div className="formContainer">
+        <div className="petRegistrationContainer">
             {successMessage && (
                 <div
                     className="alert alert-success"
