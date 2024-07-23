@@ -1,31 +1,86 @@
-.pet-registration {
-    margin: auto;
-    padding: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.petRegistrationContainer {
+    font-family: 'Roboto', sans-serif;
+}
+
+.petRegistrationContainer {
+    background-image: url("https://images.pexels.com/photos/7210273/pexels-photo-7210273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 23px;
+    padding-bottom: 23px;
+}
+.petRegistrationForm {
     border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
-}
-.save-button {
-    padding: 10px 100px;
-    font-weight: bold;
-   
-}
-
-/* gender && Spayed or Neutered buttons*/
-.gender-buttons, .spayed-neutered {
-    /* height: 70px;
-    width: 350px; */
-    /* border: 1px solid lightgray;
-    border-radius: 5px; */
-    /* display: flex; */
-    justify-content: center;
-    align-items: flex-end;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.weight-buttons {
-    /* border: 1px solid lightgray;
-    border-radius: 5px; */
-    /* display: flex; */
-    justify-content: center;
-    align-items: flex-end;
+.form-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    text-align: center;
+    pointer-events: none;
+}
+
+.file-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-label {
+    font-weight: 700;
+}
+
+.buttonsTitle {
+    font-weight: 700
+
+}
+
+.petRegistrationForm input[type="text"],
+.petRegistrationForm input[type="date"],
+.petRegistrationForm input[type="file"] {
+    background-color: #2fc5b662; /* Turquoise color */
+    border: none;
+    color: #fff;
+}
+
+.btn-check:checked + .btn-outline-warning {
+    background-color: rgb(231, 124, 41);
+    border-color: rgb(220, 95, 0);
+    color: #fff;
+}
+
+.btn-outline-warning:hover {
+    background-color: rgb(231, 124, 41);
+    border-color: rgb(220, 95, 0);
+    color: #fff;
+}
+
+.saveButton, .cancelButton {
+    width: 120px;
+    margin: 10px;
+}
+
+.saveButton {
+    background-color: rgb(72, 169, 166);
+    border-color: rgb(72, 169, 166);
+    color:#fff;
+}
+
+.saveButton:hover {
+    background-color: rgb(41, 99, 97);
+    color:#fff;
 }
