@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import image from "../../img/image.png"
 
 
 export const About_us = () => {
@@ -116,7 +117,7 @@ export const About_us = () => {
                     <div className="col-6 d-flex flex-column">
                         <h3 className="d-flex justify-content-center align-items-center">Dutervil Yvener</h3>
                         <div className="d-flex justify-content-center align-items-center" >
-                            <img src="https://ca.slack-edge.com/T0BFXMWMV-U06L4T9UHHR-9bde317dfa1b-512" alt="Dutervil Image" className="rounded-circle" />
+                            <img src={image} alt="Dutervil Image" className="rounded-circle" />
                         </div>
                         <div className="border-top border-4 border-dark my-2 w-100 mx-auto"></div>
                         <p className="mt-2"><b>DISSERTATION: </b>I have a passion for playing video games, listening to music, coding, and singing. I find joy in helping those in need, and this drive to assist others has inspired my journey into tech.
