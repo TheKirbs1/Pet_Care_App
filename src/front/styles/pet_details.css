@@ -1,0 +1,19 @@
+.backgroundPetImage {
+    padding-top: 10px;
+    padding-bottom: 150px;
+    background-image: url('https://images.pexels.com/photos/9382443/pexels-photo-9382443.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load')
+}
+
+/* .dog-detail img {
+    cursor: zoom-in;
+}
+
+.dog-detail:hover {
+    border: 4px solid darkgray;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+    transition: 0.6s;
+}
+
+.card-sizing {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 2fr));
+} */
