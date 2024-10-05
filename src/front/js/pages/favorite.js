@@ -14,10 +14,10 @@ export const Favorite = () => {
     };
 
     return (
-        <>
-            <div className="backgroundFavImage">
-                <div className="d-flex justify-content-center align-items-center vstack px-3 mt-4 mb-4">
-                    <h1 className="text-dark">My Favorites</h1>
+        <div className="fullContainer">
+            <div className="backgroundFavImage mt-0 pt-0">
+                <div className="favTitleContainer d-flex justify-content-center align-items-center vstack pb-3 mt-0 mb-4">
+                    <h1 className="favTitle">Favorite Dogs</h1>
                 </div>
                 <div className="card-container">
                     {store.favoriteDog.map((dog, index) => (
@@ -47,6 +47,6 @@ export const Favorite = () => {
                     ))}
                 </div>
             </div>
-        </>
+        </div>
     )
 };

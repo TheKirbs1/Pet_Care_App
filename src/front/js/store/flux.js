@@ -11,7 +11,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			isAccountActive: true,
 			userDogs: [],
 			favoriteDog: JSON.parse(sessionStorage.getItem('favoriteDog')) || []
-
 		},
 		actions: {
 
