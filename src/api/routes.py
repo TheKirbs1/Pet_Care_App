@@ -143,7 +143,7 @@ def register_user():
     db.session.commit()
 
     response ={
-        'msg' : f'Congratulations, You have sussefully signed up!'
+        'msg' : f'Congratulations, You have signed up!'
     }
     return jsonify(response), 200
 
