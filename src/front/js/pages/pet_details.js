@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link, useParams } from "react-router-dom";
+import "../../styles/pet_details.css";
 
 export const Pet_details = () => {
   const { store, actions } = useContext(Context);
@@ -30,7 +31,7 @@ export const Pet_details = () => {
 
   return (
     <>
-      <section className="container">
+      <section className="detailsContainer">
         {
           singledog.map((item) => (
             <div key={item.id}>
